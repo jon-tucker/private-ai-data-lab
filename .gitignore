@@ -1,0 +1,54 @@
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.wallet
+wallet/
+secrets/
+
+# Persistent and generated state
+data/
+backups/
+logs/
+models/
+generated/
+*.log
+*.pid
+*.lock
+
+# Oracle runtime files
+*.dbf
+*.ctl
+*.ora
+*.aud
+*.trc
+*.trm
+*.dmp
+
+# Archives and installation media
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.7z
+*.iso
+
+# Editor and operating-system files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Temporary files
+.cache/
+tmp/
+work/
+
