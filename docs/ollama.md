@@ -40,6 +40,12 @@ Ollama detects the Radeon as an integrated GPU and excludes it by default. The R
 
 The shared-memory figures reported by an integrated GPU are not dedicated VRAM. Oracle Database and Ollama still compete for the host's physical memory, so container limits and concurrent workloads must be monitored.
 
+## Model roles after Open WebUI integration
+
+The everyday default is `qwen3:4b-instruct` (model ID `0edcdef34593`), an official non-thinking model suited to interactive chat. The previously verified `qwen3:4b` model remains installed as an optional thinking model for tasks that benefit from extended reasoning.
+
+Open WebUI system and feature schemas exceeded the original 4,096-token context even for a short user message. Version 0.4.0 therefore raises `OLLAMA_CONTEXT_LENGTH` to 8,192. A `num_ctx` value set by Open WebUI overrides the server default and should not be set lower unintentionally.
+
 ## Security boundary
 
 Ollama does not provide native API authentication. The host mapping defaults to `127.0.0.1:11434`; do not change it to `0.0.0.0` without a trusted-LAN requirement or an authenticated proxy. Containers on the backend network use `http://ollama:11434`.

@@ -8,13 +8,18 @@ The project follows [Semantic Versioning](https://semver.org/).
 
 ### Added
 
-- Open WebUI Compose stack pinned to `v0.9.5`.
+- Open WebUI Compose stack pinned to `v0.10.2`.
 - Persistent Open WebUI application data under `/srv/oracle-ai-data/open-webui`.
 - Stable signing and encryption key stored outside Git under `/srv/oracle-ai-secrets`.
 - Open WebUI preparation, validation, lifecycle, status, logging, and smoke-test scripts.
 - Private backend-network connection from Open WebUI to Ollama.
 - Open WebUI deployment, first-run hardening, and recovery documentation.
 - ADR 0004 documenting identity and encryption-key persistence.
+- Verified Open WebUI `v0.10.2` deployment and recorded its immutable image digest.
+- Verified administrator, configuration, and chat persistence across a cold backup and container-image upgrade.
+- Selected `qwen3:4b-instruct` as the non-thinking everyday model while retaining `qwen3:4b` for reasoning.
+- Increased the default Ollama context from 4,096 to 8,192 tokens for Open WebUI system and feature schemas.
+- Verified authenticated browser chat through Open WebUI with 100% GPU model allocation.
 
 ### Planned
 

@@ -27,7 +27,7 @@ Created by Jon Tucker with ChatGPT.
 | Tool integration | Oracle Database MCP Server | Planned |
 | Agents | Oracle AI Database Private Agent Factory | Planned |
 | Local AI | Ollama with verified Radeon 890M ROCm acceleration | Available in v0.3.0 |
-| Local AI UI | Open WebUI | In progress for v0.4.0 |
+| Local AI UI | Open WebUI connected to Ollama | Available in v0.4.0 |
 | Model gateway | LiteLLM | Planned |
 | Edge and operations | Reverse proxy, logging, backups, monitoring | Planned |
 

@@ -1,6 +1,6 @@
 services:
   open-webui:
-    image: ${OPEN_WEBUI_IMAGE:-ghcr.io/open-webui/open-webui:v0.9.5}
+    image: ${OPEN_WEBUI_IMAGE:-ghcr.io/open-webui/open-webui:v0.10.2}
     container_name: ${OPEN_WEBUI_CONTAINER:-oracle-ai-open-webui}
     hostname: open-webui
     restart: unless-stopped
@@ -13,7 +13,7 @@ services:
       ENABLE_OLLAMA_API: "True"
       ENABLE_OPENAI_API: "False"
       ENABLE_SIGNUP: ${OPEN_WEBUI_ENABLE_SIGNUP:-true}
-      DEFAULT_MODELS: ${OPEN_WEBUI_DEFAULT_MODEL:-qwen3:4b}
+      DEFAULT_MODELS: ${OPEN_WEBUI_DEFAULT_MODEL:-qwen3:4b-instruct}
       AIOHTTP_CLIENT_TIMEOUT: "300"
       AIOHTTP_CLIENT_TIMEOUT_MODEL_LIST: "30"
       TZ: ${TZ:-UTC}

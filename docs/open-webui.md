@@ -7,7 +7,7 @@ Version 0.4.0 adds Open WebUI as the authenticated browser interface for Ollama.
 ## Image
 
 ```text
-ghcr.io/open-webui/open-webui:v0.9.5
+ghcr.io/open-webui/open-webui:v0.10.2
 ```
 
 The image is pinned rather than using the floating `main` tag. Record the immutable digest after the first successful pull.
@@ -49,6 +49,35 @@ Open WebUI persists many settings in its internal database. After initialization
 
 This release deliberately provides HTTP only on the trusted LAN. Do not expose port `3000` to the internet. A later reverse-proxy milestone will add TLS and stronger edge controls.
 
+## Reference-host deployment verification
+
+Open WebUI was verified on 2026-07-22 with the following deployment:
+
+```text
+Open WebUI image:  ghcr.io/open-webui/open-webui:v0.10.2
+Image digest:      sha256:9fcea9c6e32ab60b0498f3986c6cdf651ddbe61db48d2213a3d28048ddd673d4
+Browser URL:       http://192.168.0.209:3000
+Ollama endpoint:   http://ollama:11434
+Default model:     qwen3:4b-instruct
+Model ID:          0edcdef34593
+Stored size:       2.5 GB
+Loaded size:       3.9 GB
+Context:           8192 tokens
+Allocation:        100% GPU
+```
+
+The first administrator was created locally and Open WebUI automatically disabled new sign-ups. A cold backup of application state and the external secret key was created before upgrading the initial `v0.9.5` deployment to `v0.10.2`. The administrator session, persisted state, disabled-sign-up setting, Ollama connection, and model chat remained functional after container replacement.
+
+The automated smoke test confirmed `/health` and backend model discovery. An authenticated browser chat confirmed end-to-end inference through Open WebUI, Ollama, ROCm, and the Radeon 890M.
+
+## Model and context lessons
+
+The floating `qwen3:4b` tag resolved to the thinking-only model ID `359d7dd4bcda`. A trivial request generated more than 3,700 reasoning tokens at approximately 26 tokens per second before the client canceled it. This was expected model behavior, not a GPU or memory failure.
+
+The platform now uses the official non-thinking `qwen3:4b-instruct` model for routine chat and retains `qwen3:4b` as an optional reasoning model.
+
+Open WebUI's system instructions and feature schemas produced a 5,545-token prompt, exceeding the original 4,096-token Ollama context. The default context was raised to 8,192 tokens, after which browser inference completed successfully. Avoid setting a smaller `num_ctx` in Open WebUI because a per-request value overrides `OLLAMA_CONTEXT_LENGTH`.
+
 ## Operations
 
 ```bash
@@ -71,7 +100,7 @@ For a consistent file-level backup, stop Open WebUI first. Preserve ownership an
 
 ## Verification
 
-The smoke test verifies the `/health` endpoint and confirms that Open WebUI can retrieve the model list from Ollama over the backend network. Browser registration and an interactive `qwen3:4b` chat complete the deployment acceptance test.
+The smoke test verifies the `/health` endpoint and confirms that Open WebUI can retrieve the model list from Ollama over the backend network. Browser registration and an interactive `qwen3:4b-instruct` chat complete the deployment acceptance test.
 
 ## Official references
 

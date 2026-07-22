@@ -65,6 +65,19 @@ This journal records implementation milestones, operational discoveries, and les
 - Added repeatable preparation, validation, lifecycle, logging, status, and smoke-test scripts.
 - Documented first-administrator registration and the requirement to disable subsequent sign-up.
 
+## 2026-07-22 — Open WebUI deployment verification
+
+- Deployed Open WebUI `v0.9.5`, then detected and verified the newer `v0.10.2` image before release.
+- Created a cold backup of Open WebUI state and its external secret key before upgrading.
+- Recorded `v0.10.2` image digest `sha256:9fcea9c6e32ab60b0498f3986c6cdf651ddbe61db48d2213a3d28048ddd673d4`.
+- Confirmed account, session, configuration, and chat persistence after container replacement.
+- Confirmed that first-administrator creation automatically disabled new sign-ups.
+- Verified Open WebUI health and private backend connectivity to Ollama.
+- Diagnosed the `qwen3:4b` alias as a thinking-only model that generated thousands of reasoning tokens for a trivial request.
+- Selected `qwen3:4b-instruct` model ID `0edcdef34593` as the everyday non-thinking default.
+- Diagnosed a 5,545-token Open WebUI request exceeding the 4,096-token Ollama context.
+- Increased the default context to 8,192 tokens and completed authenticated browser inference with 100% GPU allocation.
+
 ## Lessons carried forward
 
 - Preserve a strict separation between code, state, and secrets.
