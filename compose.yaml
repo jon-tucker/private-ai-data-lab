@@ -1,9 +1,10 @@
 name: ${COMPOSE_PROJECT_NAME:-oracle-ai-data-platform}
 
-# v0.1.0 defines shared infrastructure only. Application stacks are added in
-# later releases so this foundation can be validated without pulling images or
-# starting containers.
-services: {}
+services:
+  oracle-db:
+    extends:
+      file: stacks/oracle-db/compose.yaml
+      service: oracle-db
 
 networks:
   frontend:
@@ -13,4 +14,3 @@ networks:
     name: ${BACKEND_NETWORK:-oracle-ai-backend}
     driver: bridge
     internal: true
-

@@ -7,7 +7,7 @@ Oracle AI Data Platform is a reproducible, production-inspired environment for l
 Created by Jon Tucker with ChatGPT.
 
 > [!IMPORTANT]
-> Version `0.1.0` establishes the repository foundation only. It does not deploy containers or install platform services.
+> Version `0.2.0` adds the Oracle AI Database 26ai Free stack. Other application services remain planned.
 
 ## Project goals
 
@@ -22,7 +22,7 @@ Created by Jon Tucker with ChatGPT.
 | Area | Component | Status |
 | --- | --- | --- |
 | Foundation | Repository, documentation, configuration conventions | Complete in v0.1.0 |
-| Database | Oracle AI Database 26ai Free | Planned |
+| Database | Oracle AI Database 26ai Free | Available in v0.2.0 |
 | Oracle services | ORDS and APEX | Planned |
 | Tool integration | Oracle Database MCP Server | Planned |
 | Agents | Oracle AI Database Private Agent Factory | Planned |
@@ -82,20 +82,42 @@ The initial reference host is a Minisforum AI X1 Pro with an AMD Ryzen AI 9 HX 3
 
 ## Quick start
 
-Deployment automation will be added in later releases. For v0.1.0, validate the foundation without starting services:
+Create the local environment file and database password:
 
 ```bash
 cp .env.example .env
-docker compose config
+./scripts/oracle-create-secret.sh
+./scripts/oracle-prepare-host.sh
 ```
 
-The generated `.env` file is ignored by Git. Do not place real secrets in `.env.example`.
+Validate and start Oracle AI Database:
+
+```bash
+./scripts/validate.sh
+./scripts/oracle-start.sh
+```
+
+Follow initialization with `./scripts/oracle-logs.sh`. First startup can take several minutes. The database is ready when the container becomes healthy.
+
+Connection defaults:
+
+```text
+Host:     oracle-ai or 192.168.0.209
+Port:     1521
+CDB:      FREE
+PDB:      FREEPDB1
+Users:    SYS, SYSTEM, PDBADMIN
+```
+
+The generated `.env` and password file are ignored by Git. Do not place real secrets in `.env.example`.
 
 ## Documentation
 
 - [Architecture](docs/architecture.md)
 - [Build journal](docs/build-journal.md)
+- [Oracle AI Database stack](docs/oracle-database.md)
 - [ADR 0001: Project structure](docs/adr/0001-project-structure.md)
+- [ADR 0002: Database password handling](docs/adr/0002-database-password-handling.md)
 - [Changelog](CHANGELOG.md)
 
 ## Security
@@ -108,4 +130,3 @@ The generated `.env` file is ignored by Git. Do not place real secrets in `.env.
 ## License
 
 Project-authored source and documentation are licensed under the [MIT License](LICENSE). Oracle software, images, and other third-party components remain subject to their respective licenses and terms.
-
