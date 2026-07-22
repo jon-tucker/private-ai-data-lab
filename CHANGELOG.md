@@ -6,6 +6,12 @@ The project follows [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Planned
+
+- Add ORDS, APEX, MCP Server, and Private Agent Factory stacks.
+
+## [0.4.0] - 2026-07-22
+
 ### Added
 
 - Open WebUI Compose stack pinned to `v0.10.2`.
@@ -20,10 +26,6 @@ The project follows [Semantic Versioning](https://semver.org/).
 - Selected `qwen3:4b-instruct` as the non-thinking everyday model while retaining `qwen3:4b` for reasoning.
 - Increased the default Ollama context from 4,096 to 8,192 tokens for Open WebUI system and feature schemas.
 - Verified authenticated browser chat through Open WebUI with 100% GPU model allocation.
-
-### Planned
-
-- Add ORDS, APEX, MCP Server, and Private Agent Factory stacks.
 
 ## [0.3.0] - 2026-07-22
 
