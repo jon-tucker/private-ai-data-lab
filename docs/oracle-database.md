@@ -12,6 +12,15 @@ container-registry.oracle.com/database/free:23.26.2.0
 
 The version tag is explicit for reproducibility. Before upgrading, pull and test the new tag, review Oracle's current documentation, update `.env.example`, and document the result in the changelog.
 
+
+Verified image digest:
+
+```text
+container-registry.oracle.com/database/free@sha256:696eee2ee8985af25ef0dc4cbcac14cdaadfd4545150a87d82d9724ce43c7a77
+```
+
+The tag remains the readable deployment setting. The digest records the exact image tested on 2026-07-22.
+
 ## Initial deployment
 
 ```bash
@@ -44,6 +53,22 @@ The start script pulls the image when necessary, waits as long as 30 minutes for
 | Pluggable database | `oracle-ai:1521/FREEPDB1` |
 
 From outside Docker, use the server's DNS name or reserved LAN address. From future containers on the backend network, use hostname `oracle-db` and port `1521`.
+
+
+The backend is a private Docker bridge network rather than a Docker `internal` network. Docker's internal-network isolation prevents host port publication; LAN exposure is therefore controlled through explicit Compose port mappings and the host firewall.
+
+## Verified deployment
+
+The initial deployment was verified with:
+
+- Oracle AI Database Free `23.26.2.0.0`.
+- `FREEPDB1` open read/write.
+- `ARCHIVELOG` and force logging enabled.
+- All installed registry components valid, with Oracle RAC intentionally `OPTION OFF`.
+- Zero invalid database objects.
+- Native `VECTOR` construction and `VECTOR_DISTANCE` returning the expected Euclidean distance.
+- Successful container removal and recreation using the unchanged bind-mounted data directory.
+- Listener connectivity from the Docker host and from `192.168.0.209:1521` on the LAN.
 
 ## Persistence
 

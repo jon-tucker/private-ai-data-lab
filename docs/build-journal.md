@@ -26,6 +26,17 @@ This journal records implementation milestones, operational discoveries, and les
 - Added repeatable lifecycle and validation scripts.
 
 
+## 2026-07-22 — Oracle AI Database deployment verification
+
+- Pulled and initialized Oracle AI Database Free `23.26.2.0.0`.
+- Recorded image digest `sha256:696eee2ee8985af25ef0dc4cbcac14cdaadfd4545150a87d82d9724ce43c7a77`.
+- Confirmed `FREEPDB1` opens read/write with archive logging and force logging enabled.
+- Confirmed all 14 installed database components are valid or intentionally `OPTION OFF`, with zero invalid objects.
+- Verified native `VECTOR` construction and Euclidean distance calculation in `FREEPDB1`.
+- Discovered that `internal: true` on the backend network prevented Docker from activating the published listener port.
+- Changed the backend to a private bridge network, recreated the container, and confirmed persistent database reuse.
+- Verified listener access locally and from the LAN at `192.168.0.209:1521`.
+
 ## Lessons carried forward
 
 - Preserve a strict separation between code, state, and secrets.

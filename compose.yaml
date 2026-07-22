@@ -13,4 +13,3 @@ networks:
   backend:
     name: ${BACKEND_NETWORK:-oracle-ai-backend}
     driver: bridge
-    internal: true

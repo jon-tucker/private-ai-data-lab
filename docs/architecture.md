@@ -55,7 +55,7 @@ This diagram describes the target architecture. Version 0.2.0 deploys the Oracle
 ## Network boundaries
 
 - `frontend` exposes approved user-facing services through published ports or a reverse proxy.
-- `backend` is an internal Docker network for databases, model runtimes, and service-to-service traffic.
+- `backend` is a private Docker bridge network for databases, model runtimes, and service-to-service traffic. It is not marked internal because selected services publish controlled ports to the host.
 - A service joins only the networks it needs.
 - Database and model-runtime ports should remain LAN-only unless a documented use case requires otherwise.
 
