@@ -7,7 +7,7 @@ Oracle AI Data Platform is a reproducible, production-inspired environment for l
 Created by Jon Tucker with ChatGPT.
 
 > [!IMPORTANT]
-> Version `0.3.0` adds local model serving with Ollama. Open WebUI and the remaining application services are introduced in later milestones.
+> Version `0.4.0` adds Open WebUI as the authenticated browser interface for the local Ollama runtime. Remaining Oracle application services are introduced in later milestones.
 
 ## Project goals
 
@@ -27,7 +27,7 @@ Created by Jon Tucker with ChatGPT.
 | Tool integration | Oracle Database MCP Server | Planned |
 | Agents | Oracle AI Database Private Agent Factory | Planned |
 | Local AI | Ollama with verified Radeon 890M ROCm acceleration | Available in v0.3.0 |
-| Local AI UI | Open WebUI | Planned for v0.4.0 |
+| Local AI UI | Open WebUI | In progress for v0.4.0 |
 | Model gateway | LiteLLM | Planned |
 | Edge and operations | Reverse proxy, logging, backups, monitoring | Planned |
 
@@ -110,6 +110,18 @@ Prepare and start Ollama with the accelerator selected in `.env`:
 ./scripts/ollama-pull-model.sh
 ```
 
+Create the stable Open WebUI secret, prepare its persistent data directory, and start the UI:
+
+```bash
+./scripts/open-webui-configure-env.sh
+./scripts/open-webui-create-secret.sh
+./scripts/open-webui-prepare-host.sh
+./scripts/open-webui-validate.sh
+./scripts/open-webui-start.sh
+```
+
+Open `http://192.168.0.209:3000` from the trusted LAN. The first account becomes administrator; disable additional registration immediately afterward.
+
 Connection defaults:
 
 ```text
@@ -128,9 +140,11 @@ The generated `.env` and password file are ignored by Git. Do not place real sec
 - [Build journal](docs/build-journal.md)
 - [Oracle AI Database stack](docs/oracle-database.md)
 - [Ollama stack](docs/ollama.md)
+- [Open WebUI stack](docs/open-webui.md)
 - [ADR 0001: Project structure](docs/adr/0001-project-structure.md)
 - [ADR 0002: Database password handling](docs/adr/0002-database-password-handling.md)
 - [ADR 0003: Ollama acceleration profiles](docs/adr/0003-ollama-acceleration-profiles.md)
+- [ADR 0004: Open WebUI identity and secret persistence](docs/adr/0004-open-webui-identity-and-secret-persistence.md)
 - [Changelog](CHANGELOG.md)
 
 ## Security

@@ -26,6 +26,8 @@ load_env() {
   export ORACLE_PASSWORD_FILE="${ORACLE_PASSWORD_FILE:-${PLATFORM_SECRETS_ROOT}/oracle-db-password}"
   export OLLAMA_ACCELERATOR="${OLLAMA_ACCELERATOR:-rocm}"
   export OLLAMA_CONTAINER="${OLLAMA_CONTAINER:-oracle-ai-ollama}"
+  export OPEN_WEBUI_CONTAINER="${OPEN_WEBUI_CONTAINER:-oracle-ai-open-webui}"
+  export OPEN_WEBUI_SECRET_FILE="${OPEN_WEBUI_SECRET_FILE:-${PLATFORM_SECRETS_ROOT}/open-webui-secret-key}"
 }
 
 compose() {

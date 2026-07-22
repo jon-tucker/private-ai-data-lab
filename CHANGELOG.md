@@ -6,9 +6,18 @@ The project follows [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Added
+
+- Open WebUI Compose stack pinned to `v0.9.5`.
+- Persistent Open WebUI application data under `/srv/oracle-ai-data/open-webui`.
+- Stable signing and encryption key stored outside Git under `/srv/oracle-ai-secrets`.
+- Open WebUI preparation, validation, lifecycle, status, logging, and smoke-test scripts.
+- Private backend-network connection from Open WebUI to Ollama.
+- Open WebUI deployment, first-run hardening, and recovery documentation.
+- ADR 0004 documenting identity and encryption-key persistence.
+
 ### Planned
 
-- Add the Open WebUI stack.
 - Add ORDS, APEX, MCP Server, and Private Agent Factory stacks.
 
 ## [0.3.0] - 2026-07-22

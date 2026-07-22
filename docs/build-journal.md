@@ -55,6 +55,16 @@ This journal records implementation milestones, operational discoveries, and les
 - Completed a successful inference smoke test.
 - Confirmed `100% GPU` allocation and offload of all 37 model layers to ROCm.
 
+## 2026-07-22 — Open WebUI stack foundation
+
+- Selected the pinned Open WebUI `v0.9.5` image instead of the floating `main` tag.
+- Connected Open WebUI to Ollama through the private backend Docker network.
+- Reserved persistent state under `/srv/oracle-ai-data/open-webui`.
+- Added a stable signing and encryption key outside Git for session and future MCP credential continuity.
+- Published only the authenticated web interface on LAN port `3000`; the Ollama API remains on host loopback.
+- Added repeatable preparation, validation, lifecycle, logging, status, and smoke-test scripts.
+- Documented first-administrator registration and the requirement to disable subsequent sign-up.
+
 ## Lessons carried forward
 
 - Preserve a strict separation between code, state, and secrets.

@@ -58,6 +58,8 @@ Version 0.3.0 adds Ollama to the backend network. Its API binds to host loopback
 
 - `frontend` exposes approved user-facing services through published ports or a reverse proxy.
 - `backend` is a private Docker bridge network for databases, model runtimes, and service-to-service traffic. It is not marked internal because selected services publish controlled ports to the host.
+
+Open WebUI joins both networks: `frontend` receives browser traffic on port `3000`, while `backend` reaches Ollama through the stable `ollama` network alias. Ollama remains bound to host loopback and is not exposed directly to LAN clients.
 - A service joins only the networks it needs.
 - Database and model-runtime ports should remain LAN-only unless a documented use case requires otherwise.
 

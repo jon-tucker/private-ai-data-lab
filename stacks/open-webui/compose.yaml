@@ -1,0 +1,36 @@
+services:
+  open-webui:
+    image: ${OPEN_WEBUI_IMAGE:-ghcr.io/open-webui/open-webui:v0.9.5}
+    container_name: ${OPEN_WEBUI_CONTAINER:-oracle-ai-open-webui}
+    hostname: open-webui
+    restart: unless-stopped
+    ports:
+      - "${OPEN_WEBUI_HOST_BIND:-0.0.0.0}:${OPEN_WEBUI_PORT:-3000}:8080"
+    environment:
+      OLLAMA_BASE_URL: http://ollama:11434
+      WEBUI_URL: ${OPEN_WEBUI_URL:-http://192.168.0.209:3000}
+      WEBUI_NAME: Oracle AI Data Platform
+      ENABLE_OLLAMA_API: "True"
+      ENABLE_OPENAI_API: "False"
+      ENABLE_SIGNUP: ${OPEN_WEBUI_ENABLE_SIGNUP:-true}
+      DEFAULT_MODELS: ${OPEN_WEBUI_DEFAULT_MODEL:-qwen3:4b}
+      AIOHTTP_CLIENT_TIMEOUT: "300"
+      AIOHTTP_CLIENT_TIMEOUT_MODEL_LIST: "30"
+      TZ: ${TZ:-UTC}
+    volumes:
+      - ${PLATFORM_DATA_ROOT:-/srv/oracle-ai-data}/open-webui:/app/backend/data
+      - ${OPEN_WEBUI_SECRET_FILE:-/srv/oracle-ai-secrets/open-webui-secret-key}:/app/backend/.webui_secret_key:ro
+    networks:
+      - frontend
+      - backend
+    mem_limit: ${OPEN_WEBUI_MEMORY:-4g}
+    cpus: ${OPEN_WEBUI_CPUS:-4.0}
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "--silent", "http://localhost:8080/health"]
+      interval: 20s
+      timeout: 10s
+      retries: 30
+      start_period: 90s
+    labels:
+      com.jontucker.oracle-ai-data-platform.component: open-webui
+      com.jontucker.oracle-ai-data-platform.release: "0.4.0"
