@@ -6,6 +6,13 @@ The project follows [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Planned
+
+- Add the Open WebUI stack.
+- Add ORDS, APEX, MCP Server, and Private Agent Factory stacks.
+
+## [0.3.0] - 2026-07-22
+
 ### Added
 
 - Ollama Compose stack with selectable ROCm and CPU profiles.
@@ -16,11 +23,6 @@ The project follows [Semantic Versioning](https://semver.org/).
 - Explicit integrated-GPU enablement for the Radeon 890M reference host.
 - Verified `qwen3:4b` inference with all 37 model layers allocated to ROCm and `100% GPU` reported by Ollama.
 - Recorded the deployed Ollama image digest and model identifier.
-
-### Planned
-
-- Add the Open WebUI stack.
-- Add ORDS, APEX, MCP Server, and Private Agent Factory stacks.
 
 ## [0.2.0] - 2026-07-22
 
