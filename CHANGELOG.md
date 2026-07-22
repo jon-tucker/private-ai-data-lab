@@ -6,9 +6,18 @@ The project follows [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Added
+
+- Ollama Compose stack with selectable ROCm and CPU profiles.
+- Persistent model storage under `/srv/oracle-ai-data/ollama`.
+- Ollama preparation, validation, lifecycle, model, and accelerator-verification scripts.
+- Pinned Ollama `0.32.0` images and a configurable initial model.
+- Ollama deployment documentation and ADR 0003.
+
 ### Planned
 
-- Add Ollama and Open WebUI stacks.
+- Validate ROCm inference on the Ryzen AI 9 HX 370 reference host.
+- Add the Open WebUI stack.
 - Add ORDS, APEX, MCP Server, and Private Agent Factory stacks.
 
 ## [0.2.0] - 2026-07-22

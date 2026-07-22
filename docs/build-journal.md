@@ -25,7 +25,6 @@ This journal records implementation milestones, operational discoveries, and les
 - Kept the administrator password out of Compose environment metadata by allowing initial random-password creation and immediately applying the local secret after the container becomes healthy.
 - Added repeatable lifecycle and validation scripts.
 
-
 ## 2026-07-22 — Oracle AI Database deployment verification
 
 - Pulled and initialized Oracle AI Database Free `23.26.2.0.0`.
@@ -36,6 +35,15 @@ This journal records implementation milestones, operational discoveries, and les
 - Discovered that `internal: true` on the backend network prevented Docker from activating the published listener port.
 - Changed the backend to a private bridge network, recreated the container, and confirmed persistent database reuse.
 - Verified listener access locally and from the LAN at `192.168.0.209:1521`.
+
+## 2026-07-22 — Ollama stack foundation
+
+- Confirmed the Radeon 890M is bound to the Linux `amdgpu` driver.
+- Confirmed `/dev/kfd` and `/dev/dri/renderD128` are available for container passthrough.
+- Confirmed the Ryzen AI NPU is independently bound to `amdxdna`; Ollama targets the Radeon GPU rather than the NPU.
+- Added selectable ROCm and CPU profiles instead of assuming GPU acceleration will work on every host.
+- Bound the unauthenticated Ollama API to host loopback by default while retaining backend-container access.
+- Reserved persistent model storage under `/srv/oracle-ai-data/ollama`.
 
 ## Lessons carried forward
 

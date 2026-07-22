@@ -5,6 +5,14 @@ services:
     extends:
       file: stacks/oracle-db/compose.yaml
       service: oracle-db
+  ollama-rocm:
+    extends:
+      file: stacks/ollama/compose.yaml
+      service: ollama-rocm
+  ollama-cpu:
+    extends:
+      file: stacks/ollama/compose.yaml
+      service: ollama-cpu
 
 networks:
   frontend:

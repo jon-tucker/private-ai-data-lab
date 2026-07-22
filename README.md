@@ -7,7 +7,7 @@ Oracle AI Data Platform is a reproducible, production-inspired environment for l
 Created by Jon Tucker with ChatGPT.
 
 > [!IMPORTANT]
-> Version `0.2.0` adds the Oracle AI Database 26ai Free stack. Other application services remain planned.
+> Version `0.3.0` adds local model serving with Ollama. Open WebUI and the remaining application services are introduced in later milestones.
 
 ## Project goals
 
@@ -26,7 +26,8 @@ Created by Jon Tucker with ChatGPT.
 | Oracle services | ORDS and APEX | Planned |
 | Tool integration | Oracle Database MCP Server | Planned |
 | Agents | Oracle AI Database Private Agent Factory | Planned |
-| Local AI | Ollama and Open WebUI | Planned |
+| Local AI | Ollama | In progress for v0.3.0 |
+| Local AI UI | Open WebUI | Planned for v0.4.0 |
 | Model gateway | LiteLLM | Planned |
 | Edge and operations | Reverse proxy, logging, backups, monitoring | Planned |
 
@@ -99,6 +100,16 @@ Validate and start Oracle AI Database:
 
 Follow initialization with `./scripts/oracle-logs.sh`. First startup can take several minutes. The database is ready when the container becomes healthy.
 
+Prepare and start Ollama with the accelerator selected in `.env`:
+
+```bash
+./scripts/ollama-configure-env.sh
+./scripts/ollama-prepare-host.sh
+./scripts/ollama-validate.sh
+./scripts/ollama-start.sh
+./scripts/ollama-pull-model.sh
+```
+
 Connection defaults:
 
 ```text
@@ -116,8 +127,10 @@ The generated `.env` and password file are ignored by Git. Do not place real sec
 - [Architecture](docs/architecture.md)
 - [Build journal](docs/build-journal.md)
 - [Oracle AI Database stack](docs/oracle-database.md)
+- [Ollama stack](docs/ollama.md)
 - [ADR 0001: Project structure](docs/adr/0001-project-structure.md)
 - [ADR 0002: Database password handling](docs/adr/0002-database-password-handling.md)
+- [ADR 0003: Ollama acceleration profiles](docs/adr/0003-ollama-acceleration-profiles.md)
 - [Changelog](CHANGELOG.md)
 
 ## Security
