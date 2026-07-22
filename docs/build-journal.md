@@ -45,6 +45,16 @@ This journal records implementation milestones, operational discoveries, and les
 - Bound the unauthenticated Ollama API to host loopback by default while retaining backend-container access.
 - Reserved persistent model storage under `/srv/oracle-ai-data/ollama`.
 
+## 2026-07-22 — Ollama deployment verification
+
+- Pulled `ollama/ollama:0.32.0-rocm` and recorded image digest `sha256:ed3ff2d663fba3b089807a8dca022af9fc1870bbcb7ed4bba9ce5f3939821269`.
+- Confirmed Ollama and ROCm detect the Radeon 890M as `gfx1150` through `/dev/kfd` and `/dev/dri`.
+- Found that Ollama deliberately drops integrated GPUs unless `OLLAMA_IGPU_ENABLE=1` is set.
+- Added integrated-GPU enablement to the environment template, configuration helper, and Compose stack.
+- Pulled `qwen3:4b` model ID `359d7dd4bcda` with a 2.5 GB persisted model footprint.
+- Completed a successful inference smoke test.
+- Confirmed `100% GPU` allocation and offload of all 37 model layers to ROCm.
+
 ## Lessons carried forward
 
 - Preserve a strict separation between code, state, and secrets.

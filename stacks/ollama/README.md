@@ -2,7 +2,7 @@
 
 This stack serves local language and embedding models through Ollama's HTTP API.
 
-- `ollama-rocm` passes the AMD KFD and DRI devices into the official ROCm image.
+- `ollama-rocm` passes the AMD KFD and DRI devices into the official ROCm image and enables integrated-GPU discovery with `OLLAMA_IGPU_ENABLE=1`.
 - `ollama-cpu` provides a portable fallback with no GPU-device dependency.
 - Both profiles use the same container name, backend alias, API port, and persistent model directory, so only one profile may run at a time.
 

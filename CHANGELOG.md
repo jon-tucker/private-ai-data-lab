@@ -13,10 +13,12 @@ The project follows [Semantic Versioning](https://semver.org/).
 - Ollama preparation, validation, lifecycle, model, and accelerator-verification scripts.
 - Pinned Ollama `0.32.0` images and a configurable initial model.
 - Ollama deployment documentation and ADR 0003.
+- Explicit integrated-GPU enablement for the Radeon 890M reference host.
+- Verified `qwen3:4b` inference with all 37 model layers allocated to ROCm and `100% GPU` reported by Ollama.
+- Recorded the deployed Ollama image digest and model identifier.
 
 ### Planned
 
-- Validate ROCm inference on the Ryzen AI 9 HX 370 reference host.
 - Add the Open WebUI stack.
 - Add ORDS, APEX, MCP Server, and Private Agent Factory stacks.
 

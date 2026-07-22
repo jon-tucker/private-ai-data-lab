@@ -17,6 +17,7 @@ append_default OLLAMA_ROCM_IMAGE ollama/ollama:0.32.0-rocm
 append_default OLLAMA_CPU_IMAGE ollama/ollama:0.32.0
 append_default OLLAMA_CONTAINER oracle-ai-ollama
 append_default OLLAMA_HOST_BIND 127.0.0.1
+append_default OLLAMA_IGPU_ENABLE 1
 append_default OLLAMA_CPUS 8.0
 append_default OLLAMA_MEMORY 12g
 append_default OLLAMA_CONTEXT_LENGTH 4096

@@ -19,6 +19,27 @@ The Minisforum AI X1 Pro exposes its Radeon 890M through the `amdgpu` driver wit
 
 Ubuntu Server 26.04 is newer than AMD's currently documented production matrix. GPU acceleration must therefore be demonstrated through Ollama runtime logs and `ollama ps`, not inferred from device presence alone. BIOS 1.05 is retained because the operating system already discovers the GPU and compute devices.
 
+## Reference-host deployment verification
+
+The ROCm profile was verified on 2026-07-22 with the following deployment:
+
+```text
+Host GPU:       AMD Radeon 890M Graphics
+ROCm target:    gfx1150
+Ollama image:   ollama/ollama:0.32.0-rocm
+Image digest:   sha256:ed3ff2d663fba3b089807a8dca022af9fc1870bbcb7ed4bba9ce5f3939821269
+Model:          qwen3:4b
+Model ID:       359d7dd4bcda
+Model size:     2.5 GB
+Context:        4096 tokens
+Allocation:     100% GPU
+Layer offload:  37/37 layers
+```
+
+Ollama detects the Radeon as an integrated GPU and excludes it by default. The ROCm deployment therefore sets `OLLAMA_IGPU_ENABLE=1`. Runtime logs confirmed a 14.2 GiB shared-memory GPU allocation, full model-layer offload, ROCm model and KV-cache buffers, and a successful inference response.
+
+The shared-memory figures reported by an integrated GPU are not dedicated VRAM. Oracle Database and Ollama still compete for the host's physical memory, so container limits and concurrent workloads must be monitored.
+
 ## Security boundary
 
 Ollama does not provide native API authentication. The host mapping defaults to `127.0.0.1:11434`; do not change it to `0.0.0.0` without a trusted-LAN requirement or an authenticated proxy. Containers on the backend network use `http://ollama:11434`.
