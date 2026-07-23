@@ -122,3 +122,12 @@ This journal records implementation milestones, operational discoveries, and les
 - Configured ORDS proxied PL/SQL gateway mode and local `/i/` resources.
 - Verified 4,492 valid APEX schema objects, 13 valid `FLOWS_FILES` objects,
   healthy ORDS runtime, and successful HTTP smoke tests.
+
+## 2026-07-23 — Created initial ORACLE_AI workspace
+
+- Created the `ORACLE_AI` workspace and matching `ORACLE_AI` database schema.
+- Created the `JON` workspace administrator and developer account.
+- Verified successful development-environment authentication.
+- Verified the generated 50 MB tablespace datafile autoextends to 500 MB.
+- Confirmed the container datafile persists beneath
+  `/srv/oracle-ai-data/oracle/FREE/FREEPDB1` on the host.

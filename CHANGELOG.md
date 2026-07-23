@@ -20,6 +20,7 @@ The project follows [Semantic Versioning](https://semver.org/).
 - APEX status, smoke-test, deployment, and upgrade documentation.
 - ADR 0006 separating APEX software, persistent resources, and installation.
 - Verified APEX 26.1.0 installation, object validity, ORDS proxy integration, local static resources, and browser administrator authentication.
+- Created and verified the `ORACLE_AI` workspace, schema, generated tablespace, and `JON` developer login.
 
 ## [0.5.0] - 2026-07-23
 

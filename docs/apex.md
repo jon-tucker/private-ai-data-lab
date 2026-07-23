@@ -144,3 +144,34 @@ The reference deployment was verified on July 23, 2026:
   `6c94c163d471044805f262b6e2518c52fa6bd763f5ec941ea3219c2fb8aec984`.
 - APEX installation log retained at
   `/srv/oracle-ai-data/logs/apex/apex-install-20260723-183527.log`.
+
+## Initial development workspace
+
+The reference deployment includes an initial development workspace:
+
+| Setting | Value |
+| --- | --- |
+| Workspace | `ORACLE_AI` |
+| Primary schema | `ORACLE_AI` |
+| Workspace administrator/developer | `JON` |
+| Generated tablespace | `APEX_4200654527786317` |
+| Initial datafile size | 50 MB |
+| Maximum datafile size | 500 MB |
+| Schema quota | Unlimited within the datafile limit |
+
+The APEX wizard reports the datafile using its database-container path:
+
+```text
+/opt/oracle/oradata/FREE/FREEPDB1/APEX_4200654527786317.dbf
+```
+
+The Oracle container bind mount persists that file on the host under:
+
+```text
+/srv/oracle-ai-data/oracle/FREE/FREEPDB1/APEX_4200654527786317.dbf
+```
+
+To reproduce this manually, sign in to Administration Services, select
+**Manage Workspaces**, and run **Create Workspace**. Create a new schema, choose
+the desired space quota, and create a workspace administrator. Database-schema
+and APEX-user passwords are separate credentials and must remain outside Git.
