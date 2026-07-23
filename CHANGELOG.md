@@ -8,7 +8,9 @@ The project follows [Semantic Versioning](https://semver.org/).
 
 ### Planned
 
-- Add Private Agent Factory and MCP client integration.
+- Add Private Agent Factory and expanded MCP client integration.
+
+## [0.7.0] - 2026-07-23
 
 ### Added
 
