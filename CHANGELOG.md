@@ -10,6 +10,8 @@ The project follows [Semantic Versioning](https://semver.org/).
 
 - Add MCP Server and Private Agent Factory stacks.
 
+## [0.6.0] - 2026-07-23
+
 ### Added
 
 - Oracle APEX 26.1 full-development deployment foundation.

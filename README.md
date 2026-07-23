@@ -7,8 +7,8 @@ Oracle AI Data Platform is a reproducible, production-inspired environment for l
 Created by Jon Tucker with ChatGPT.
 
 > [!IMPORTANT]
-> Version `0.6.0` adds the Oracle APEX 26.1 deployment foundation. APEX is
-> installed only after its preflight and source package are reviewed.
+> Version `0.6.0` adds a verified Oracle APEX 26.1 development environment,
+> ORDS integration, and the initial `ORACLE_AI` workspace.
 
 ## Project goals
 
@@ -25,7 +25,7 @@ Created by Jon Tucker with ChatGPT.
 | Foundation | Repository, documentation, configuration conventions | Complete in v0.1.0 |
 | Database | Oracle AI Database 26ai Free | Available in v0.2.0 |
 | Oracle services | ORDS | Available in v0.5.0 |
-| Oracle services | Oracle APEX 26.1 | Foundation in v0.6.0 |
+| Oracle services | Oracle APEX 26.1 | Available in v0.6.0 |
 | Tool integration | Oracle Database MCP Server | Planned |
 | Agents | Oracle AI Database Private Agent Factory | Planned |
 | Local AI | Ollama with verified Radeon 890M ROCm acceleration | Available in v0.3.0 |
