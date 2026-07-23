@@ -131,3 +131,15 @@ This journal records implementation milestones, operational discoveries, and les
 - Verified the generated 50 MB tablespace datafile autoextends to 500 MB.
 - Confirmed the container datafile persists beneath
   `/srv/oracle-ai-data/oracle/FREE/FREEPDB1` on the host.
+
+## 2026-07-23 — Began Oracle SQLcl MCP Server 26.2
+
+- Verified the official SQLcl image tag `26.2.0`.
+- Recorded image digest `sha256:e0bddbcdfda9b2d83ce91af74c3f5ed71768ad29bbcd5523da837c4051056a54`.
+- Verified SQLcl build `26.2.0.181.2110`.
+- Confirmed the standard-input/standard-output MCP server starts successfully.
+- Confirmed the upstream image defaults to root.
+- Verified SQLcl and MCP run as numeric UID:GID `54321:54321`.
+- Verified the persistent connection store is created beneath `~/.dbtools`.
+- Selected SQLcl restriction level 4 and a dedicated read-only database user
+  as the v0.7.0 defaults.

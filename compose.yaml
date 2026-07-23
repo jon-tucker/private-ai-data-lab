@@ -25,6 +25,10 @@ services:
     extends:
       file: stacks/ords/compose.yaml
       service: ords
+  mcp:
+    extends:
+      file: stacks/mcp/compose.yaml
+      service: mcp
 
 networks:
   frontend:

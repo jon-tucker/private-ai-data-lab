@@ -7,8 +7,8 @@ Oracle AI Data Platform is a reproducible, production-inspired environment for l
 Created by Jon Tucker with ChatGPT.
 
 > [!IMPORTANT]
-> Version `0.6.0` adds a verified Oracle APEX 26.1 development environment,
-> ORDS integration, and the initial `ORACLE_AI` workspace.
+> Version `0.7.0` adds the Oracle SQLcl 26.2 MCP Server foundation with a
+> dedicated read-only database identity and non-root container execution.
 
 ## Project goals
 
@@ -26,7 +26,7 @@ Created by Jon Tucker with ChatGPT.
 | Database | Oracle AI Database 26ai Free | Available in v0.2.0 |
 | Oracle services | ORDS | Available in v0.5.0 |
 | Oracle services | Oracle APEX 26.1 | Available in v0.6.0 |
-| Tool integration | Oracle Database MCP Server | Planned |
+| Tool integration | Oracle SQLcl MCP Server 26.2 | Foundation in v0.7.0 |
 | Agents | Oracle AI Database Private Agent Factory | Planned |
 | Local AI | Ollama with verified Radeon 890M ROCm acceleration | Available in v0.3.0 |
 | Local AI UI | Open WebUI connected to Ollama | Available in v0.4.0 |
@@ -136,6 +136,19 @@ installation:
 
 See `docs/apex.md` before running the state-changing APEX installation.
 
+Prepare the SQLcl MCP connection store and dedicated database credential:
+
+```bash
+./scripts/mcp-configure-env.sh
+./scripts/mcp-create-secret.sh
+./scripts/mcp-prepare-host.sh
+./scripts/mcp-validate.sh
+```
+
+Review `docs/mcp.md` before creating the database user or saving its
+connection. The MCP server runs on demand over standard input/output; it does
+not publish a network port.
+
 Connection defaults:
 
 ```text
@@ -157,12 +170,14 @@ The generated `.env` and password file are ignored by Git. Do not place real sec
 - [Open WebUI stack](docs/open-webui.md)
 - [Oracle REST Data Services](docs/ords.md)
 - [Oracle APEX](docs/apex.md)
+- [Oracle SQLcl MCP Server](docs/mcp.md)
 - [ADR 0001: Project structure](docs/adr/0001-project-structure.md)
 - [ADR 0002: Database password handling](docs/adr/0002-database-password-handling.md)
 - [ADR 0003: Ollama acceleration profiles](docs/adr/0003-ollama-acceleration-profiles.md)
 - [ADR 0004: Open WebUI identity and secret persistence](docs/adr/0004-open-webui-identity-and-secret-persistence.md)
 - [ADR 0005: Separate ORDS installation from runtime](docs/adr/0005-separate-ords-installation-from-runtime.md)
 - [ADR 0006: Separate APEX software, state, and installation](docs/adr/0006-separate-apex-software-state-and-installation.md)
+- [ADR 0007: Isolate SQLcl MCP identity, state, and capabilities](docs/adr/0007-isolate-sqlcl-mcp-identity-state-and-capabilities.md)
 - [Changelog](CHANGELOG.md)
 
 ## Security

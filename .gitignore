@@ -21,6 +21,7 @@ generated/
 *.pid
 *.lock
 .oracle-db-password-applied
+.mcp-database-user-created
 
 # Oracle runtime files
 *.dbf

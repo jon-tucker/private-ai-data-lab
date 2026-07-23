@@ -50,6 +50,11 @@ Version 0.6.0 installs APEX 26.1 into `FREEPDB1`; APEX is database metadata,
 not a separate long-running container. Browser requests reach APEX through ORDS.
 ORDS serves a read-only copy of matching APEX static resources under `/i/`.
 
+Version 0.7.0 adds Oracle SQLcl 26.2 as an on-demand MCP server. An MCP client
+launches the process over standard input/output; no MCP TCP port is published.
+SQLcl connects to Oracle through the backend network using a dedicated
+read-only database identity.
+
 ## Storage boundaries
 
 | Path | Purpose | Git-managed | Backup policy |
@@ -100,3 +105,17 @@ operation. The expanded Oracle installer remains outside Git. Dedicated
 tablespaces separate platform metadata and uploaded files from `SYSAUX`.
 ORDS remains the only web runtime and uses proxied PL/SQL gateway mode from
 `ORDS_PUBLIC_USER` to `APEX_PUBLIC_USER`.
+
+## MCP deployment boundary
+
+The SQLcl MCP container runs only when invoked by an MCP client. It runs as
+numeric UID:GID `54321:54321`, uses a read-only root filesystem, drops all
+Linux capabilities, and has no published port. Its only persistent writable
+path is `/srv/oracle-ai-data/mcp/sqlcl-home`, which contains the encrypted
+SQLcl connection store.
+
+The default `ORACLE_AI_MCP` database account has `CREATE SESSION` and a
+read-only role. A deliberate synchronization command grants that role `SELECT`
+only on tables, views, and materialized views owned by `ORACLE_AI`. It receives
+no system-catalog role, object-creation privilege, PL/SQL execution privilege,
+or workspace-owner credential.
