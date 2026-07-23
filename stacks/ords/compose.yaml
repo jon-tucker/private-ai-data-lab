@@ -53,6 +53,7 @@ services:
       TZ: ${TZ:-UTC}
     volumes:
       - ${ORDS_CONFIG_DIR:-/srv/oracle-ai-data/ords}:/etc/ords/config
+      - ${APEX_IMAGES_DIR:-/srv/oracle-ai-data/apex/images}:/opt/oracle/apex/images:ro
     networks:
       - frontend
       - backend
@@ -68,4 +69,4 @@ services:
       start_period: 120s
     labels:
       com.jontucker.oracle-ai-data-platform.component: ords
-      com.jontucker.oracle-ai-data-platform.release: "0.5.0"
+      com.jontucker.oracle-ai-data-platform.release: "0.6.0"

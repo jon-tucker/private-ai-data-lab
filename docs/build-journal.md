@@ -102,3 +102,11 @@ This journal records implementation milestones, operational discoveries, and les
 - Verified container health and HTTP access over the LAN on port 8080.
 - Hardened persistent ORDS configuration and wallet files to mode `0600`.
 - Enhanced the SQL*Plus helper to support interactive and redirected input.
+## 2026-07-23 — Began Oracle APEX 26.1 milestone
+
+- Verified Oracle AI Database 23.26.2 and ORDS 26.2 satisfy APEX 26.1 requirements.
+- Verified XML DB, automatic work-area sizing, 512 MB PGA, and approximately 1,529 MB SGA.
+- Confirmed `SYSTEM`, `SYSAUX`, and `USERS` datafiles have automatic extension enabled.
+- Downloaded the May 25 English-only APEX 26.1 archive and verified Oracle's SHA-256 checksum.
+- Selected dedicated `APEX` and `APEX_FILES` tablespaces.
+- Added explicit installation, ORDS gateway, static-resource, validation, and verification automation.

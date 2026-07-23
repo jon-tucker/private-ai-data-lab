@@ -33,6 +33,14 @@ load_env() {
   export ORDS_CONFIG_DIR="${ORDS_CONFIG_DIR:-${PLATFORM_DATA_ROOT}/ords}"
   export ORDS_PUBLIC_PASSWORD_FILE="${ORDS_PUBLIC_PASSWORD_FILE:-${PLATFORM_SECRETS_ROOT}/ords-public-user-password}"
   export ORDS_URL="${ORDS_URL:-http://127.0.0.1:8080/ords/}"
+  export APEX_VERSION="${APEX_VERSION:-26.1}"
+  export APEX_SOURCE_DIR="${APEX_SOURCE_DIR:-/srv/oracle-ai-work/apex/apex}"
+  export APEX_IMAGES_DIR="${APEX_IMAGES_DIR:-${PLATFORM_DATA_ROOT}/apex/images}"
+  export APEX_CONTAINER_SOURCE_DIR="${APEX_CONTAINER_SOURCE_DIR:-/opt/oracle/apex-26.1}"
+  export APEX_TABLESPACE="${APEX_TABLESPACE:-APEX}"
+  export APEX_FILES_TABLESPACE="${APEX_FILES_TABLESPACE:-APEX_FILES}"
+  export APEX_ADMIN_USERNAME="${APEX_ADMIN_USERNAME:-ADMIN}"
+  export APEX_URL="${APEX_URL:-${ORDS_URL}}"
 }
 
 compose() {

@@ -8,7 +8,17 @@ The project follows [Semantic Versioning](https://semver.org/).
 
 ### Planned
 
-- Add APEX, MCP Server, and Private Agent Factory stacks.
+- Add MCP Server and Private Agent Factory stacks.
+
+### Added
+
+- Oracle APEX 26.1 full-development deployment foundation.
+- Official archive checksum, source preparation, and prerequisite validation.
+- Dedicated `APEX` and `APEX_FILES` tablespace workflow.
+- Explicit interactive APEX administrator and REST-account configuration.
+- ORDS proxied PL/SQL gateway configuration and local `/i/` resources.
+- APEX status, smoke-test, deployment, and upgrade documentation.
+- ADR 0006 separating APEX software, persistent resources, and installation.
 
 ## [0.5.0] - 2026-07-23
 

@@ -46,6 +46,10 @@ This diagram describes the target architecture. Version 0.2.0 deploys the Oracle
 
 Version 0.3.0 adds Ollama to the backend network. Its API binds to host loopback by default because Ollama does not provide native API authentication. Future containers reach it through the backend alias `ollama:11434`.
 
+Version 0.6.0 installs APEX 26.1 into `FREEPDB1`; APEX is database metadata,
+not a separate long-running container. Browser requests reach APEX through ORDS.
+ORDS serves a read-only copy of matching APEX static resources under `/i/`.
+
 ## Storage boundaries
 
 | Path | Purpose | Git-managed | Backup policy |
@@ -53,6 +57,7 @@ Version 0.3.0 adds Ollama to the backend network. Its API binds to host loopback
 | `/srv/oracle-ai` | Compose definitions, scripts, docs, examples | Yes | Git remote |
 | `/srv/oracle-ai-data` | Database files, models, logs, backups | No | Independent data backup |
 | `/srv/oracle-ai-secrets` | Passwords, API keys, wallets, certificates | No | Encrypted backup only |
+| `/srv/oracle-ai-work` | Verified third-party installers and disposable staging | No | Re-download from authoritative source |
 
 ## Network boundaries
 
@@ -87,3 +92,11 @@ For v0.3.0, Ollama receives an eight-CPU and 12 GiB container ceiling, one loade
 Oracle REST Data Services 26.2.0 runs on both frontend and backend networks. It exposes
 HTTP port 8080 to the LAN and connects privately to `oracle-db:1521/FREEPDB1`.
 Installation is isolated in a one-time Compose profile; normal runtime has no SYS secret.
+
+## APEX deployment boundary
+
+APEX 26.1 is installed into `FREEPDB1` using an explicit one-time SYSDBA
+operation. The expanded Oracle installer remains outside Git. Dedicated
+tablespaces separate platform metadata and uploaded files from `SYSAUX`.
+ORDS remains the only web runtime and uses proxied PL/SQL gateway mode from
+`ORDS_PUBLIC_USER` to `APEX_PUBLIC_USER`.
