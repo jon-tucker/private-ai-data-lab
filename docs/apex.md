@@ -68,14 +68,16 @@ After a successful database installation:
 
 ```bash
 ./scripts/apex-create-admin.sh
-./scripts/apex-configure-rest.sh
 ./scripts/apex-configure-ords.sh
 ./scripts/apex-status.sh
 ./scripts/apex-smoke-test.sh
 ```
 
-The two account-configuration helpers are intentionally interactive so passwords
-do not appear in command arguments, Compose configuration, shell history, or Git.
+The administrator helper is intentionally interactive so its password does not
+appear in command arguments, Compose configuration, shell history, or Git.
+
+APEX 26.1 performs its ORDS database integration during `apexins.sql`. A separate
+`apex_rest_config.sql` run is neither required nor included in this workflow.
 
 ## ORDS integration
 
@@ -125,3 +127,20 @@ Before applying an APEX Patch Set Bundle or installing a newer APEX release:
 
 Do not replace APEX database files by recreating a container. APEX is database
 metadata and must be patched or upgraded using Oracle's supported SQL workflow.
+
+## Verified v0.6.0 deployment
+
+The reference deployment was verified on July 23, 2026:
+
+- Oracle APEX `26.1.0` installed in schema `APEX_260100`.
+- APEX registry component reported `VALID`.
+- 4,492 valid `APEX_260100` objects and 13 valid `FLOWS_FILES` objects.
+- `APEX_PUBLIC_USER` and `APEX_PUBLIC_ROUTER` open; `FLOWS_FILES` locked.
+- Instance administrator `ADMIN` created and authenticated through the browser.
+- ORDS `26.2.0` healthy with `plsql.gateway.mode=proxied`.
+- `ORDS_PUBLIC_USER` configured to proxy to `APEX_PUBLIC_USER`.
+- Local `/i/` static resources and the APEX landing endpoint passed smoke tests.
+- Cold pre-installation database backup created with SHA-256
+  `6c94c163d471044805f262b6e2518c52fa6bd763f5ec941ea3219c2fb8aec984`.
+- APEX installation log retained at
+  `/srv/oracle-ai-data/logs/apex/apex-install-20260723-183527.log`.

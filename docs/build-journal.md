@@ -110,3 +110,15 @@ This journal records implementation milestones, operational discoveries, and les
 - Downloaded the May 25 English-only APEX 26.1 archive and verified Oracle's SHA-256 checksum.
 - Selected dedicated `APEX` and `APEX_FILES` tablespaces.
 - Added explicit installation, ORDS gateway, static-resource, validation, and verification automation.
+
+## 2026-07-23 — Verified Oracle APEX 26.1 deployment
+
+- Created and verified a 686 MB cold database backup before installation.
+- Installed the full APEX 26.1.0 development environment in `FREEPDB1`.
+- Created dedicated `APEX` and `APEX_FILES` tablespaces.
+- Confirmed all installer phases completed with zero failed actions.
+- Confirmed APEX 26.1 automatically performed its ORDS database integration.
+- Created the `ADMIN` instance administrator and verified browser authentication.
+- Configured ORDS proxied PL/SQL gateway mode and local `/i/` resources.
+- Verified 4,492 valid APEX schema objects, 13 valid `FLOWS_FILES` objects,
+  healthy ORDS runtime, and successful HTTP smoke tests.

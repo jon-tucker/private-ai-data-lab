@@ -15,10 +15,11 @@ The project follows [Semantic Versioning](https://semver.org/).
 - Oracle APEX 26.1 full-development deployment foundation.
 - Official archive checksum, source preparation, and prerequisite validation.
 - Dedicated `APEX` and `APEX_FILES` tablespace workflow.
-- Explicit interactive APEX administrator and REST-account configuration.
+- Interactive APEX instance-administrator configuration without credential exposure.
 - ORDS proxied PL/SQL gateway configuration and local `/i/` resources.
 - APEX status, smoke-test, deployment, and upgrade documentation.
 - ADR 0006 separating APEX software, persistent resources, and installation.
+- Verified APEX 26.1.0 installation, object validity, ORDS proxy integration, local static resources, and browser administrator authentication.
 
 ## [0.5.0] - 2026-07-23
 
