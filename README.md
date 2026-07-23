@@ -157,3 +157,10 @@ The generated `.env` and password file are ignored by Git. Do not place real sec
 ## License
 
 Project-authored source and documentation are licensed under the [MIT License](LICENSE). Oracle software, images, and other third-party components remain subject to their respective licenses and terms.
+
+
+## ORDS milestone
+
+Oracle REST Data Services 26.2.0 is the v0.5.0 milestone. Its one-time installer changes
+database metadata explicitly, while the long-running service starts without a SYS secret.
+See `docs/ords.md` for deployment and operating instructions.

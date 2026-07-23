@@ -85,3 +85,11 @@ This journal records implementation milestones, operational discoveries, and les
 - Pin deployable component versions once stacks are introduced.
 - Validate each milestone before adding dependent services.
 - Avoid undocumented firmware changes on a stable host unless there is a demonstrated need and a verified vendor procedure.
+
+
+## 2026-07-23
+
+- Began v0.5.0 ORDS deployment.
+- Authenticated to Oracle Container Registry using an OCR authentication token.
+- Selected ORDS 26.2.0 and recorded image digest `sha256:6c510faf38965e2901b6bbd5ecf179f15af6909481de3e65446505d6d4d1eba0`.
+- Inspected the official entrypoint and adopted separate installation and runtime services.

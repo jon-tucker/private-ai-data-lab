@@ -28,6 +28,11 @@ load_env() {
   export OLLAMA_CONTAINER="${OLLAMA_CONTAINER:-oracle-ai-ollama}"
   export OPEN_WEBUI_CONTAINER="${OPEN_WEBUI_CONTAINER:-oracle-ai-open-webui}"
   export OPEN_WEBUI_SECRET_FILE="${OPEN_WEBUI_SECRET_FILE:-${PLATFORM_SECRETS_ROOT}/open-webui-secret-key}"
+  export ORDS_CONTAINER="${ORDS_CONTAINER:-oracle-ai-ords}"
+  export ORDS_INSTALL_CONTAINER="${ORDS_INSTALL_CONTAINER:-oracle-ai-ords-install}"
+  export ORDS_CONFIG_DIR="${ORDS_CONFIG_DIR:-${PLATFORM_DATA_ROOT}/ords}"
+  export ORDS_PUBLIC_PASSWORD_FILE="${ORDS_PUBLIC_PASSWORD_FILE:-${PLATFORM_SECRETS_ROOT}/ords-public-user-password}"
+  export ORDS_URL="${ORDS_URL:-http://127.0.0.1:8080/ords/}"
 }
 
 compose() {

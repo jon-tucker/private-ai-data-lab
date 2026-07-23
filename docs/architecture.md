@@ -80,3 +80,10 @@ The initial host has 12 cores / 24 threads, approximately 28 GiB usable RAM, and
 For v0.2.0, the database container receives a four-CPU and 8 GiB container ceiling with 2 GiB shared memory. Oracle AI Database Free independently enforces its product resource limits.
 
 For v0.3.0, Ollama receives an eight-CPU and 12 GiB container ceiling, one loaded model, one parallel request, and a 4096-token default context. These conservative defaults protect the 32 GB reference host while Oracle is running.
+
+
+## ORDS deployment boundary
+
+Oracle REST Data Services 26.2.0 runs on both frontend and backend networks. It exposes
+HTTP port 8080 to the LAN and connects privately to `oracle-db:1521/FREEPDB1`.
+Installation is isolated in a one-time Compose profile; normal runtime has no SYS secret.

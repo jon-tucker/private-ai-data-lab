@@ -17,6 +17,14 @@ services:
     extends:
       file: stacks/open-webui/compose.yaml
       service: open-webui
+  ords-install:
+    extends:
+      file: stacks/ords/compose.yaml
+      service: ords-install
+  ords:
+    extends:
+      file: stacks/ords/compose.yaml
+      service: ords
 
 networks:
   frontend:
