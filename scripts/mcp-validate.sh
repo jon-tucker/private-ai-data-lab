@@ -8,6 +8,8 @@ docker info >/dev/null
 
 [[ "${MCP_RESTRICT_LEVEL}" =~ ^[0-4]$ ]] ||
   die 'MCP_RESTRICT_LEVEL must be an integer from 0 through 4'
+[[ "${MCP_AUDIT_QUOTA}" =~ ^[1-9][0-9]*[KMG]$ ]] ||
+  die 'MCP_AUDIT_QUOTA must be a positive Oracle size such as 25M'
 [[ "${MCP_DATABASE_USER}" =~ ^[A-Z][A-Z0-9_]{0,29}$ ]] ||
   die 'MCP_DATABASE_USER must be an uppercase simple Oracle identifier'
 [[ "${MCP_DATABASE_ROLE}" =~ ^[A-Z][A-Z0-9_]{0,29}$ ]] ||

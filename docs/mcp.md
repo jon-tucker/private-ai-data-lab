@@ -42,7 +42,8 @@ Additional boundaries:
 - The SQLcl home is mode `0700`.
 - The database password file is mode `0600` and never mounted into the
   long-running database, ORDS, Open WebUI, or Ollama containers.
-- SQLcl does not record CONNECT commands in command history, and the connection store is hardened after creation.
+- SQLcl does not record `CONNECT` commands in command history, and the
+  connection store is hardened after creation.
 - The MCP account does not receive the `ORACLE_AI` workspace-owner password.
 
 ## Persistent state and secrets
@@ -75,6 +76,11 @@ The user receives only:
 
 - `CREATE SESSION`
 - `ORACLE_AI_MCP_READ_ROLE`
+
+SQLcl also requires its connection user to own `DBTOOLS$MCP_LOG` for its
+documented activity log. The bootstrap script temporarily grants `CREATE
+TABLE`, runs the protocol test that creates the table, and immediately revokes
+the privilege. A bounded `25M` `USERS` quota remains for this audit table.
 
 The synchronization script grants `SELECT` on existing `ORACLE_AI` tables,
 views, and materialized views to the role. It intentionally does not grant:
@@ -115,6 +121,15 @@ Save and verify the SQLcl connection:
 ./scripts/mcp-smoke-test.sh
 ./scripts/mcp-status.sh
 ```
+
+Bootstrap and verify the SQLcl audit table:
+
+```bash
+./scripts/mcp-bootstrap-audit.sh
+```
+
+After bootstrap, the user again has only `CREATE SESSION`; the quota supports
+the existing audit table but does not allow new tables without `CREATE TABLE`.
 
 Launch the server manually for inspection:
 

@@ -21,5 +21,6 @@ append_default MCP_DATABASE_ROLE ORACLE_AI_MCP_READ_ROLE
 append_default MCP_CONNECTION_NAME oracle_ai_readonly
 append_default MCP_SOURCE_SCHEMA ORACLE_AI
 append_default MCP_RESTRICT_LEVEL 4
+append_default MCP_AUDIT_QUOTA 25M
 append_default MCP_UID 54321
 append_default MCP_GID 54321
