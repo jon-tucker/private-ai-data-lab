@@ -28,7 +28,7 @@ services:
       - --feature-sdw
       - "true"
       - --gateway-mode
-      - proxied
+      - disabled
       - --log-folder
       - /etc/ords/config/logs
     volumes:

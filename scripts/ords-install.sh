@@ -17,4 +17,6 @@ printf 'Installing ORDS metadata and creating its runtime connection pool...\n'
   printf '%s\n' "$(cat "${ORDS_PUBLIC_PASSWORD_FILE}")"
 } | compose --profile ords-install run --rm -T ords-install
 
+"${PROJECT_ROOT}/scripts/ords-harden-config.sh"
+
 printf 'ORDS installation completed. The SYS password was supplied through standard input only.\n'

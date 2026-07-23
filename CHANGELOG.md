@@ -8,6 +8,7 @@ The project follows [Semantic Versioning](https://semver.org/).
 
 ### Added
 
+- Verified ORDS 26.2.0 metadata, runtime health, LAN connectivity, and secret isolation.
 - ORDS 26.2.0 deployment foundation with explicit install and runtime services.
 - Secret-safe ORDS installation, lifecycle scripts, validation, smoke testing, and documentation.
 

@@ -93,3 +93,12 @@ This journal records implementation milestones, operational discoveries, and les
 - Authenticated to Oracle Container Registry using an OCR authentication token.
 - Selected ORDS 26.2.0 and recorded image digest `sha256:6c510faf38965e2901b6bbd5ecf179f15af6909481de3e65446505d6d4d1eba0`.
 - Inspected the official entrypoint and adopted separate installation and runtime services.
+
+## 2026-07-23 — Verified ORDS 26.2.0 deployment
+
+- Installed ORDS metadata version `26.2.0.r1732140` in `FREEPDB1`.
+- Verified 354 valid `ORDS_METADATA` objects.
+- Started the runtime-only ORDS container without SYS credentials.
+- Verified container health and HTTP access over the LAN on port 8080.
+- Hardened persistent ORDS configuration and wallet files to mode `0600`.
+- Enhanced the SQL*Plus helper to support interactive and redirected input.
