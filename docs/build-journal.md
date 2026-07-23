@@ -143,3 +143,21 @@ This journal records implementation milestones, operational discoveries, and les
 - Verified the persistent connection store is created beneath `~/.dbtools`.
 - Selected SQLcl restriction level 4 and a dedicated read-only database user
   as the v0.7.0 defaults.
+
+## 2026-07-23 — Verified Oracle SQLcl MCP Server 26.2 deployment
+
+- Deployed SQLcl build `26.2.0.181.2110` using the pinned `26.2.0` image.
+- Ran SQLcl and its MCP server as non-root UID:GID `54321:54321`.
+- Created the dedicated `ORACLE_AI_MCP` database account with only
+  `CREATE SESSION` and `ORACLE_AI_MCP_READ_ROLE`.
+- Saved and verified the protected `oracle_ai_readonly` SQLcl connection.
+- Completed an MCP protocol handshake using protocol version `2024-11-05`.
+- Verified connection discovery, selection, read-only SQL execution, and
+  disconnection through MCP.
+- Confirmed the MCP session connected as `ORACLE_AI_MCP` to `FREEPDB1`.
+- Confirmed restriction level 4 and no published network port.
+- Confirmed the database account has no object-creation privilege or
+  tablespace quota.
+- Observed that SQLcl 26.2 did not create its documented
+  `DBTOOLS$MCP_LOG` table, including during a controlled temporary-privilege
+  test; all temporary privileges and quota were removed.
