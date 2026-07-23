@@ -42,7 +42,7 @@ Additional boundaries:
 - The SQLcl home is mode `0700`.
 - The database password file is mode `0600` and never mounted into the
   long-running database, ORDS, Open WebUI, or Ollama containers.
-- SQL history is disabled while the saved connection is created.
+- SQLcl does not record CONNECT commands in command history, and the connection store is hardened after creation.
 - The MCP account does not receive the `ORACLE_AI` workspace-owner password.
 
 ## Persistent state and secrets

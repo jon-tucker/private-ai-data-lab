@@ -9,7 +9,6 @@ password="$(<"${MCP_DATABASE_PASSWORD_FILE}")"
 
 {
   printf 'whenever sqlerror exit failure rollback\n'
-  printf 'set sqlhistory off\n'
   printf 'conn -save %s -savepwd %s/%s@//oracle-db:1521/%s\n' \
     "${MCP_CONNECTION_NAME}" "${MCP_DATABASE_USER}" "${password}" "${ORACLE_PDB}"
   printf 'show connection\n'

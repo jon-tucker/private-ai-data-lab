@@ -8,7 +8,6 @@ load_env
 output="$(
   {
     printf 'whenever sqlerror exit failure rollback\n'
-    printf 'set sqlhistory off\n'
     printf 'conn -name %s\n' "${MCP_CONNECTION_NAME}"
     printf "select sys_context('USERENV','SESSION_USER') as session_user, "
     printf "sys_context('USERENV','CON_NAME') as container_name from dual;\n"
