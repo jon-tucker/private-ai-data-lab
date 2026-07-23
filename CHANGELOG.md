@@ -6,16 +6,17 @@ The project follows [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Planned
+
+- Add APEX, MCP Server, and Private Agent Factory stacks.
+
+## [0.5.0] - 2026-07-23
+
 ### Added
 
 - Verified ORDS 26.2.0 metadata, runtime health, LAN connectivity, and secret isolation.
 - ORDS 26.2.0 deployment foundation with explicit install and runtime services.
 - Secret-safe ORDS installation, lifecycle scripts, validation, smoke testing, and documentation.
-
-
-### Planned
-
-- Add ORDS, APEX, MCP Server, and Private Agent Factory stacks.
 
 ## [0.4.0] - 2026-07-22
 
