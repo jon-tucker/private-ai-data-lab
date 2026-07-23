@@ -17,7 +17,8 @@ The project follows [Semantic Versioning](https://semver.org/).
 - Persistent protected SQLcl connection store outside Git.
 - Dedicated read-only Oracle database user and grant-synchronization workflow.
 - Secret creation, preparation, validation, connection, launch, and smoke-test scripts.
-- MCP protocol, read-only query, and bounded audit-table bootstrap verification.
+- MCP protocol and read-only query verification.
+- Documented the SQLcl 26.2 audit-log limitation observed during deployment.
 - ADR 0007 documenting MCP identity, state, transport, and restriction boundaries.
 
 ## [0.6.0] - 2026-07-23

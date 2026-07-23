@@ -29,16 +29,19 @@ The platform will:
    synchronization operation.
 9. Keep database write access and lower SQLcl restriction levels outside the
    default deployment.
-10. Temporarily grant `CREATE TABLE` only while SQLcl creates its documented
-    `DBTOOLS$MCP_LOG`, then revoke it and retain a bounded audit-table quota.
+10. Keep object-creation privileges and tablespace quota out of the default MCP
+    account. SQLcl 26.2 did not create its documented `DBTOOLS$MCP_LOG` during
+    successful protocol calls or a controlled temporary-privilege test.
 
 ## Consequences
 
 - MCP can inspect approved application data without owning it.
 - Newly created source objects are invisible until grants are synchronized.
 - Some SQLcl tools and generated operations will be rejected by design.
-- The MCP account owns and writes its SQLcl audit table, but cannot create
-  additional tables after bootstrap.
+- The deployment does not rely on SQLcl's documented MCP audit table because it
+  was not created by the verified 26.2 image.
+- Database-native auditing should be introduced separately if detailed MCP
+  activity records are required.
 - Remote clients require an SSH standard-input/standard-output wrapper or
   another deliberately reviewed transport bridge.
 - Backups must preserve both the SQLcl connection store and its corresponding

@@ -49,7 +49,6 @@ load_env() {
   export MCP_CONNECTION_NAME="${MCP_CONNECTION_NAME:-oracle_ai_readonly}"
   export MCP_SOURCE_SCHEMA="${MCP_SOURCE_SCHEMA:-ORACLE_AI}"
   export MCP_RESTRICT_LEVEL="${MCP_RESTRICT_LEVEL:-4}"
-  export MCP_AUDIT_QUOTA="${MCP_AUDIT_QUOTA:-25M}"
   export MCP_UID="${MCP_UID:-54321}"
   export MCP_GID="${MCP_GID:-54321}"
 }

@@ -77,10 +77,17 @@ The user receives only:
 - `CREATE SESSION`
 - `ORACLE_AI_MCP_READ_ROLE`
 
-SQLcl also requires its connection user to own `DBTOOLS$MCP_LOG` for its
-documented activity log. The bootstrap script temporarily grants `CREATE
-TABLE`, runs the protocol test that creates the table, and immediately revokes
-the privilege. A bounded `25M` `USERS` quota remains for this audit table.
+SQLcl documentation describes a `DBTOOLS$MCP_LOG` activity table. During the
+verified SQLcl 26.2 deployment, successful MCP requests did not create this
+table. A controlled test with temporary `CREATE TABLE` and a bounded quota also
+did not create it. Both were removed immediately after the test.
+
+The default deployment therefore does not grant object-creation privileges or
+a tablespace quota to the MCP account. Do not rely on `DBTOOLS$MCP_LOG` as an
+audit control for this release. The platform instead limits exposure with a
+dedicated read-only account, restriction level 4, an explicit source-schema
+grant list, and protected SQLcl state. Database-native auditing can be added in
+a later milestone without expanding the MCP account's privileges.
 
 The synchronization script grants `SELECT` on existing `ORACLE_AI` tables,
 views, and materialized views to the role. It intentionally does not grant:
@@ -122,14 +129,15 @@ Save and verify the SQLcl connection:
 ./scripts/mcp-status.sh
 ```
 
-Bootstrap and verify the SQLcl audit table:
+Verify the MCP protocol, saved connection, and read-only query path:
 
 ```bash
-./scripts/mcp-bootstrap-audit.sh
+./scripts/mcp-protocol-smoke-test.sh
 ```
 
-After bootstrap, the user again has only `CREATE SESSION`; the quota supports
-the existing audit table but does not allow new tables without `CREATE TABLE`.
+The test performs an MCP handshake, lists and selects the saved connection,
+queries the current user and pluggable database, and disconnects. It does not
+modify application data.
 
 Launch the server manually for inspection:
 
