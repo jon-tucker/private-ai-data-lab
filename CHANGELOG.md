@@ -8,7 +8,15 @@ The project follows [Semantic Versioning](https://semver.org/).
 
 ### Planned
 
-- Add Private Agent Factory and expanded MCP client integration.
+- Complete and verify the Private Agent Factory 26.4 production deployment.
+
+### Added
+
+- Oracle Linux 8.10 KVM boundary for Private Agent Factory 26.4.
+- Rootless Podman, dedicated build storage, private database and Ollama connectivity.
+- Agent Factory environment, VM lifecycle, preflight, secret, and database-user automation.
+- Multitenant-safe `MAX_STRING_SIZE=EXTENDED` conversion and rollback documentation.
+- ADR 0008 documenting Agent Factory host isolation and network boundaries.
 
 ## [0.7.0] - 2026-07-23
 

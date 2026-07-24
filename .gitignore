@@ -22,6 +22,8 @@ generated/
 *.lock
 .oracle-db-password-applied
 .mcp-database-user-created
+.agent-factory-database-users-created
+oracle_agent_factory_*.tar.gz
 
 # Oracle runtime files
 *.dbf

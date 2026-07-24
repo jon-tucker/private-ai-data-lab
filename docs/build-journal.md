@@ -161,3 +161,19 @@ This journal records implementation milestones, operational discoveries, and les
 - Observed that SQLcl 26.2 did not create its documented
   `DBTOOLS$MCP_LOG` table, including during a controlled temporary-privilege
   test; all temporary privileges and quota were removed.
+
+## 2026-07-24 — Began Private Agent Factory 26.4 milestone
+
+- Selected production mode with the existing Oracle AI Database and Ollama.
+- Installed KVM/libvirt without disrupting the verified Docker platform.
+- Installed and updated an Oracle Linux 8.10 VM with 8 vCPU and 12 GiB RAM.
+- Verified rootless Podman 4.9.4 with overlay storage and subordinate IDs.
+- Added a dedicated 120 GiB sparse XFS build disk mounted at `/u01`.
+- Reserved VM address `192.168.122.202` on the private libvirt network.
+- Moved Ollama's published API from loopback to private bridge address
+  `192.168.122.1`; Open WebUI remained healthy on its Docker network.
+- Verified VM access to Database port 1521 and Ollama port 11434.
+- Created and verified a 1.2 GiB cold database rollback backup.
+- Converted the CDB and PDBs to `MAX_STRING_SIZE=EXTENDED` with `catcon.pl`.
+- Recompiled database objects, revalidated APEX 26.1, and verified ORDS,
+  APEX, SQLcl MCP, and 32,767-byte SQL string behavior.

@@ -7,8 +7,8 @@ Oracle AI Data Platform is a reproducible, production-inspired environment for l
 Created by Jon Tucker with ChatGPT.
 
 > [!IMPORTANT]
-> Version `0.7.0` adds a verified Oracle SQLcl 26.2 MCP Server with a
-> dedicated read-only database identity and non-root container execution.
+> Version `0.8.0` adds the Oracle Linux 8.10 VM and production-mode
+> foundation for Oracle AI Database Private Agent Factory 26.4.
 
 ## Project goals
 
@@ -27,7 +27,7 @@ Created by Jon Tucker with ChatGPT.
 | Oracle services | ORDS | Available in v0.5.0 |
 | Oracle services | Oracle APEX 26.1 | Available in v0.6.0 |
 | Tool integration | Oracle SQLcl MCP Server 26.2 | Available in v0.7.0 |
-| Agents | Oracle AI Database Private Agent Factory | Planned |
+| Agents | Oracle AI Database Private Agent Factory 26.4 | Foundation in v0.8.0 |
 | Local AI | Ollama with verified Radeon 890M ROCm acceleration | Available in v0.3.0 |
 | Local AI UI | Open WebUI connected to Ollama | Available in v0.4.0 |
 | Model gateway | LiteLLM | Planned |
@@ -149,6 +149,20 @@ Review `docs/mcp.md` before creating the database user or saving its
 connection. The MCP server runs on demand over standard input/output; it does
 not publish a network port.
 
+Prepare the isolated Oracle Linux VM and Agent Factory database identity:
+
+```bash
+./scripts/agent-factory-configure-env.sh
+./scripts/agent-factory-configure-private-ollama.sh
+./scripts/agent-factory-create-secret.sh
+./scripts/agent-factory-vm-status.sh
+./scripts/agent-factory-preflight.sh
+```
+
+Review `docs/agent-factory.md` before creating the privileged repository users
+or running Oracle's interactive installer. The licensed installation kit and
+all generated Podman state remain outside Git.
+
 Connection defaults:
 
 ```text
@@ -171,6 +185,7 @@ The generated `.env` and password file are ignored by Git. Do not place real sec
 - [Oracle REST Data Services](docs/ords.md)
 - [Oracle APEX](docs/apex.md)
 - [Oracle SQLcl MCP Server](docs/mcp.md)
+- [Oracle AI Database Private Agent Factory](docs/agent-factory.md)
 - [ADR 0001: Project structure](docs/adr/0001-project-structure.md)
 - [ADR 0002: Database password handling](docs/adr/0002-database-password-handling.md)
 - [ADR 0003: Ollama acceleration profiles](docs/adr/0003-ollama-acceleration-profiles.md)
@@ -178,6 +193,7 @@ The generated `.env` and password file are ignored by Git. Do not place real sec
 - [ADR 0005: Separate ORDS installation from runtime](docs/adr/0005-separate-ords-installation-from-runtime.md)
 - [ADR 0006: Separate APEX software, state, and installation](docs/adr/0006-separate-apex-software-state-and-installation.md)
 - [ADR 0007: Isolate SQLcl MCP identity, state, and capabilities](docs/adr/0007-isolate-sqlcl-mcp-identity-state-and-capabilities.md)
+- [ADR 0008: Isolate Agent Factory in Oracle Linux](docs/adr/0008-isolate-agent-factory-in-oracle-linux.md)
 - [Changelog](CHANGELOG.md)
 
 ## Security

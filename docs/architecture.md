@@ -55,6 +55,11 @@ launches the process over standard input/output; no MCP TCP port is published.
 SQLcl connects to Oracle through the backend network using a dedicated
 read-only database identity.
 
+Version 0.8.0 places Private Agent Factory 26.4 in a dedicated Oracle Linux
+8.10 KVM virtual machine. The Ubuntu host retains Docker and GPU ownership.
+The VM reaches Oracle Database and Ollama through the private libvirt bridge;
+Agent Factory is not added to the host Docker networks.
+
 ## Storage boundaries
 
 | Path | Purpose | Git-managed | Backup policy |
@@ -63,6 +68,8 @@ read-only database identity.
 | `/srv/oracle-ai-data` | Database files, models, logs, backups | No | Independent data backup |
 | `/srv/oracle-ai-secrets` | Passwords, API keys, wallets, certificates | No | Encrypted backup only |
 | `/srv/oracle-ai-work` | Verified third-party installers and disposable staging | No | Re-download from authoritative source |
+| `/srv/oracle-ai-data/vms` | Sparse VM disks for the Agent Factory boundary | No | VM-aware offline backup |
+| VM `/u01/agent-factory` | Licensed kit, build workspace, temporary files, backups | No | Versioned kit and configuration backup |
 
 ## Network boundaries
 
@@ -72,6 +79,12 @@ read-only database identity.
 Open WebUI joins both networks: `frontend` receives browser traffic on port `3000`, while `backend` reaches Ollama through the stable `ollama` network alias. Ollama remains bound to host loopback and is not exposed directly to LAN clients.
 - A service joins only the networks it needs.
 - Database and model-runtime ports should remain LAN-only unless a documented use case requires otherwise.
+
+For Agent Factory, the local `.env` overrides `OLLAMA_HOST_BIND` with
+`192.168.122.1`. This publishes Ollama only on the private libvirt bridge.
+The VM uses `192.168.122.202`; neither address is routed directly to LAN
+clients. Browser access to Agent Factory uses an SSH tunnel until a reviewed
+reverse-proxy and TLS design is introduced.
 
 ## Deployment principles
 
@@ -119,3 +132,17 @@ read-only role. A deliberate synchronization command grants that role `SELECT`
 only on tables, views, and materialized views owned by `ORACLE_AI`. It receives
 no system-catalog role, object-creation privilege, PL/SQL execution privilege,
 or workspace-owner credential.
+
+## Agent Factory deployment boundary
+
+The `agent-factory` KVM guest runs Oracle Linux 8.10 with SELinux enforcing,
+eight virtual CPUs, 12 GiB RAM, rootless Podman, and no direct GPU device.
+Its 120 GiB system disk is separate from a 120 GiB sparse XFS build disk
+mounted at `/u01`. The licensed Agent Factory kit is installed as the
+non-root `jon` user in production mode.
+
+The repository database remains `FREEPDB1` on the Ubuntu host. The dedicated
+`AGENT_FACTORY` owner and `AAI_RO_AGENT_FACTORY` companion user are isolated
+from the APEX workspace and MCP identities. Oracle's documented production
+grants are broad; their use and review are explicit rather than hidden inside
+the interactive installer.
