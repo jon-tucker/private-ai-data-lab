@@ -177,3 +177,17 @@ This journal records implementation milestones, operational discoveries, and les
 - Converted the CDB and PDBs to `MAX_STRING_SIZE=EXTENDED` with `catcon.pl`.
 - Recompiled database objects, revalidated APEX 26.1, and verified ORDS,
   APEX, SQLcl MCP, and 32,767-byte SQL string behavior.
+
+## 2026-07-24 — Verified Private Agent Factory 26.4 deployment
+
+- Installed Private Agent Factory 26.4 in the isolated Oracle Linux 8.10 VM.
+- Verified the rootless Podman application container and loopback-only HTTPS
+  endpoint.
+- Verified 1,272 valid repository objects with no invalid objects.
+- Configured local Ollama generation using `qwen3:4b-instruct`.
+- Retained the bundled `multilingual-e5-base` embedding model.
+- Verified Prompt Lab inference with the exact response `AGENT_FACTORY_OK`.
+- Confirmed 100% GPU model allocation and 37 of 37 layers offloaded through
+  ROCm to the Radeon 890M.
+- Verified automatic startup and application availability after a VM reboot.
+- Created and validated coordinated post-installation database and VM backups.

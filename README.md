@@ -7,8 +7,8 @@ Oracle AI Data Platform is a reproducible, production-inspired environment for l
 Created by Jon Tucker with ChatGPT.
 
 > [!IMPORTANT]
-> Version `0.8.0` adds the Oracle Linux 8.10 VM and production-mode
-> foundation for Oracle AI Database Private Agent Factory 26.4.
+> Version `0.8.0` adds a verified Oracle AI Database Private Agent Factory
+> 26.4 production deployment in an isolated Oracle Linux 8.10 VM.
 
 ## Project goals
 
@@ -27,7 +27,7 @@ Created by Jon Tucker with ChatGPT.
 | Oracle services | ORDS | Available in v0.5.0 |
 | Oracle services | Oracle APEX 26.1 | Available in v0.6.0 |
 | Tool integration | Oracle SQLcl MCP Server 26.2 | Available in v0.7.0 |
-| Agents | Oracle AI Database Private Agent Factory 26.4 | Foundation in v0.8.0 |
+| Agents | Oracle AI Database Private Agent Factory 26.4 | Available in v0.8.0 |
 | Local AI | Ollama with verified Radeon 890M ROCm acceleration | Available in v0.3.0 |
 | Local AI UI | Open WebUI connected to Ollama | Available in v0.4.0 |
 | Model gateway | LiteLLM | Planned |

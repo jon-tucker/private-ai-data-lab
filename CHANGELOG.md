@@ -8,9 +8,13 @@ The project follows [Semantic Versioning](https://semver.org/).
 
 ### Planned
 
-- Complete and verify the Private Agent Factory 26.4 production deployment.
+- Expand MCP client integration and build initial Agent Factory solutions.
 
 ### Added
+
+- Verified Private Agent Factory 26.4 installation, database repository, and reboot persistence.
+- Configured the local Ollama `qwen3:4b-instruct` model and bundled `multilingual-e5-base` embeddings.
+- Verified Prompt Lab inference with all model layers allocated to the Radeon 890M through ROCm.
 
 - Oracle Linux 8.10 KVM boundary for Private Agent Factory 26.4.
 - Rootless Podman, dedicated build storage, private database and Ollama connectivity.
