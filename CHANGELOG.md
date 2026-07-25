@@ -10,6 +10,8 @@ The project follows [Semantic Versioning](https://semver.org/).
 
 - Expand MCP client integration and build initial Agent Factory solutions.
 
+## [0.8.0] - 2026-07-24
+
 ### Added
 
 - Verified Private Agent Factory 26.4 installation, database repository, and reboot persistence.
