@@ -23,4 +23,5 @@ append_default AGENT_FACTORY_DB_READ_USER AAI_RO_AGENT_FACTORY
 append_default AGENT_FACTORY_DB_PASSWORD_FILE /srv/oracle-ai-secrets/agent-factory-db-password
 append_default AGENT_FACTORY_OLLAMA_URL http://192.168.122.1:11434
 append_default AGENT_FACTORY_STAGE_ROOT /u01/agent-factory
+append_default AGENT_FACTORY_INSTALL_DIR /u01/agent-factory/staging/26.4.0-initial
 append_default AGENT_FACTORY_PORT 8080

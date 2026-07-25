@@ -8,7 +8,15 @@ The project follows [Semantic Versioning](https://semver.org/).
 
 ### Planned
 
-- Expand MCP client integration and build initial Agent Factory solutions.
+- Build additional Agent Factory solutions and operational observability.
+
+### Added
+
+- Private HTTPS bridge from Agent Factory to Oracle SQLcl MCP Server.
+- Streamable HTTP transport using pinned Supergateway and Node.js versions.
+- Private-CA TLS proxy bound only to the libvirt bridge.
+- Agent Factory CA installation, lifecycle, validation, and smoke-test automation.
+- Verified read-only MCP tool execution as `ORACLE_AI_MCP` in `FREEPDB1`.
 
 ## [0.8.0] - 2026-07-24
 

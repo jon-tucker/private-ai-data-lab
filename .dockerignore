@@ -1,0 +1,14 @@
+.git
+.gitignore
+.env
+._*
+*.tar
+*.tar.gz
+*.zip
+config/
+docs/
+examples/
+scripts/
+stacks/*
+!stacks/mcp/
+!stacks/mcp/Dockerfile.http

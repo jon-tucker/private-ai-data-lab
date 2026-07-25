@@ -29,6 +29,14 @@ services:
     extends:
       file: stacks/mcp/compose.yaml
       service: mcp
+  mcp-http:
+    extends:
+      file: stacks/mcp/compose.yaml
+      service: mcp-http
+  mcp-tls:
+    extends:
+      file: stacks/mcp/compose.yaml
+      service: mcp-tls
 
 networks:
   frontend:

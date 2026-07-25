@@ -1,0 +1,15 @@
+ARG MCP_SQLCL_IMAGE=container-registry.oracle.com/database/sqlcl:26.2.0
+FROM ${MCP_SQLCL_IMAGE}
+
+ARG MCP_NODEJS_STREAM=22
+ARG MCP_SUPERGATEWAY_VERSION=3.4.3
+
+USER 0
+
+RUN dnf -y module enable "nodejs:${MCP_NODEJS_STREAM}" \
+    && dnf -y install nodejs npm \
+    && npm install --global --omit=dev "supergateway@${MCP_SUPERGATEWAY_VERSION}" \
+    && dnf clean all \
+    && rm -rf /var/cache/dnf /root/.npm
+
+ENTRYPOINT ["/usr/local/bin/supergateway"]

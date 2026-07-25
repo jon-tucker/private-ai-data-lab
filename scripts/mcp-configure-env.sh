@@ -23,3 +23,16 @@ append_default MCP_SOURCE_SCHEMA ORACLE_AI
 append_default MCP_RESTRICT_LEVEL 4
 append_default MCP_UID 54321
 append_default MCP_GID 54321
+append_default MCP_HTTP_IMAGE oracle-ai/sqlcl-mcp-http:26.2.0
+append_default MCP_HTTP_CONTAINER oracle-ai-sqlcl-mcp-http
+append_default MCP_NODEJS_STREAM 22
+append_default MCP_SUPERGATEWAY_VERSION 3.4.3
+append_default MCP_HTTP_SESSION_TIMEOUT_MS 600000
+append_default MCP_TLS_IMAGE nginx:1.30.4-alpine3.24
+append_default MCP_TLS_CONTAINER oracle-ai-sqlcl-mcp-tls
+append_default MCP_TLS_DIR /srv/oracle-ai-secrets/mcp-tls
+append_default MCP_NGINX_CONFIG /srv/oracle-ai-data/mcp/nginx.conf
+append_default MCP_HTTPS_HOST_BIND 192.168.122.1
+append_default MCP_HTTPS_PORT 8182
+append_default PLATFORM_UID "$(id -u)"
+append_default PLATFORM_GID "$(id -g)"

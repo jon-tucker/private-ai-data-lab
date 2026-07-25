@@ -191,3 +191,18 @@ This journal records implementation milestones, operational discoveries, and les
   ROCm to the Radeon 890M.
 - Verified automatic startup and application availability after a VM reboot.
 - Created and validated coordinated post-installation database and VM backups.
+
+## 2026-07-24 — Verified Agent Factory and SQLcl MCP integration
+
+- Adapted SQLcl MCP standard input/output to stateful Streamable HTTP with
+  pinned Supergateway 3.4.3 and Node.js 22.
+- Terminated TLS with pinned Nginx and a private CA.
+- Published only `192.168.122.1:8182` to the isolated Agent Factory VM.
+- Kept the unencrypted HTTP adapter on the private Docker backend network.
+- Registered `oracle_sqlcl_readonly` in Agent Factory using Direct
+  authentication.
+- Allowed only six reviewed read-oriented MCP tools in the test flow.
+- Verified an Agent Factory tool call connected through
+  `oracle_ai_readonly` and returned `ORACLE_AI_MCP` in `FREEPDB1`.
+- Observed a harmless Agent Factory 26.4 Direct-auth wallet lookup warning;
+  tokenless MCP initialization and tool execution succeeded.

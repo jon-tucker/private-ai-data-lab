@@ -60,6 +60,12 @@ Version 0.8.0 places Private Agent Factory 26.4 in a dedicated Oracle Linux
 The VM reaches Oracle Database and Ollama through the private libvirt bridge;
 Agent Factory is not added to the host Docker networks.
 
+Version 0.9.0 adds a private HTTPS adaptation layer for SQLcl MCP. SQLcl
+continues to run as a non-root, restriction-level-4 process. Supergateway
+adapts its standard-input/standard-output transport to Streamable HTTP on the
+private Docker network. Nginx terminates TLS and publishes only
+`192.168.122.1:8182` to the Agent Factory VM.
+
 ## Storage boundaries
 
 | Path | Purpose | Git-managed | Backup policy |
@@ -126,6 +132,13 @@ numeric UID:GID `54321:54321`, uses a read-only root filesystem, drops all
 Linux capabilities, and has no published port. Its only persistent writable
 path is `/srv/oracle-ai-data/mcp/sqlcl-home`, which contains the encrypted
 SQLcl connection store.
+
+The Agent Factory integration uses two additional containers. `mcp-http`
+adapts SQLcl to Streamable HTTP without publishing its port. `mcp-tls`
+terminates TLS, publishes only to the private libvirt bridge, and forwards
+requests to `mcp-http` over the backend Docker network. Both use read-only
+root filesystems, drop all capabilities, and disallow privilege escalation.
+The TLS private key remains under `/srv/oracle-ai-secrets/mcp-tls`.
 
 The default `ORACLE_AI_MCP` database account has `CREATE SESSION` and a
 read-only role. A deliberate synchronization command grants that role `SELECT`

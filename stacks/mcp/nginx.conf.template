@@ -1,0 +1,36 @@
+pid /tmp/nginx.pid;
+
+events {}
+
+http {
+  access_log /dev/stdout;
+  error_log /dev/stderr info;
+  resolver 127.0.0.11 valid=30s ipv6=off;
+
+  client_body_temp_path /tmp/client_body;
+  proxy_temp_path /tmp/proxy;
+  fastcgi_temp_path /tmp/fastcgi;
+  uwsgi_temp_path /tmp/uwsgi;
+  scgi_temp_path /tmp/scgi;
+
+  server {
+    listen 8443 ssl;
+    server_name _;
+
+    ssl_certificate /etc/nginx/tls/server.crt;
+    ssl_certificate_key /etc/nginx/tls/server.key;
+    ssl_protocols TLSv1.2 TLSv1.3;
+
+    location / {
+      set $mcp_upstream http://mcp-http:8181;
+      proxy_pass $mcp_upstream;
+      proxy_http_version 1.1;
+      proxy_set_header Host $host;
+      proxy_set_header X-Forwarded-Proto https;
+      proxy_buffering off;
+      proxy_request_buffering off;
+      proxy_read_timeout 660s;
+      proxy_send_timeout 660s;
+    }
+  }
+}
