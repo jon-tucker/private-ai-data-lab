@@ -10,6 +10,8 @@ The project follows [Semantic Versioning](https://semver.org/).
 
 - Build additional Agent Factory solutions and operational observability.
 
+## [0.9.0] - 2026-07-24
+
 ### Added
 
 - Private HTTPS bridge from Agent Factory to Oracle SQLcl MCP Server.

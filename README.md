@@ -28,7 +28,7 @@ Created by Jon Tucker with ChatGPT.
 | Oracle services | Oracle APEX 26.1 | Available in v0.6.0 |
 | Tool integration | Oracle SQLcl MCP Server 26.2 | Available in v0.7.0 |
 | Agents | Oracle AI Database Private Agent Factory 26.4 | Available in v0.8.0 |
-| Agent integration | Agent Factory to read-only SQLcl MCP | Foundation in v0.9.0 |
+| Agent integration | Agent Factory to read-only SQLcl MCP | Available in v0.9.0 |
 | Local AI | Ollama with verified Radeon 890M ROCm acceleration | Available in v0.3.0 |
 | Local AI UI | Open WebUI connected to Ollama | Available in v0.4.0 |
 | Model gateway | LiteLLM | Planned |
