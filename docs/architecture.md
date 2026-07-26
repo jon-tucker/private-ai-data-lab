@@ -159,3 +159,11 @@ The repository database remains `FREEPDB1` on the Ubuntu host. The dedicated
 from the APEX workspace and MCP identities. Oracle's documented production
 grants are broad; their use and review are explicit rather than hidden inside
 the interactive installer.
+
+## Data-agent ownership boundary
+
+The first data-agent solution stores its versioned tables and views under the
+`ORACLE_AI` application schema. Agent Factory never receives that schema's
+credential. It reaches the data through SQLcl MCP as `ORACLE_AI_MCP`, whose
+role receives only explicit `SELECT` grants. Dataset installation and grant
+synchronization are administrative operations outside the agent runtime.

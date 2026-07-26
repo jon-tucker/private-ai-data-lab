@@ -10,6 +10,13 @@ The project follows [Semantic Versioning](https://semver.org/).
 
 - Build additional Agent Factory solutions and operational observability.
 
+### Added
+
+- Deterministic sales schema and reporting views for the first data agent.
+- Explicit read-grant synchronization and least-privilege MCP verification.
+- Data-agent installation, status, validation, smoke-test, and removal tools.
+- ADR 0010 separating application data ownership from agent read access.
+
 ## [0.9.0] - 2026-07-24
 
 ### Added

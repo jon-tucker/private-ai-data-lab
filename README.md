@@ -7,8 +7,8 @@ Oracle AI Data Platform is a reproducible, production-inspired environment for l
 Created by Jon Tucker with ChatGPT.
 
 > [!IMPORTANT]
-> Version `0.9.0` integrates Private Agent Factory with Oracle SQLcl MCP
-> through a private, certificate-verified HTTPS bridge.
+> Version `0.10.0` adds the first reproducible read-only sales data-agent
+> solution on the verified Agent Factory and SQLcl MCP integration.
 
 ## Project goals
 
@@ -29,6 +29,7 @@ Created by Jon Tucker with ChatGPT.
 | Tool integration | Oracle SQLcl MCP Server 26.2 | Available in v0.7.0 |
 | Agents | Oracle AI Database Private Agent Factory 26.4 | Available in v0.8.0 |
 | Agent integration | Agent Factory to read-only SQLcl MCP | Available in v0.9.0 |
+| Agent solution | Read-only sales data agent | Foundation in v0.10.0 |
 | Local AI | Ollama with verified Radeon 890M ROCm acceleration | Available in v0.3.0 |
 | Local AI UI | Open WebUI connected to Ollama | Available in v0.4.0 |
 | Model gateway | LiteLLM | Planned |
@@ -59,6 +60,7 @@ The repository name is `oracle-ai-data-platform`; its deployment path is `/srv/o
 │   └── build-journal.md
 ├── examples/
 ├── scripts/
+├── sql/
 └── stacks/
     ├── agent-factory/
     ├── apex/

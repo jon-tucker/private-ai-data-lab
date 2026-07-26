@@ -206,3 +206,13 @@ This journal records implementation milestones, operational discoveries, and les
   `oracle_ai_readonly` and returned `ORACLE_AI_MCP` in `FREEPDB1`.
 - Observed a harmless Agent Factory 26.4 Direct-auth wallet lookup warning;
   tokenless MCP initialization and tool execution succeeded.
+
+## 2026-07-26 — Began read-only sales data-agent milestone
+
+- Confirmed the `ORACLE_AI` application schema contained no objects.
+- Confirmed `ORACLE_AI_MCP` retained only `CREATE SESSION` and no quota.
+- Added a deterministic sales dataset with four tables and two reporting
+  views.
+- Kept object ownership with `ORACLE_AI` and delegated only `SELECT` through
+  `ORACLE_AI_MCP_READ_ROLE`.
+- Added repeatable row-count, revenue, grant, and write-denial verification.
