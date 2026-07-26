@@ -235,3 +235,30 @@ This journal records implementation milestones, operational discoveries, and les
 - Observed that Agent Factory 26.4 may retain the visible conversation when
   **New chat** is selected; reopening the flow provides the practical
   workaround.
+
+## 2026-07-26 — Began agent operations and recovery milestone
+
+- Verified Database, Ollama, SQLcl MCP HTTPS, the Agent Factory VM, and the
+  Agent Factory application were healthy.
+- Confirmed the private MCP certificate is valid through October 27, 2028.
+- Measured 37 GiB of allocated active VM storage and 53 GiB of existing
+  backups with 719 GiB free on the host filesystem.
+- Confirmed the Agent Factory persistent application volume currently uses
+  53 MiB and `/u01` has 105 GiB free.
+- Chose permission-aware status reporting, coordinated cold backups,
+  checksummed manifests, and report-only retention as the v0.11 foundation.
+
+## 2026-07-26 — Verified coordinated agent-platform recovery set
+
+- Corrected the Agent Factory application probe to use its VM-local HTTPS
+  port `8080`.
+- Quiesced Agent Factory, the SQLcl MCP bridge, ORDS, and Oracle Database in
+  dependency order.
+- Created a 38 GiB recovery set containing both offline VM disks, the libvirt
+  definition, the cold Oracle data archive, and SQLcl MCP state.
+- Verified every SHA-256 checksum, both QCOW2 structures, and both compressed
+  archives.
+- Restored all previously running services and confirmed Database, Ollama,
+  SQLcl MCP HTTPS, the Agent Factory VM, and the Agent Factory application
+  were healthy.
+- Retained 681 GiB of free host storage after the backup.

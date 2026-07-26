@@ -7,8 +7,8 @@ Oracle AI Data Platform is a reproducible, production-inspired environment for l
 Created by Jon Tucker with ChatGPT.
 
 > [!IMPORTANT]
-> Version `0.10.0` adds the first reproducible read-only sales data-agent
-> solution on the verified Agent Factory and SQLcl MCP integration.
+> Version `0.11.0` adds coordinated health, capacity, certificate, backup,
+> verification, and retention-reporting operations for the agent platform.
 
 ## Project goals
 
@@ -30,10 +30,11 @@ Created by Jon Tucker with ChatGPT.
 | Agents | Oracle AI Database Private Agent Factory 26.4 | Available in v0.8.0 |
 | Agent integration | Agent Factory to read-only SQLcl MCP | Available in v0.9.0 |
 | Agent solution | Read-only sales data agent | Available in v0.10.0 |
+| Agent operations | Health, backup, verification, and recovery | Foundation in v0.11.0 |
 | Local AI | Ollama with verified Radeon 890M ROCm acceleration | Available in v0.3.0 |
 | Local AI UI | Open WebUI connected to Ollama | Available in v0.4.0 |
 | Model gateway | LiteLLM | Planned |
-| Edge and operations | Reverse proxy, logging, backups, monitoring | Planned |
+| Edge and operations | Reverse proxy, logging, backups, monitoring | In progress |
 
 ## Host layout
 
@@ -189,6 +190,9 @@ The generated `.env` and password file are ignored by Git. Do not place real sec
 - [Oracle APEX](docs/apex.md)
 - [Oracle SQLcl MCP Server](docs/mcp.md)
 - [Oracle AI Database Private Agent Factory](docs/agent-factory.md)
+- [Agent Factory and SQLcl MCP integration](docs/agent-integration.md)
+- [Read-only sales data agent](docs/data-agent.md)
+- [Agent operations and recovery](docs/agent-operations.md)
 - [ADR 0001: Project structure](docs/adr/0001-project-structure.md)
 - [ADR 0002: Database password handling](docs/adr/0002-database-password-handling.md)
 - [ADR 0003: Ollama acceleration profiles](docs/adr/0003-ollama-acceleration-profiles.md)
@@ -197,6 +201,9 @@ The generated `.env` and password file are ignored by Git. Do not place real sec
 - [ADR 0006: Separate APEX software, state, and installation](docs/adr/0006-separate-apex-software-state-and-installation.md)
 - [ADR 0007: Isolate SQLcl MCP identity, state, and capabilities](docs/adr/0007-isolate-sqlcl-mcp-identity-state-and-capabilities.md)
 - [ADR 0008: Isolate Agent Factory in Oracle Linux](docs/adr/0008-isolate-agent-factory-in-oracle-linux.md)
+- [ADR 0009: Private HTTPS bridge for Agent Factory MCP](docs/adr/0009-private-https-bridge-for-agent-factory-mcp.md)
+- [ADR 0010: Separate data ownership from agent read access](docs/adr/0010-separate-data-ownership-from-agent-read-access.md)
+- [ADR 0011: Coordinate agent-platform backups and retention](docs/adr/0011-coordinate-agent-platform-backups-and-retention.md)
 - [Changelog](CHANGELOG.md)
 
 ## Security

@@ -10,6 +10,15 @@ The project follows [Semantic Versioning](https://semver.org/).
 
 - Build additional Agent Factory solutions and operational observability.
 
+### Added
+
+- Unified health checks for containers, Agent Factory, private MCP TLS, and storage.
+- Permission-aware capacity, backup-inventory, and non-destructive retention reports.
+- Coordinated cold-backup workflow for Oracle Database, SQLcl MCP state, and both Agent Factory VM disks.
+- Backup manifests, checksums, offline image checks, and archive verification.
+- Verified a 38 GiB coordinated recovery set and healthy service restoration.
+- ADR 0011 requiring coordinated quiescence and explicit retention decisions.
+
 ## [0.10.0] - 2026-07-26
 
 ### Added

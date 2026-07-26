@@ -66,6 +66,12 @@ adapts its standard-input/standard-output transport to Streamable HTTP on the
 private Docker network. Nginx terminates TLS and publishes only
 `192.168.122.1:8182` to the Agent Factory VM.
 
+Version 0.11.0 adds a coordinated operations layer. Health reporting spans the
+host containers, libvirt guest, Agent Factory application, private MCP
+endpoint, certificate lifetime, and filesystem capacity. Cold backups quiesce
+the database and VM before copying mutable state and restore only services
+that were running before the backup.
+
 ## Storage boundaries
 
 | Path | Purpose | Git-managed | Backup policy |
@@ -76,6 +82,7 @@ private Docker network. Nginx terminates TLS and publishes only
 | `/srv/oracle-ai-work` | Verified third-party installers and disposable staging | No | Re-download from authoritative source |
 | `/srv/oracle-ai-data/vms` | Sparse VM disks for the Agent Factory boundary | No | VM-aware offline backup |
 | VM `/u01/agent-factory` | Licensed kit, build workspace, temporary files, backups | No | Versioned kit and configuration backup |
+| `/srv/oracle-ai-data/backups/agent-operations` | Coordinated cold backup sets and manifests | No | Retention by explicit reviewed action |
 
 ## Network boundaries
 
@@ -167,3 +174,17 @@ The first data-agent solution stores its versioned tables and views under the
 credential. It reaches the data through SQLcl MCP as `ORACLE_AI_MCP`, whose
 role receives only explicit `SELECT` grants. Dataset installation and grant
 synchronization are administrative operations outside the agent runtime.
+
+## Agent-operations boundary
+
+Operational status is collected without modifying workloads. Storage reports
+use elevated read access only where service-owned paths require it. The cold
+backup command requires `--confirm`, records the initial service states, stops
+ORDS before Oracle Database, shuts down the Agent Factory VM, and copies both
+offline VM disks plus the database data directory. An exit trap attempts to
+restore the services that were running even when a backup phase fails.
+
+Every backup set includes a Git revision, service-state manifest, SHA-256
+checksums, libvirt XML, sparse VM images, and a compressed database archive.
+Retention reporting never deletes data. Restore remains a deliberate
+documented operation because it replaces authoritative persistent state.
