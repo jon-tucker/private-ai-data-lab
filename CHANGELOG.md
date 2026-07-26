@@ -10,6 +10,8 @@ The project follows [Semantic Versioning](https://semver.org/).
 
 - Build additional Agent Factory solutions and operational observability.
 
+## [0.11.0] - 2026-07-26
+
 ### Added
 
 - Unified health checks for containers, Agent Factory, private MCP TLS, and storage.
