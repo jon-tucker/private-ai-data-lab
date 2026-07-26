@@ -216,3 +216,22 @@ This journal records implementation milestones, operational discoveries, and les
 - Kept object ownership with `ORACLE_AI` and delegated only `SELECT` through
   `ORACLE_AI_MCP_READ_ROLE`.
 - Added repeatable row-count, revenue, grant, and write-denial verification.
+
+## 2026-07-26 — Verified read-only sales analysis agent
+
+- Installed four deterministic `ORACLE_AI` sales tables and two reporting
+  views with 8 customers, 8 products, 12 orders, and 22 order items.
+- Synchronized six object-level `SELECT` grants through
+  `ORACLE_AI_MCP_READ_ROLE`.
+- Verified the MCP session remained `ORACLE_AI_MCP` in `FREEPDB1`.
+- Verified recognized revenue of `12027` from only `COMPLETED` and `SHIPPED`
+  orders.
+- Verified natural-language analysis by sales channel, product, and customer
+  region through the Agent Factory flow.
+- Added explicit reporting-view schemas to prevent the local
+  `qwen3:4b-instruct` model from inventing or mixing revenue columns.
+- Verified the agent refused a DDL request without calling a tool.
+- Independently verified database-enforced write denial for the MCP identity.
+- Observed that Agent Factory 26.4 may retain the visible conversation when
+  **New chat** is selected; reopening the flow provides the practical
+  workaround.

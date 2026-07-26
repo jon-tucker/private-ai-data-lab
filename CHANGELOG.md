@@ -16,6 +16,8 @@ The project follows [Semantic Versioning](https://semver.org/).
 - Explicit read-grant synchronization and least-privilege MCP verification.
 - Data-agent installation, status, validation, smoke-test, and removal tools.
 - ADR 0010 separating application data ownership from agent read access.
+- Verified natural-language sales analysis by channel, product, and region.
+- Verified agent-level DDL refusal and database-enforced write denial.
 
 ## [0.9.0] - 2026-07-24
 

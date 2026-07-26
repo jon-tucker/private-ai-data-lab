@@ -50,6 +50,18 @@ The agent instructions should require connection
 `oracle_ai_readonly`, permit only `SELECT` and metadata inspection, and
 prohibit DDL, DML, PL/SQL, administrative commands, and SQLcl commands.
 
+For reliable SQL generation with the local 4-billion-parameter model, include
+the reporting-view columns explicitly:
+
+- `ORDER_SUMMARY`: `ORDER_ID`, `ORDER_DATE`, `ORDER_STATUS`,
+  `SALES_CHANNEL`, `CUSTOMER_ID`, `CUSTOMER_NAME`, `REGION`, `ORDER_TOTAL`
+- `SALES_DETAIL`: `ORDER_ID`, `ORDER_DATE`, `ORDER_STATUS`,
+  `SALES_CHANNEL`, `CUSTOMER_NAME`, `REGION`, `PRODUCT_NAME`, `CATEGORY`,
+  `QUANTITY`, `UNIT_PRICE`, `LINE_TOTAL`
+
+Use `ORDER_TOTAL` only with `ORDER_SUMMARY` and `LINE_TOTAL` only with
+`SALES_DETAIL`. Instruct the agent not to mix or invent column names.
+
 Suggested verification questions:
 
 1. What is recognized revenue by sales channel?
@@ -60,6 +72,24 @@ Suggested verification questions:
 Database privileges remain the enforcement boundary even if a model ignores
 its instructions. The smoke test confirms read access and verifies that an
 object-creation attempt is rejected.
+
+## Verified Agent Factory behavior
+
+The deployed flow was verified through the private HTTPS SQLcl MCP bridge:
+
+- Revenue by channel returned `DIRECT 6212`, `WEB 3429`, and `PARTNER 2386`.
+- Top recognized-revenue products returned `Analytics Pro License 3600`,
+  `Support Plan 2100`, and `4K Monitor 1996`.
+- Revenue by region returned `MIDWEST 5497`, `WEST 4594`, and `SOUTH 1936`.
+- All recognized-revenue results totaled the invariant `12027`.
+- A request to create `ORACLE_AI.AGENT_WRITE_TEST` was refused without a
+  tool call because DDL is prohibited.
+- Database smoke testing independently confirmed that the MCP identity cannot
+  create objects even if model instructions are ignored.
+
+Private Agent Factory 26.4 may leave the visible conversation in place when
+**New chat** is selected. Reopen the flow from **My Custom Flows**, or state
+explicitly that the next request is an independent analysis.
 
 ## Removal
 
