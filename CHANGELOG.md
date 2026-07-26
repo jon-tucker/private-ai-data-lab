@@ -10,6 +10,8 @@ The project follows [Semantic Versioning](https://semver.org/).
 
 - Build additional Agent Factory solutions and operational observability.
 
+## [0.10.0] - 2026-07-26
+
 ### Added
 
 - Deterministic sales schema and reporting views for the first data agent.
