@@ -37,7 +37,7 @@ Created by Jon Tucker with ChatGPT.
 | Local AI | Ollama with verified Radeon 890M ROCm acceleration | Available in v0.3.0 |
 | Local AI UI | Open WebUI connected to Ollama | Available in v0.4.0 |
 | **Model gateway** | Private LiteLLM gateway for Ollama | Available in v0.15.0 |
-| **Model gateway operations** | TLS, trust, monitoring, and migration controls | Foundation in v0.16.0 |
+| **Model gateway operations** | TLS, trust, monitoring, and migration controls | Available in v0.16.0 |
 | Edge and operations | Reverse proxy, logging, backups, monitoring | In progress |
 
 ## Host layout

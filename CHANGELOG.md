@@ -10,6 +10,8 @@ The project follows [Semantic Versioning](https://semver.org/).
 
 - Build additional Agent Factory solutions.
 
+## [0.16.0] - 2026-07-27
+
 ### Added
 
 - Private TLS proxy for the authenticated LiteLLM gateway.
