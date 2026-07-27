@@ -1,0 +1,20 @@
+[Unit]
+Description=Oracle AI Data Platform coordinated cold backup
+After=docker.service libvirtd.service network-online.target
+Wants=network-online.target
+ConditionACPower=true
+
+[Service]
+Type=oneshot
+User=root
+Group=root
+WorkingDirectory=@PROJECT_ROOT@
+Environment=HOME=/home/@PLATFORM_USER@
+ExecStart=@PROJECT_ROOT@/scripts/observability-run.sh backup @PROJECT_ROOT@/scripts/agent-operations-backup.sh --confirm
+Nice=15
+IOSchedulingClass=best-effort
+IOSchedulingPriority=7
+TimeoutStartSec=infinity
+
+[Install]
+WantedBy=multi-user.target

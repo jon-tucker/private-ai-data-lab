@@ -1,0 +1,16 @@
+[Unit]
+Description=Oracle AI Data Platform daily health check
+After=docker.service libvirtd.service network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=@PLATFORM_USER@
+Group=@PLATFORM_GROUP@
+WorkingDirectory=@PROJECT_ROOT@
+Environment=HOME=/home/@PLATFORM_USER@
+ExecStart=@PROJECT_ROOT@/scripts/observability-run.sh health @PROJECT_ROOT@/scripts/agent-operations-health.sh
+Nice=10
+
+[Install]
+WantedBy=multi-user.target

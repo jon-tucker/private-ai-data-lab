@@ -79,10 +79,11 @@ fi
 [[ "$(virsh -c "${AGENT_FACTORY_VM_URI}" domstate "${AGENT_FACTORY_VM_NAME}")" == 'running' ]] &&
   vm_was_running=true
 
-sudo install -d -o "$(id -u)" -g "$(id -g)" -m 0700 \
+sudo install -d -o "${PLATFORM_UID}" -g "${PLATFORM_GID}" -m 0700 \
   "${backup_dir}" "${vm_dir}" "${database_dir}" "${host_dir}"
 
-git -C "${PROJECT_ROOT}" status --short >"${source_state}"
+git -c "safe.directory=${PROJECT_ROOT}" \
+  -C "${PROJECT_ROOT}" status --short >"${source_state}"
 if [[ -s "${source_state}" ]]; then
   git_worktree_dirty=true
 else
@@ -91,7 +92,10 @@ fi
 
 {
   printf 'created_utc=%s\n' "${timestamp}"
-  printf 'git_commit=%s\n' "$(git -C "${PROJECT_ROOT}" rev-parse HEAD)"
+  printf 'git_commit=%s\n' "$(
+    git -c "safe.directory=${PROJECT_ROOT}" \
+      -C "${PROJECT_ROOT}" rev-parse HEAD
+  )"
   printf 'git_worktree_dirty=%s\n' "${git_worktree_dirty}"
   printf 'hostname=%s\n' "$(hostname)"
   printf 'database_was_running=%s\n' "${database_was_running}"
@@ -129,21 +133,21 @@ sudo cp --archive --sparse=always --reflink=auto \
 sudo cp --archive --sparse=always --reflink=auto \
   "${AGENT_FACTORY_BUILD_DISK}" \
   "${vm_dir}/"
-sudo chown "$(id -u):$(id -g)" "${vm_dir}"/*.qcow2
+sudo chown "${PLATFORM_UID}:${PLATFORM_GID}" "${vm_dir}"/*.qcow2
 chmod 0600 "${vm_dir}"/*.qcow2
 
 sudo tar --numeric-owner --acls --xattrs --selinux \
   -C "${PLATFORM_DATA_ROOT}" \
   -czf "${database_dir}/oracle.tar.gz" \
   oracle
-sudo chown "$(id -u):$(id -g)" "${database_dir}/oracle.tar.gz"
+sudo chown "${PLATFORM_UID}:${PLATFORM_GID}" "${database_dir}/oracle.tar.gz"
 chmod 0600 "${database_dir}/oracle.tar.gz"
 
 sudo tar --numeric-owner --acls --xattrs --selinux \
   -C "${PLATFORM_DATA_ROOT}" \
   -czf "${host_dir}/mcp.tar.gz" \
   mcp
-sudo chown "$(id -u):$(id -g)" "${host_dir}/mcp.tar.gz"
+sudo chown "${PLATFORM_UID}:${PLATFORM_GID}" "${host_dir}/mcp.tar.gz"
 chmod 0600 "${host_dir}/mcp.tar.gz"
 
 qemu-img check "${vm_dir}/${os_disk_name}"
@@ -158,6 +162,7 @@ gzip --test "${host_dir}/mcp.tar.gz"
     xargs -0 sha256sum >SHA256SUMS
 )
 chmod 0600 "${manifest}" "${source_state}" "${checksums}"
+sudo chown -R "${PLATFORM_UID}:${PLATFORM_GID}" "${backup_dir}"
 
 recovery_required=false
 trap - EXIT INT TERM

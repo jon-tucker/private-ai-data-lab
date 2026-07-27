@@ -262,3 +262,22 @@ This journal records implementation milestones, operational discoveries, and les
   SQLcl MCP HTTPS, the Agent Factory VM, and the Agent Factory application
   were healthy.
 - Retained 681 GiB of free host storage after the backup.
+## 2026-07-26 — Added scheduled observability foundation
+
+- Added persistent systemd scheduling for daily health checks.
+- Added an explicitly enabled weekly coordinated-backup timer.
+- Separated unprivileged health execution from privileged backup execution.
+- Added journald status inspection and optional webhook failure notifications.
+- Kept retention reporting non-destructive pending an explicit policy.
+- Documented the isolated restore-drill procedure required before release.
+
+### 2026-07-26 — Observability and scheduled recovery verified
+
+- Installed and exercised the daily systemd health service successfully.
+- Completed a privileged coordinated recovery-set backup in 5 minutes 52 seconds.
+- Independently verified every checksum and both QCOW2 images.
+- Verified the 38 GB recovery set has restricted ownership and permissions.
+- Confirmed that Oracle Database, ORDS, Ollama, SQLcl MCP, and Private Agent Factory recovered healthy after the backup.
+- Enabled the persistent daily health and weekly coordinated-backup timers.
+- First scheduled health run: 2026-07-27 06:16:24 UTC.
+- First scheduled backup run: 2026-08-02 04:19:10 UTC.

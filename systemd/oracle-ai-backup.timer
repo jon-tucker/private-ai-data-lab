@@ -1,0 +1,12 @@
+[Unit]
+Description=Schedule Oracle AI Data Platform weekly coordinated backup
+
+[Timer]
+OnCalendar=@BACKUP_CALENDAR@
+RandomizedDelaySec=@BACKUP_RANDOM_DELAY@
+Persistent=true
+AccuracySec=5m
+Unit=oracle-ai-backup.service
+
+[Install]
+WantedBy=timers.target

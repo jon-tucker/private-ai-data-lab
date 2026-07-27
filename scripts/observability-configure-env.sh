@@ -13,12 +13,6 @@ append_default() {
   fi
 }
 
-append_default AGENT_OPERATIONS_BACKUP_ROOT /srv/oracle-ai-data/backups/agent-operations
-append_default AGENT_OPERATIONS_CERT_WARN_DAYS 90
-append_default AGENT_OPERATIONS_DISK_WARN_PERCENT 80
-append_default AGENT_OPERATIONS_VM_SHUTDOWN_TIMEOUT 300
-append_default AGENT_FACTORY_OS_DISK /srv/oracle-ai-data/vms/agent-factory-ol8.qcow2
-append_default AGENT_FACTORY_BUILD_DISK /srv/oracle-ai-data/vms/agent-factory-build.qcow2
 append_default OBSERVABILITY_HEALTH_CALENDAR '"*-*-* 06:15:00 UTC"'
 append_default OBSERVABILITY_HEALTH_RANDOM_DELAY 15m
 append_default OBSERVABILITY_BACKUP_CALENDAR '"Sun *-*-* 04:00:00 UTC"'

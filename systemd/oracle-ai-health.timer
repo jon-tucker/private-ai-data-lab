@@ -1,0 +1,12 @@
+[Unit]
+Description=Schedule Oracle AI Data Platform daily health check
+
+[Timer]
+OnCalendar=@HEALTH_CALENDAR@
+RandomizedDelaySec=@HEALTH_RANDOM_DELAY@
+Persistent=true
+AccuracySec=1m
+Unit=oracle-ai-health.service
+
+[Install]
+WantedBy=timers.target

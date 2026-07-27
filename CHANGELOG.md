@@ -8,7 +8,16 @@ The project follows [Semantic Versioning](https://semver.org/).
 
 ### Planned
 
-- Build additional Agent Factory solutions and operational observability.
+- Build additional Agent Factory solutions.
+
+### Added
+
+- Systemd-based daily platform health checks with persistent scheduling.
+- Opt-in weekly coordinated cold backups with randomized scheduling.
+- Journald-native operational logging and status inspection.
+- Optional failure notifications through a protected webhook URL file.
+- Separation between unprivileged health checks and privileged backup execution.
+- Non-destructive retention reporting and a documented restore-drill procedure.
 
 ## [0.11.0] - 2026-07-26
 

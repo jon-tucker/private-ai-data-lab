@@ -188,3 +188,10 @@ Every backup set includes a Git revision, service-state manifest, SHA-256
 checksums, libvirt XML, sparse VM images, and a compressed database archive.
 Retention reporting never deletes data. Restore remains a deliberate
 documented operation because it replaces authoritative persistent state.
+## Scheduled operations
+
+Host systemd timers schedule daily health checks and optional weekly
+coordinated backups. Health checks run as the platform owner. Backups run as a
+fixed root service because VM images and database state require privileged
+access. Both write to journald; failure notifications use an optional protected
+webhook URL outside the repository. Retention remains report-only.
