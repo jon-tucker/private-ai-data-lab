@@ -49,6 +49,9 @@ The storage report uses `sudo` to read service-owned paths. The retention
 report lists coordinated backup sets and their allocation. Neither command
 changes or deletes data.
 
+Version 0.14 adds policy evaluation and explicit cleanup through
+`backup-lifecycle-retention.sh`. See `docs/backup-lifecycle.md`.
+
 ## Coordinated cold backup
 
 Schedule an outage before running:

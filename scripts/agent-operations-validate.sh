@@ -25,12 +25,25 @@ require_positive_integer \
 require_positive_integer \
   AGENT_OPERATIONS_VM_SHUTDOWN_TIMEOUT \
   "${AGENT_OPERATIONS_VM_SHUTDOWN_TIMEOUT}"
+require_positive_integer \
+  BACKUP_LIFECYCLE_RETENTION_DAYS \
+  "${BACKUP_LIFECYCLE_RETENTION_DAYS}"
+require_positive_integer \
+  BACKUP_LIFECYCLE_MINIMUM_SETS \
+  "${BACKUP_LIFECYCLE_MINIMUM_SETS}"
+require_positive_integer \
+  BACKUP_LIFECYCLE_RESERVE_PERCENT \
+  "${BACKUP_LIFECYCLE_RESERVE_PERCENT}"
 
 ((AGENT_OPERATIONS_DISK_WARN_PERCENT <= 100)) ||
   die 'AGENT_OPERATIONS_DISK_WARN_PERCENT must not exceed 100'
+((BACKUP_LIFECYCLE_RESERVE_PERCENT < 100)) ||
+  die 'BACKUP_LIFECYCLE_RESERVE_PERCENT must be less than 100'
 
 [[ "${AGENT_OPERATIONS_BACKUP_ROOT}" == /* ]] ||
   die 'AGENT_OPERATIONS_BACKUP_ROOT must be an absolute path'
+[[ "${BACKUP_LIFECYCLE_DRILL_ROOT}" == /* ]] ||
+  die 'BACKUP_LIFECYCLE_DRILL_ROOT must be an absolute path'
 case "${AGENT_OPERATIONS_BACKUP_ROOT}/" in
   "${PLATFORM_DATA_ROOT}/oracle/"* | \
   "${PLATFORM_DATA_ROOT}/mcp/"* | \

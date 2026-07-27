@@ -17,6 +17,10 @@ append_default AGENT_OPERATIONS_BACKUP_ROOT /srv/oracle-ai-data/backups/agent-op
 append_default AGENT_OPERATIONS_CERT_WARN_DAYS 90
 append_default AGENT_OPERATIONS_DISK_WARN_PERCENT 80
 append_default AGENT_OPERATIONS_VM_SHUTDOWN_TIMEOUT 300
+append_default BACKUP_LIFECYCLE_RETENTION_DAYS 30
+append_default BACKUP_LIFECYCLE_MINIMUM_SETS 2
+append_default BACKUP_LIFECYCLE_RESERVE_PERCENT 15
+append_default BACKUP_LIFECYCLE_DRILL_ROOT /srv/oracle-ai-data/restore-drills
 append_default AGENT_FACTORY_OS_DISK /srv/oracle-ai-data/vms/agent-factory-ol8.qcow2
 append_default AGENT_FACTORY_BUILD_DISK /srv/oracle-ai-data/vms/agent-factory-build.qcow2
 append_default OBSERVABILITY_HEALTH_CALENDAR '"*-*-* 06:15:00 UTC"'

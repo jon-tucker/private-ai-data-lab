@@ -304,3 +304,30 @@ This journal records implementation milestones, operational discoveries, and les
   database-changing tool call.
 - Re-ran repository, grant, platform-health, shell-syntax, Compose, and Git
   validation successfully.
+
+## 2026-07-26 — Began conservative backup-lifecycle milestone
+
+- Added dry-run retention evaluation with explicit apply and confirmation
+  flags for deletion.
+- Protected unverified recovery sets, the newest configured minimum, and sets
+  younger than the retention threshold.
+- Restricted automated retention to timestamp-named coordinated sets directly
+  beneath the configured backup root.
+- Added independent verification markers written only after archive,
+  checksum, and QCOW2 validation.
+- Added pre-backup capacity estimation and a configurable free-space reserve.
+- Added isolated restore-drill staging that does not replace active data.
+
+## 2026-07-27 — Verified backup lifecycle and isolated restore staging
+
+- Verified the coordinated recovery set at
+  `/srv/oracle-ai-data/backups/agent-operations/20260726T234403Z`.
+- Recorded a durable `VERIFICATION.txt` marker after checksum, archive, and
+  QCOW2 integrity checks passed.
+- Staged an isolated restore drill under
+  `/srv/oracle-ai-data/restore-drills/20260727T015358Z`.
+- Confirmed approximately 11 GB of database and MCP data could be extracted
+  without modifying active platform paths.
+- Confirmed all platform health checks passed after restore staging.
+- Confirmed retention remained in dry-run mode and protected the two newest
+  coordinated backup sets.

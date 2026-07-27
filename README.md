@@ -7,8 +7,8 @@ Oracle AI Data Platform is a reproducible, production-inspired environment for l
 Created by Jon Tucker with ChatGPT.
 
 > [!IMPORTANT]
-> Version `0.12.0` adds scheduled health checks, opt-in coordinated backups,
-> journal logging, and optional webhook failure notifications.
+> Version `0.14.0` adds conservative backup retention, capacity safeguards,
+> independent verification markers, and isolated restore-drill staging.
 
 ## Project goals
 
@@ -33,6 +33,7 @@ Created by Jon Tucker with ChatGPT.
 | Agent operations | Health, backup, verification, and recovery | Available in v0.11.0 |
 | Observability | Scheduled checks, backups, logs, and alerts | Available in v0.12.0 |
 | **Operations agent** | Read-only health and backup history analysis | Available in v0.13.0 |
+| **Backup lifecycle** | Retention, capacity protection, and restore drills | Foundation in v0.14.0 |
 | Local AI | Ollama with verified Radeon 890M ROCm acceleration | Available in v0.3.0 |
 | Local AI UI | Open WebUI connected to Ollama | Available in v0.4.0 |
 | Model gateway | LiteLLM | Planned |

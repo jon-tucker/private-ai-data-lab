@@ -22,3 +22,4 @@ printf '\n=== Allocation by backup set ===\n'
 sudo du -sh "${AGENT_OPERATIONS_BACKUP_ROOT}"/* 2>/dev/null | sort -h || true
 
 printf '\nReport only: no retention or deletion action was performed.\n'
+printf 'Use backup-lifecycle-retention.sh for policy evaluation and explicit cleanup.\n'

@@ -203,3 +203,16 @@ the `ORACLE_AI` schema. Host-side automation is the only writer. Agent Factory
 queries that history through the existing `ORACLE_AI_MCP` read-only identity;
 it receives no repository credential or write privilege. Journald and recovery
 sets remain the authoritative detailed records.
+
+## Backup-lifecycle boundary
+
+Backup lifecycle automation considers only timestamp-named coordinated sets
+directly beneath the configured agent-operations backup root. Retention is a
+dry run unless two explicit deletion flags are supplied. Unverified sets,
+recent sets, and the configured newest minimum are protected. Legacy recovery
+points are outside automated retention.
+
+Restore drills extract into an isolated staging root and never target active
+Oracle, MCP, or VM paths. Capacity checks use the newest coordinated set as an
+estimate and preserve a configured filesystem reserve before another cold
+backup begins.

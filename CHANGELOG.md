@@ -10,6 +10,14 @@ The project follows [Semantic Versioning](https://semver.org/).
 
 - Build additional Agent Factory solutions.
 
+### Added
+
+- Dry-run backup retention with explicit two-flag deletion confirmation.
+- Minimum recovery-set, age, independent-verification, and path safeguards.
+- Pre-backup capacity estimation with a configurable free-space reserve.
+- Isolated restore-drill staging that never replaces active platform data.
+- ADR 0014 defining the conservative backup-lifecycle policy.
+
 ## [0.13.0] - 2026-07-26
 
 ### Added

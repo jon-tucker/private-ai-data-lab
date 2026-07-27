@@ -8,6 +8,7 @@ load_env
   die 'Cold backup stops Agent Factory, ORDS, and Oracle Database; rerun with --confirm'
 
 "${PROJECT_ROOT}/scripts/agent-operations-validate.sh"
+"${PROJECT_ROOT}/scripts/backup-lifecycle-capacity-check.sh"
 
 for command in cp docker find git gzip qemu-img sha256sum sudo tar virsh xargs; do
   require_command "${command}"
