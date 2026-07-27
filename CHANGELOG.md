@@ -10,6 +10,8 @@ The project follows [Semantic Versioning](https://semver.org/).
 
 - Build additional Agent Factory solutions.
 
+## [0.14.0] - 2026-07-27
+
 ### Added
 
 - Dry-run backup retention with explicit two-flag deletion confirmation.
