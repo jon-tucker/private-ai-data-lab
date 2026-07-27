@@ -10,6 +10,8 @@ The project follows [Semantic Versioning](https://semver.org/).
 
 - Build additional Agent Factory solutions.
 
+## [0.12.0] - 2026-07-26
+
 ### Added
 
 - Systemd-based daily platform health checks with persistent scheduling.
