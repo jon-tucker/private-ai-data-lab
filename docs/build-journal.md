@@ -331,3 +331,14 @@ This journal records implementation milestones, operational discoveries, and les
 - Confirmed all platform health checks passed after restore staging.
 - Confirmed retention remained in dry-run mode and protected the two newest
   coordinated backup sets.
+
+## 2026-07-27 — Verified private LiteLLM model gateway
+
+- Deployed pinned LiteLLM `v1.92.0` on the private libvirt bridge.
+- Protected the gateway with a master key stored outside source control.
+- Published `local-qwen3-4b-instruct` as a stable OpenAI-compatible alias.
+- Verified an authenticated API request returned `MODEL_GATEWAY_OK`.
+- Verified the Agent Factory VM could reach the private gateway.
+- Saved the `litellm_qwen3_4b_instruct` generative-model connection.
+- Verified Prompt Lab returned exactly `LITELLM_AGENT_FACTORY_OK`.
+- Retained direct Ollama as the tested rollback path.

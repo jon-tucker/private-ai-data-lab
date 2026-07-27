@@ -37,6 +37,10 @@ services:
     extends:
       file: stacks/mcp/compose.yaml
       service: mcp-tls
+  litellm:
+    extends:
+      file: stacks/litellm/compose.yaml
+      service: litellm
 
 networks:
   frontend:

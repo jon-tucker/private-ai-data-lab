@@ -45,6 +45,7 @@ check_container() {
 printf '=== Container services ===\n'
 check_container "${ORACLE_DATABASE_CONTAINER}"
 check_container "${OLLAMA_CONTAINER}"
+check_container "${LITELLM_CONTAINER}"
 check_container "${MCP_HTTP_CONTAINER}"
 check_container "${MCP_TLS_CONTAINER}"
 

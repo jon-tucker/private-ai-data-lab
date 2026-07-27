@@ -1,0 +1,48 @@
+services:
+  litellm:
+    image: ${LITELLM_IMAGE:-ghcr.io/berriai/litellm:v1.92.0}
+    container_name: ${LITELLM_CONTAINER:-oracle-ai-litellm}
+    hostname: litellm
+    user: "${PLATFORM_UID:-1000}:${PLATFORM_GID:-1000}"
+    restart: unless-stopped
+    profiles: ["model-gateway"]
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      - |
+        export LITELLM_MASTER_KEY="$$(cat /run/secrets/litellm-master-key)"
+        exec litellm --config /app/config.yaml --host 0.0.0.0 --port 4000
+    environment:
+      HOME: /tmp
+      TZ: ${TZ:-UTC}
+    ports:
+      - "${LITELLM_HOST_BIND:-192.168.122.1}:${LITELLM_PORT:-4000}:4000"
+    volumes:
+      - ${LITELLM_CONFIG:-/srv/oracle-ai-data/litellm/config.yaml}:/app/config.yaml:ro
+      - ${LITELLM_MASTER_KEY_FILE:-/srv/oracle-ai-secrets/litellm-master-key}:/run/secrets/litellm-master-key:ro
+    networks:
+      backend:
+        aliases:
+          - litellm
+    read_only: true
+    tmpfs:
+      - /tmp:rw,nosuid,nodev,noexec,mode=1777
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    mem_limit: ${LITELLM_MEMORY:-2g}
+    cpus: ${LITELLM_CPUS:-2.0}
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - >-
+          python -c "import urllib.request;
+          urllib.request.urlopen('http://127.0.0.1:4000/health/liveliness',
+          timeout=5).read()"
+      interval: 15s
+      timeout: 10s
+      retries: 30
+      start_period: 45s
+    labels:
+      com.jontucker.oracle-ai-data-platform.component: litellm-model-gateway
+      com.jontucker.oracle-ai-data-platform.release: "0.15.0"

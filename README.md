@@ -7,8 +7,8 @@ Oracle AI Data Platform is a reproducible, production-inspired environment for l
 Created by Jon Tucker with ChatGPT.
 
 > [!IMPORTANT]
-> Version `0.14.0` adds conservative backup retention, capacity safeguards,
-> independent verification markers, and isolated restore-drill staging.
+> The unreleased `0.15.0` milestone adds a private, authenticated LiteLLM
+> gateway in front of the existing Ollama runtime.
 
 ## Project goals
 
@@ -36,7 +36,7 @@ Created by Jon Tucker with ChatGPT.
 | **Backup lifecycle** | Retention, capacity protection, and restore drills | Available in v0.14.0 |
 | Local AI | Ollama with verified Radeon 890M ROCm acceleration | Available in v0.3.0 |
 | Local AI UI | Open WebUI connected to Ollama | Available in v0.4.0 |
-| Model gateway | LiteLLM | Planned |
+| **Model gateway** | Private LiteLLM gateway for Ollama | Foundation in v0.15.0 |
 | Edge and operations | Reverse proxy, logging, backups, monitoring | In progress |
 
 ## Host layout

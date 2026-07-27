@@ -10,6 +10,16 @@ The project follows [Semantic Versioning](https://semver.org/).
 
 - Build additional Agent Factory solutions.
 
+### Added
+
+- Private LiteLLM gateway bound only to the libvirt host bridge.
+- Protected master-key authentication without committing credentials.
+- Stable OpenAI-compatible alias for the local Ollama instruction model.
+- Model-gateway preparation, validation, lifecycle, status, and smoke-test tools.
+- Agent Factory reachability verification with direct Ollama retained as rollback.
+- ADR 0015 defining the private model-gateway boundary.
+- Verified authenticated Prompt Lab generation through the saved LiteLLM connection.
+
 ## [0.14.0] - 2026-07-27
 
 ### Added
