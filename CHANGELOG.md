@@ -10,6 +10,8 @@ The project follows [Semantic Versioning](https://semver.org/).
 
 - Build additional Agent Factory solutions.
 
+## [0.15.0] - 2026-07-27
+
 ### Added
 
 - Private LiteLLM gateway bound only to the libvirt host bridge.
