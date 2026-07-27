@@ -10,6 +10,8 @@ The project follows [Semantic Versioning](https://semver.org/).
 
 - Build additional Agent Factory solutions.
 
+## [0.17.0] - 2026-07-27
+
 ### Added
 
 - Completed LiteLLM HTTPS cutover with host HTTP port 4000 retired.
