@@ -354,3 +354,11 @@ This journal records implementation milestones, operational discoveries, and les
 - Verified Prompt Lab returned exactly `LITELLM_TLS_AGENT_FACTORY_OK`.
 - Recorded Agent Factory's non-blocking Top K compatibility warning.
 - Retained authenticated HTTP on port 4000 as the staged rollback path.
+
+## 2026-07-27 — Started model gateway HTTPS cutover
+
+- Verified both HTTP rollback and HTTPS production-candidate endpoints.
+- Confirmed the saved HTTP and HTTPS Agent Factory configurations are active.
+- Confirmed the HTTPS Prompt Lab test is saved and successful.
+- Added an HTTPS-only normal Compose configuration.
+- Added explicit cutover, negative-reachability, status, and rollback tools.

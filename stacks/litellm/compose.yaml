@@ -14,8 +14,8 @@ services:
     environment:
       HOME: /tmp
       TZ: ${TZ:-UTC}
-    ports:
-      - "${LITELLM_HOST_BIND:-192.168.122.1}:${LITELLM_PORT:-4000}:4000"
+    expose:
+      - "4000"
     volumes:
       - ${LITELLM_CONFIG:-/srv/oracle-ai-data/litellm/config.yaml}:/app/config.yaml:ro
       - ${LITELLM_MASTER_KEY_FILE:-/srv/oracle-ai-secrets/litellm-master-key}:/run/secrets/litellm-master-key:ro
@@ -45,7 +45,7 @@ services:
       start_period: 45s
     labels:
       com.jontucker.oracle-ai-data-platform.component: litellm-model-gateway
-      com.jontucker.oracle-ai-data-platform.release: "0.15.0"
+      com.jontucker.oracle-ai-data-platform.release: "0.17.0"
 
   litellm-tls:
     image: ${LITELLM_TLS_IMAGE:-nginx:1.30.4-alpine3.24}
@@ -83,4 +83,4 @@ services:
       start_period: 20s
     labels:
       com.jontucker.oracle-ai-data-platform.component: litellm-model-gateway-tls
-      com.jontucker.oracle-ai-data-platform.release: "0.16.0"
+      com.jontucker.oracle-ai-data-platform.release: "0.17.0"

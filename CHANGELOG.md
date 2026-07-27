@@ -10,6 +10,13 @@ The project follows [Semantic Versioning](https://semver.org/).
 
 - Build additional Agent Factory solutions.
 
+### Added
+
+- Completed LiteLLM HTTPS cutover with host HTTP port 4000 retired.
+- Explicit rollback override for temporary restoration of the HTTP endpoint.
+- Cutover validation, application, status, and negative-reachability tests.
+- ADR 0017 defining HTTPS as the supported Agent Factory gateway path.
+
 ## [0.16.0] - 2026-07-27
 
 ### Added
