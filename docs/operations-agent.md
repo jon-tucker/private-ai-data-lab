@@ -53,3 +53,20 @@ Useful verification questions include:
 - What is the latest health status and when did it complete?
 - Show failed or warning checks from the last seven days.
 - List recent coordinated recovery sets and their verification status.
+
+## Verification
+
+The published `Read-Only Platform Operations Agent` was verified through
+Oracle AI Database Private Agent Factory 26.4 using the saved
+`oracle_ai_readonly` SQLcl MCP connection.
+
+Verification confirmed:
+
+- The latest health run returned `PASS` with zero failures and zero warnings.
+- Detailed health checks could be aggregated successfully by check status.
+- `OPERATIONS_RUN` is the parent record and `OPERATIONS_CHECK` joins to it
+  through `RUN_ID`; `RUN_NAME` belongs to `OPERATIONS_RUN`.
+- The agent used only the approved read-only MCP tools.
+- The agent refused a prohibited write request without attempting DDL or DML.
+- Repository objects and `ORACLE_AI_MCP_READ_ROLE` grants passed the automated
+  smoke test.

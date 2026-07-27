@@ -289,3 +289,18 @@ This journal records implementation milestones, operational discoveries, and les
   wrapper without changing monitored command exit status.
 - Added latest-run and daily-summary views, explicit retention, validation,
   status, smoke-test, installation, and removal workflows.
+
+## 2026-07-26 — Verified read-only platform operations agent
+
+- Published the `Read-Only Platform Operations Agent` in Private Agent Factory.
+- Verified the latest recorded health run returned `PASS` with zero failures
+  and zero warnings.
+- Verified detailed operational checks could be grouped by check status.
+- Documented that `OPERATIONS_CHECK` joins to its parent `OPERATIONS_RUN`
+  through `RUN_ID`.
+- Verified the local LLM used the saved `oracle_ai_readonly` SQLcl MCP
+  connection for operational queries.
+- Verified the agent refused a prohibited write request without attempting a
+  database-changing tool call.
+- Re-ran repository, grant, platform-health, shell-syntax, Compose, and Git
+  validation successfully.

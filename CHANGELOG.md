@@ -17,6 +17,7 @@ The project follows [Semantic Versioning](https://semver.org/).
 - Read-only latest-run and daily-summary views for Agent Factory analysis.
 - Explicit installation, validation, status, smoke-test, retention, and removal workflows.
 - ADR 0013 defining the operational repository trust and ownership boundary.
+- Verified published read-only Platform Operations Agent queries and write refusal.
 
 ## [0.12.0] - 2026-07-26
 
