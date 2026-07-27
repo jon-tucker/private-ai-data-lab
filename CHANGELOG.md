@@ -10,6 +10,17 @@ The project follows [Semantic Versioning](https://semver.org/).
 
 - Build additional Agent Factory solutions.
 
+### Added
+
+- Private TLS proxy for the authenticated LiteLLM gateway.
+- Dedicated LiteLLM CA and server-certificate generation.
+- Agent Factory trust-chain installation preserving the existing MCP CA.
+- Authenticated HTTPS, certificate, and Agent Factory trust smoke tests.
+- Unified health monitoring for the LiteLLM TLS proxy and certificate lifetime.
+- Dual HTTP/HTTPS migration with the v0.15 endpoint retained for rollback.
+- ADR 0016 defining the staged model-gateway TLS migration.
+- Verified authenticated Prompt Lab generation through the saved HTTPS connection.
+
 ## [0.15.0] - 2026-07-27
 
 ### Added

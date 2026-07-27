@@ -342,3 +342,15 @@ This journal records implementation milestones, operational discoveries, and les
 - Saved the `litellm_qwen3_4b_instruct` generative-model connection.
 - Verified Prompt Lab returned exactly `LITELLM_AGENT_FACTORY_OK`.
 - Retained direct Ollama as the tested rollback path.
+
+## 2026-07-27 — Verified private LiteLLM HTTPS migration
+
+- Added a dedicated private CA and TLS proxy for LiteLLM on port 4001.
+- Restricted proxy access to Agent Factory and required host/network paths.
+- Verified an authenticated HTTPS request returned `MODEL_GATEWAY_TLS_OK`.
+- Installed a combined persistent MCP and LiteLLM trust bundle in Agent
+  Factory and restarted it successfully.
+- Saved the `litellm_tls_qwen3_4b_instruct` generative-model connection.
+- Verified Prompt Lab returned exactly `LITELLM_TLS_AGENT_FACTORY_OK`.
+- Recorded Agent Factory's non-blocking Top K compatibility warning.
+- Retained authenticated HTTP on port 4000 as the staged rollback path.

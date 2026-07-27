@@ -46,6 +46,7 @@ printf '=== Container services ===\n'
 check_container "${ORACLE_DATABASE_CONTAINER}"
 check_container "${OLLAMA_CONTAINER}"
 check_container "${LITELLM_CONTAINER}"
+check_container "${LITELLM_TLS_CONTAINER}"
 check_container "${MCP_HTTP_CONTAINER}"
 check_container "${MCP_TLS_CONTAINER}"
 
@@ -96,6 +97,14 @@ if openssl x509 -checkend "${warn_seconds}" -noout \
   pass "MCP TLS certificate remains valid beyond ${AGENT_OPERATIONS_CERT_WARN_DAYS} days; expires ${expiry}"
 else
   warn "MCP TLS certificate expires within ${AGENT_OPERATIONS_CERT_WARN_DAYS} days"
+fi
+
+if openssl x509 -checkend "${warn_seconds}" -noout \
+  -in "${LITELLM_TLS_DIR}/server.crt" >/dev/null; then
+  expiry="$(openssl x509 -enddate -noout -in "${LITELLM_TLS_DIR}/server.crt" | cut -d= -f2-)"
+  pass "LiteLLM TLS certificate remains valid beyond ${AGENT_OPERATIONS_CERT_WARN_DAYS} days; expires ${expiry}"
+else
+  warn "LiteLLM TLS certificate expires within ${AGENT_OPERATIONS_CERT_WARN_DAYS} days"
 fi
 
 printf '\n=== Storage capacity ===\n'
