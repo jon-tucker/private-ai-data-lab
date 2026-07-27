@@ -10,6 +10,8 @@ The project follows [Semantic Versioning](https://semver.org/).
 
 - Build additional Agent Factory solutions.
 
+## [0.13.0] - 2026-07-26
+
 ### Added
 
 - Oracle-backed operational history for scheduled health and backup runs.
