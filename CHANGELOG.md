@@ -10,6 +10,14 @@ The project follows [Semantic Versioning](https://semver.org/).
 
 - Build additional Agent Factory solutions.
 
+### Added
+
+- Oracle-backed operational history for scheduled health and backup runs.
+- Structured check results, recovery-set cataloging, and bounded log excerpts.
+- Read-only latest-run and daily-summary views for Agent Factory analysis.
+- Explicit installation, validation, status, smoke-test, retention, and removal workflows.
+- ADR 0013 defining the operational repository trust and ownership boundary.
+
 ## [0.12.0] - 2026-07-26
 
 ### Added

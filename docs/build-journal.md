@@ -281,3 +281,11 @@ This journal records implementation milestones, operational discoveries, and les
 - Enabled the persistent daily health and weekly coordinated-backup timers.
 - First scheduled health run: 2026-07-27 06:16:24 UTC.
 - First scheduled backup run: 2026-08-02 04:19:10 UTC.
+## 2026-07-26 — Added operations-agent repository foundation
+
+- Added the v0.13.0 operations-agent repository for health, check, and backup
+  history.
+- Integrated best-effort database recording into the existing observability
+  wrapper without changing monitored command exit status.
+- Added latest-run and daily-summary views, explicit retention, validation,
+  status, smoke-test, installation, and removal workflows.

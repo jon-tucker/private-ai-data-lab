@@ -195,3 +195,11 @@ coordinated backups. Health checks run as the platform owner. Backups run as a
 fixed root service because VM images and database state require privileged
 access. Both write to journald; failure notifications use an optional protected
 webhook URL outside the repository. Retention remains report-only.
+
+## Operations-agent data boundary
+
+Scheduled health and backup wrappers persist bounded, structured results in
+the `ORACLE_AI` schema. Host-side automation is the only writer. Agent Factory
+queries that history through the existing `ORACLE_AI_MCP` read-only identity;
+it receives no repository credential or write privilege. Journald and recovery
+sets remain the authoritative detailed records.

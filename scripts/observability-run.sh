@@ -12,6 +12,7 @@ shift || true
 require_command curl
 
 output_file="$(mktemp)"
+started_utc="$(date -u +'%Y-%m-%dT%H:%M:%S+00:00')"
 cleanup() {
   rm -f "${output_file}"
 }
@@ -21,6 +22,14 @@ set +e
 "$@" 2>&1 | tee "${output_file}"
 result=${PIPESTATUS[0]}
 set -e
+
+if [[ "${OPERATIONS_AGENT_ENABLED}" == '1' &&
+      -x "${PROJECT_ROOT}/scripts/operations-agent-record.sh" ]]; then
+  if ! "${PROJECT_ROOT}/scripts/operations-agent-record.sh" \
+    "${name}" "${result}" "${output_file}" "${started_utc}"; then
+    printf 'WARN: operational repository recording failed\n' >&2
+  fi
+fi
 
 if ((result == 0)); then
   printf 'OBSERVABILITY_OK name=%s\n' "${name}"
