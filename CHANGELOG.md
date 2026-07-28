@@ -10,6 +10,8 @@ The project follows [Semantic Versioning](https://semver.org/).
 
 - Build additional Agent Factory solutions.
 
+## [0.19.0] - 2026-07-27
+
 ### Added
 
 - Stable `https://oracle-ai.local/agentFactory/` browser endpoint on port 443.
