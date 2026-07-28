@@ -10,6 +10,12 @@ The project follows [Semantic Versioning](https://semver.org/).
 
 - Build additional Agent Factory solutions.
 
+## [1.0.1] - 2026-07-27
+
+### Removed
+
+- Stale transitional LiteLLM HTTPS notice from the project overview.
+
 ## [1.0.0] - 2026-07-27
 
 ### Added
