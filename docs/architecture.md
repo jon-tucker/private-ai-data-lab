@@ -110,6 +110,11 @@ verifies the VM certificate, and publishes only on the host LAN address.
 6. Add backup, restore, upgrade, and health-check automation alongside each operational capability.
 7. Validate Compose configuration before deployment.
 
+Version 0.20.0 adds a unified readiness gate over the complete platform.
+Runtime health, secure edge access, restart behavior, scheduled operations,
+verified recovery sets, and source validation must all pass before the
+platform is considered operationally ready.
+
 ## Capacity profile
 
 The initial host has 12 cores / 24 threads, approximately 28 GiB usable RAM, and approximately 937 GiB formatted NVMe capacity. Resource limits will be introduced as workloads are measured. Oracle AI Database and local models must share memory conservatively until the host is upgraded.

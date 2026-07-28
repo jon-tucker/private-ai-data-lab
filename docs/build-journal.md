@@ -386,3 +386,14 @@ This journal records implementation milestones, operational discoveries, and les
 - Verified the trusted clean URL returned HTTP 200 from macOS.
 - Added staged certificate renewal, edge-completion validation, and edge
   certificate lifetime monitoring.
+
+## 2026-07-27 — Began platform-readiness milestone
+
+- Verified all core containers, private endpoints, and certificates were
+  healthy.
+- Confirmed Docker, every running container, the Agent Factory VM, and the
+  Agent Factory application have persistent startup configuration.
+- Confirmed scheduled health and coordinated-backup timers are active.
+- Confirmed two coordinated recovery sets are retained.
+- Confirmed only the intended private and LAN listeners are published.
+- Added a unified readiness validator and concise operator runbook.

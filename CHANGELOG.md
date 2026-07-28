@@ -10,6 +10,15 @@ The project follows [Semantic Versioning](https://semver.org/).
 
 - Build additional Agent Factory solutions.
 
+### Added
+
+- Unified platform-readiness validation across health, edge, restart, timer,
+  recovery-set, and autostart controls.
+- Concise operator runbook covering routine checks, reboot verification,
+  backup handling, certificate renewal, and recovery paths.
+- Explicit readiness acceptance criteria for the complete reference platform.
+- ADR 0020 defining operational readiness as a repeatable validated state.
+
 ## [0.19.0] - 2026-07-27
 
 ### Added
