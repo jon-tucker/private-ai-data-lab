@@ -10,6 +10,8 @@ The project follows [Semantic Versioning](https://semver.org/).
 
 - Build additional Agent Factory solutions.
 
+## [0.18.0] - 2026-07-27
+
 ### Added
 
 - Private HTTPS browser edge for Agent Factory with verified upstream TLS.
