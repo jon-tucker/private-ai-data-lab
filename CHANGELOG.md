@@ -10,6 +10,8 @@ The project follows [Semantic Versioning](https://semver.org/).
 
 - Build additional Agent Factory solutions.
 
+## [1.0.0] - 2026-07-27
+
 ### Added
 
 - Security policy and responsible vulnerability-reporting guidance.
