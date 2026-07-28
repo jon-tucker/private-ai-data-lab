@@ -39,6 +39,7 @@ Created by Jon Tucker with ChatGPT.
 | **Model gateway** | Private LiteLLM gateway for Ollama | Available in v0.15.0 |
 | **Model gateway operations** | TLS, trust, monitoring, and migration controls | Available in v0.16.0 |
 | **Model gateway cutover** | HTTPS-only Agent Factory gateway with explicit rollback | Available in v0.17.0 |
+| **Agent Factory edge** | Trusted private HTTPS browser access | Foundation in v0.18.0 |
 | Edge and operations | Reverse proxy, logging, backups, monitoring | In progress |
 
 ## Host layout

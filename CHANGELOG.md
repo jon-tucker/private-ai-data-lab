@@ -10,6 +10,15 @@ The project follows [Semantic Versioning](https://semver.org/).
 
 - Build additional Agent Factory solutions.
 
+### Added
+
+- Private HTTPS browser edge for Agent Factory with verified upstream TLS.
+- LAN allowlisting, hardened proxy execution, and Socket.IO forwarding.
+- Durable VM bridge binding and host-only firewall guidance.
+- Edge lifecycle, validation, status, and smoke-test tooling.
+- SSH tunnel retained as an explicit rollback path.
+- ADR 0018 defining the Agent Factory browser-edge trust boundary.
+
 ## [0.17.0] - 2026-07-27
 
 ### Added

@@ -65,15 +65,34 @@ else
 fi
 
 agent_status="$(
-  ssh -T -o BatchMode=yes -o ConnectTimeout=5 \
-    "${AGENT_FACTORY_VM_USER}@${AGENT_FACTORY_VM_IP}" \
-    "curl --insecure --silent --output /dev/null --write-out '%{http_code}' https://127.0.0.1:${AGENT_FACTORY_PORT}/agentFactory/" \
+  curl --silent --show-error \
+    --cacert "${AGENT_FACTORY_EDGE_DATA_DIR}/upstream.crt" \
+    --output /dev/null \
+    --write-out '%{http_code}' \
+    "https://${AGENT_FACTORY_VM_IP}:${AGENT_FACTORY_PORT}/agentFactory/" \
     2>/dev/null || true
 )"
 if [[ "${agent_status}" == '200' ]]; then
   pass 'Agent Factory application returned HTTP 200'
 else
   fail "Agent Factory application returned HTTP ${agent_status:-000}"
+fi
+
+if [[ -n "${AGENT_FACTORY_EDGE_CONTAINER:-}" ]]; then
+  check_container "${AGENT_FACTORY_EDGE_CONTAINER}"
+  edge_status="$(
+    curl --silent --show-error \
+      --cacert "${AGENT_FACTORY_EDGE_TLS_DIR}/ca.crt" \
+      --output /dev/null \
+      --write-out '%{http_code}' \
+      "https://${AGENT_FACTORY_EDGE_HOST_BIND}:${AGENT_FACTORY_EDGE_PORT}/agentFactory/" \
+      2>/dev/null || true
+  )"
+  if [[ "${edge_status}" == '200' ]]; then
+    pass 'Agent Factory browser edge returned HTTP 200'
+  else
+    fail "Agent Factory browser edge returned HTTP ${edge_status:-000}"
+  fi
 fi
 
 printf '\n=== Private MCP HTTPS ===\n'
