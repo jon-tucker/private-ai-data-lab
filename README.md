@@ -42,7 +42,7 @@ Created by Jon Tucker with ChatGPT.
 | **Model gateway cutover** | HTTPS-only Agent Factory gateway with explicit rollback | Available in v0.17.0 |
 | **Agent Factory edge** | Trusted private HTTPS browser access | Available in v0.18.0 |
 | **Edge completion** | Stable hostname, port 443, and certificate lifecycle | Available in v0.19.0 |
-| **Platform readiness** | Unified acceptance checks and operator handoff | Foundation in v0.20.0 |
+| **Platform readiness** | Unified acceptance checks and operator handoff | Available in v0.20.0 |
 
 ## Host layout
 

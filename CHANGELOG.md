@@ -10,6 +10,8 @@ The project follows [Semantic Versioning](https://semver.org/).
 
 - Build additional Agent Factory solutions.
 
+## [0.20.0] - 2026-07-27
+
 ### Added
 
 - Unified platform-readiness validation across health, edge, restart, timer,
