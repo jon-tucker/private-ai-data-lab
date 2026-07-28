@@ -6,11 +6,6 @@ Oracle AI Data Platform is a reproducible, production-inspired environment for l
 
 Created by Jon Tucker with ChatGPT.
 
-> [!IMPORTANT]
-> Since v0.17.0, Agent Factory uses the private LiteLLM HTTPS endpoint.
-> The former host HTTP endpoint is available only through the explicit
-> rollback procedure.
-
 ## Project goals
 
 - Recreate the platform from source-controlled configuration and automation.
