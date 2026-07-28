@@ -10,6 +10,14 @@ The project follows [Semantic Versioning](https://semver.org/).
 
 - Build additional Agent Factory solutions.
 
+### Added
+
+- Security policy and responsible vulnerability-reporting guidance.
+- Contribution workflow with validation and secret-handling requirements.
+- Repeatable v1.0 release validation and final release checklist.
+- Stable-release support and compatibility commitments.
+- ADR 0021 defining the v1.0 stable reference-platform contract.
+
 ## [0.20.0] - 2026-07-27
 
 ### Added

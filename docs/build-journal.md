@@ -397,3 +397,13 @@ This journal records implementation milestones, operational discoveries, and les
 - Confirmed two coordinated recovery sets are retained.
 - Confirmed only the intended private and LAN listeners are published.
 - Added a unified readiness validator and concise operator runbook.
+
+## 2026-07-27 — Began v1.0 stable-release audit
+
+- Passed the complete platform-readiness gate.
+- Confirmed all configured container images avoid floating tags.
+- Confirmed no local environment or private key file is tracked.
+- Confirmed repository integrity and whitespace checks passed.
+- Identified the security policy and contribution guide as the remaining
+  release-policy gaps.
+- Added stable-release validation, project policies, and a final checklist.

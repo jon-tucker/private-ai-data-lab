@@ -43,6 +43,14 @@ Created by Jon Tucker with ChatGPT.
 | **Agent Factory edge** | Trusted private HTTPS browser access | Available in v0.18.0 |
 | **Edge completion** | Stable hostname, port 443, and certificate lifecycle | Available in v0.19.0 |
 | **Platform readiness** | Unified acceptance checks and operator handoff | Available in v0.20.0 |
+| **Stable release** | Security policy, contribution workflow, and release acceptance | Foundation in v1.0.0 |
+
+## Project policies
+
+- [Security policy](SECURITY.md)
+- [Contribution guide](CONTRIBUTING.md)
+- [Operator runbook](docs/operator-runbook.md)
+- [Release checklist](docs/release-checklist.md)
 
 ## Host layout
 

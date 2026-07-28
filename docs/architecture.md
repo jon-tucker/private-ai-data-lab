@@ -115,6 +115,9 @@ Runtime health, secure edge access, restart behavior, scheduled operations,
 verified recovery sets, and source validation must all pass before the
 platform is considered operationally ready.
 
+Version 1.0.0 declares the resulting reference topology and its documented
+security, recovery, operator, and validation interfaces stable.
+
 ## Capacity profile
 
 The initial host has 12 cores / 24 threads, approximately 28 GiB usable RAM, and approximately 937 GiB formatted NVMe capacity. Resource limits will be introduced as workloads are measured. Oracle AI Database and local models must share memory conservatively until the host is upgraded.
