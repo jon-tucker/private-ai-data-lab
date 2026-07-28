@@ -23,3 +23,18 @@ for Agent Factory Socket.IO polling and WebSocket traffic.
 Stop the edge container and use the documented SSH local-forwarding tunnel.
 Rebinding the VM to loopback is a separate rollback step and requires
 recreating the Agent Factory container.
+
+## Verification
+
+The production browser edge was verified from a trusted macOS client.
+
+Verification confirmed:
+
+- The edge certificate was rejected before its private CA was trusted.
+- A CA-verified request from macOS returned HTTP 200.
+- The managed edge container became healthy.
+- The proxy verified the Agent Factory VM certificate.
+- Agent Factory Socket.IO polling and WebSocket traffic completed successfully.
+- A read-only operations query returned through the browser normally.
+- Direct VM access remained restricted to the host bridge.
+- Unified platform health passed with zero failures and zero warnings.

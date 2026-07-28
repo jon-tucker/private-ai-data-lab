@@ -362,3 +362,15 @@ This journal records implementation milestones, operational discoveries, and les
 - Confirmed the HTTPS Prompt Lab test is saved and successful.
 - Added an HTTPS-only normal Compose configuration.
 - Added explicit cutover, negative-reachability, status, and rollback tools.
+
+## 2026-07-27 — Verified private Agent Factory browser edge
+
+- Rebound Agent Factory persistently to its private libvirt address.
+- Restricted the VM application port to the platform host bridge.
+- Created a dedicated private CA and HTTPS edge certificate.
+- Verified upstream Agent Factory TLS rather than disabling verification.
+- Corrected the upstream certificate identity to `agent-factory`.
+- Preserved the public host and port for Socket.IO origin handling.
+- Verified polling, WebSocket upgrade, chat delivery, and chat history.
+- Replaced the prototype with the managed hardened edge container.
+- Verified unified platform health with zero failures and zero warnings.

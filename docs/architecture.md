@@ -216,3 +216,14 @@ Restore drills extract into an isolated staging root and never target active
 Oracle, MCP, or VM paths. Capacity checks use the newest coordinated set as an
 estimate and preserve a configured filesystem reserve before another cold
 backup begins.
+
+## Agent Factory browser edge
+
+Trusted LAN clients connect to the dedicated Agent Factory edge over HTTPS on
+the platform host. The hardened Nginx container terminates client TLS and
+verifies the separate TLS connection to the private Agent Factory VM.
+
+The VM listener is bound only to its libvirt address, and its firewall permits
+port 8080 only from the host bridge. Agent Factory is therefore not exposed
+directly to the LAN. The SSH local-forwarding tunnel remains available as an
+explicit rollback path.

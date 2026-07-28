@@ -18,6 +18,7 @@ The project follows [Semantic Versioning](https://semver.org/).
 - Edge lifecycle, validation, status, and smoke-test tooling.
 - SSH tunnel retained as an explicit rollback path.
 - ADR 0018 defining the Agent Factory browser-edge trust boundary.
+- Verified trusted macOS browser access, Socket.IO transport, and read-only agent responses.
 
 ## [0.17.0] - 2026-07-27
 
