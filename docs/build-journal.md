@@ -374,3 +374,15 @@ This journal records implementation milestones, operational discoveries, and les
 - Verified polling, WebSocket upgrade, chat delivery, and chat history.
 - Replaced the prototype with the managed hardened edge container.
 - Verified unified platform health with zero failures and zero warnings.
+
+## 2026-07-27 — Began Agent Factory edge completion
+
+- Confirmed `oracle-ai.local` resolves to the platform LAN address through
+  mDNS.
+- Reissued the edge certificate from the existing private CA with the stable
+  hostname, short hostname, and LAN address.
+- Moved the managed edge from port 8443 to standard HTTPS port 443.
+- Verified the former port 8443 listener was retired.
+- Verified the trusted clean URL returned HTTP 200 from macOS.
+- Added staged certificate renewal, edge-completion validation, and edge
+  certificate lifetime monitoring.

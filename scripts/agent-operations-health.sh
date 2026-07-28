@@ -126,6 +126,14 @@ else
   warn "LiteLLM TLS certificate expires within ${AGENT_OPERATIONS_CERT_WARN_DAYS} days"
 fi
 
+if openssl x509 -checkend "${warn_seconds}" -noout \
+  -in "${AGENT_FACTORY_EDGE_TLS_DIR}/server.crt" >/dev/null; then
+  expiry="$(openssl x509 -enddate -noout -in "${AGENT_FACTORY_EDGE_TLS_DIR}/server.crt" | cut -d= -f2-)"
+  pass "Agent Factory edge TLS certificate remains valid beyond ${AGENT_OPERATIONS_CERT_WARN_DAYS} days; expires ${expiry}"
+else
+  warn "Agent Factory edge TLS certificate expires within ${AGENT_OPERATIONS_CERT_WARN_DAYS} days"
+fi
+
 printf '\n=== Storage capacity ===\n'
 usage_percent="$(
   df -P "${PLATFORM_DATA_ROOT}" |

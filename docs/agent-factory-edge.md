@@ -2,7 +2,7 @@
 
 The browser edge provides trusted LAN access at:
 
-`https://192.168.0.209:8443/agentFactory/`
+`https://oracle-ai.local/agentFactory/`
 
 The host proxy terminates the client TLS connection and independently verifies
 the Agent Factory VM certificate. The VM listener is bound to
@@ -17,6 +17,16 @@ authorized client.
 
 The Nginx configuration preserves the public host and port. This is required
 for Agent Factory Socket.IO polling and WebSocket traffic.
+
+## Certificate lifecycle
+
+The edge certificate includes `oracle-ai.local`, the short host name, and the
+LAN address. The renewal script stages a replacement certificate without
+touching the active edge. Applying a staged certificate archives the current
+material, recreates the edge container, and runs the trusted smoke test.
+
+The platform health check warns before the edge certificate reaches the
+configured certificate-expiry threshold.
 
 ## Rollback
 

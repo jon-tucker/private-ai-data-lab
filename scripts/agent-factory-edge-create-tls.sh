@@ -17,8 +17,9 @@ openssl req -newkey rsa:3072 -nodes \
   -subj "/CN=${AGENT_FACTORY_EDGE_SERVER_NAME}" \
   -keyout "${AGENT_FACTORY_EDGE_TLS_DIR}/server.key" \
   -out "${AGENT_FACTORY_EDGE_TLS_DIR}/server.csr"
-printf 'subjectAltName=DNS:%s,IP:%s\n' \
-  "${AGENT_FACTORY_EDGE_SERVER_NAME}" "${AGENT_FACTORY_EDGE_HOST_BIND}" \
+printf 'subjectAltName=DNS:%s,DNS:%s,IP:%s\n' \
+  "${AGENT_FACTORY_EDGE_SERVER_NAME}" "${PLATFORM_HOSTNAME:-oracle-ai}" \
+  "${AGENT_FACTORY_EDGE_HOST_BIND}" \
   >"${AGENT_FACTORY_EDGE_TLS_DIR}/server.ext"
 openssl x509 -req -days 825 \
   -in "${AGENT_FACTORY_EDGE_TLS_DIR}/server.csr" \

@@ -96,8 +96,9 @@ Open WebUI joins both networks: `frontend` receives browser traffic on port `300
 For Agent Factory, the local `.env` overrides `OLLAMA_HOST_BIND` with
 `192.168.122.1`. This publishes Ollama only on the private libvirt bridge.
 The VM uses `192.168.122.202`; neither address is routed directly to LAN
-clients. Browser access to Agent Factory uses an SSH tunnel until a reviewed
-reverse-proxy and TLS design is introduced.
+clients. Browser access to Agent Factory uses the private HTTPS edge at
+`https://oracle-ai.local/agentFactory/`. The edge terminates client TLS,
+verifies the VM certificate, and publishes only on the host LAN address.
 
 ## Deployment principles
 

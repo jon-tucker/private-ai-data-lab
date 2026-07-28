@@ -10,6 +10,15 @@ The project follows [Semantic Versioning](https://semver.org/).
 
 - Build additional Agent Factory solutions.
 
+### Added
+
+- Stable `https://oracle-ai.local/agentFactory/` browser endpoint on port 443.
+- Local mDNS hostname discovery through the host Avahi service.
+- Staged Agent Factory edge certificate renewal and explicit application.
+- Unified health monitoring for the Agent Factory edge certificate lifetime.
+- Removal of the stale unreleased v0.17.0 notice from the project overview.
+- ADR 0019 defining the stable local edge and certificate lifecycle.
+
 ## [0.18.0] - 2026-07-27
 
 ### Added
