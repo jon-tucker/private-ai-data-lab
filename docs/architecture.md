@@ -29,6 +29,7 @@ flowchart TB
   MCP["Oracle Database MCP Server"]
   Factory["Private Agent Factory"]
   Oracle["Oracle AI Database 26ai Free"]
+  PrivateAI["Private AI embedding service<br/>separate Oracle Linux target"]
 
   Browser --> Proxy
   Proxy --> WebUI
@@ -40,6 +41,7 @@ flowchart TB
   MCP --> Oracle
   Factory --> MCP
   APEX --> Oracle
+  Oracle -->|TLS + API key| PrivateAI
 ```
 
 This diagram describes the target architecture. Version 0.2.0 deploys the Oracle database component; the remaining services are introduced incrementally.
@@ -118,6 +120,11 @@ platform is considered operationally ready.
 Version 1.0.0 declares the resulting reference topology and its documented
 security, recovery, operator, and validation interfaces stable.
 
+Version 1.1.0 defines Oracle Private AI Services as a separate offload tier.
+The initial integration is limited to vector embedding generation. It does
+not replace the existing Private Agent Factory generative-model path through
+LiteLLM and Ollama.
+
 ## Capacity profile
 
 The initial host has 12 cores / 24 threads, approximately 28 GiB usable RAM, and approximately 937 GiB formatted NVMe capacity. Resource limits will be introduced as workloads are measured. Oracle AI Database and local models must share memory conservatively until the host is upgraded.
@@ -125,6 +132,10 @@ The initial host has 12 cores / 24 threads, approximately 28 GiB usable RAM, and
 For v0.2.0, the database container receives a four-CPU and 8 GiB container ceiling with 2 GiB shared memory. Oracle AI Database Free independently enforces its product resource limits.
 
 For v0.3.0, Ollama receives an eight-CPU and 12 GiB container ceiling, one loaded model, one parallel request, and a 4096-token default context. These conservative defaults protect the 32 GB reference host while Oracle is running.
+
+The Private AI embedding service requires a separate supported Oracle Linux
+x86-64 target with at least 16 GB of free memory and 22 GB of free storage.
+Those resources are not overcommitted from the 32 GB reference database host.
 
 
 ## ORDS deployment boundary
@@ -236,3 +247,19 @@ The VM listener is bound only to its libvirt address, and its firewall permits
 port 8080 only from the host bridge. Agent Factory is therefore not exposed
 directly to the LAN. The SSH local-forwarding tunnel remains available as an
 explicit rollback path.
+
+## Private AI Services boundary
+
+Oracle Private AI Services runs outside the stable single-host runtime on a
+separate Oracle Linux target close to Oracle AI Database. The database calls
+the embedding endpoint over restricted TLS using an API key stored outside
+Git. Requests are stateless; Oracle AI Database remains the authoritative
+vector store.
+
+The current Ubuntu host, Agent Factory VM, LAN, and internet are not valid
+direct exposure paths for the service. Registry credentials, API keys, TLS
+private keys, encrypted keystores, Oracle-licensed images, and generated
+installation state remain outside the repository.
+
+The AMD Radeon 890M continues to accelerate Ollama through ROCm. It is not
+treated as eligible hardware for Oracle's NVIDIA-only Vector Index Service.

@@ -10,6 +10,15 @@ The project follows [Semantic Versioning](https://semver.org/).
 
 - Build additional Agent Factory solutions.
 
+### Added
+
+- Oracle Private AI Services Container compatibility and deployment assessment.
+- Separate Oracle Linux target requirement for supported embedding offload.
+- Read-only host assessment for operating system, memory, storage, Podman, and
+  optional NVIDIA vector-index readiness.
+- ADR 0022 defining Private AI Services as a complementary Oracle Database
+  service rather than a replacement for the generative-model gateway.
+
 ## [1.0.1] - 2026-07-27
 
 ### Removed

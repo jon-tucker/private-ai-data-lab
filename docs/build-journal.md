@@ -407,3 +407,17 @@ This journal records implementation milestones, operational discoveries, and les
 - Identified the security policy and contribution guide as the remaining
   release-policy gaps.
 - Added stable-release validation, project policies, and a final checklist.
+
+## 2026-07-30 — Assessed Oracle Private AI Services alignment
+
+- Revalidated the complete v1.0.1 platform after host startup.
+- Inventoried the Ubuntu host, AMD Radeon 890M, available memory, storage,
+  running containers, local models, and Agent Factory 26.4 VM.
+- Confirmed Oracle Private AI Services currently provides vector embedding
+  and vector index offload rather than a replacement generative-model path.
+- Retained Oracle AI Database, Private Agent Factory, SQLcl MCP, Ollama,
+  LiteLLM, and Open WebUI.
+- Required a separate supported Oracle Linux target for the embedding service.
+- Deferred the NVIDIA-only vector index service on the AMD reference host.
+- Added a read-only target-host assessment and documented the staged
+  integration and secret boundaries.
