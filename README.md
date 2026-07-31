@@ -40,6 +40,7 @@ Created by Jon Tucker with ChatGPT.
 | **Platform readiness** | Unified acceptance checks and operator handoff | Available in v0.20.0 |
 | **Stable release** | Security policy, contribution workflow, and release acceptance | Available in v1.0.0 |
 | **Private AI services alignment** | Oracle-native embedding offload integration contract | Assessed in v1.1.0 |
+| **LiveStack integration** | Hardened application-only Energy & Utilities workload | Foundation in v1.2.0 |
 
 ## Project policies
 

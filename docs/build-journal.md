@@ -421,3 +421,15 @@ This journal records implementation milestones, operational discoveries, and les
 - Deferred the NVIDIA-only vector index service on the AMD reference host.
 - Added a read-only target-host assessment and documented the staged
   integration and secret boundaries.
+
+## 2026-07-30 — Began hardened LiveStack integration
+
+- Reviewed the supplied Energy & Utilities LiveStack archive without running
+  vendor code.
+- Confirmed the reference host has sufficient CPU and storage and that port
+  8505 is available.
+- Confirmed no existing `LIVESTACK` database schema is present.
+- Chose to reuse Oracle Database 23.26.2 and the ROCm-enabled Ollama service.
+- Excluded the vendor database, ORDS, and Ollama containers from the design.
+- Disabled optional usage telemetry and kept the application private during
+  the foundation phase.

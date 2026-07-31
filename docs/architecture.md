@@ -263,3 +263,15 @@ installation state remain outside the repository.
 
 The AMD Radeon 890M continues to accelerate Ollama through ROCm. It is not
 treated as eligible hardware for Oracle's NVIDIA-only Vector Index Service.
+
+## LiveStack application workload
+
+The Energy & Utilities LiveStack demonstration is integrated as an optional
+application workload. It reuses the platform Oracle Database and Ollama
+services on the private backend network. The vendor archive remains outside
+Git and is staged into `/srv/oracle-ai-work/livestack`.
+
+The application binds initially to host loopback on port 8505. Its database
+schema, credentials, lifecycle, and removal path are independent from
+`ORACLE_AI`. The vendor database, ORDS, and Ollama containers are never
+started. Usage telemetry is explicitly disabled.

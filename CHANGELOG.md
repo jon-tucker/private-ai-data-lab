@@ -10,6 +10,18 @@ The project follows [Semantic Versioning](https://semver.org/).
 
 - Build additional Agent Factory solutions.
 
+### Added
+
+- Application-only integration boundary for the Oracle Energy & Utilities
+  LiveStack demonstration.
+- Safe source staging that rejects unsafe archives and removes bundled
+  environment files, privileged bootstrap files, and macOS metadata.
+- Private application publication with existing Oracle Database and
+  ROCm-enabled Ollama reused instead of duplicated.
+- Validation that disables usage telemetry and blocks startup until a
+  separately provisioned database credential exists.
+- ADR 0023 defining LiveStack as an isolated platform workload.
+
 ## [1.1.0] - 2026-07-30
 
 ### Added

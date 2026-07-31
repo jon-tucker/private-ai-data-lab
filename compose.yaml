@@ -49,6 +49,14 @@ services:
     extends:
       file: stacks/agent-factory-edge/compose.yaml
       service: agent-factory-edge
+  livestack:
+    extends:
+      file: stacks/livestack/compose.yaml
+      service: livestack
+
+secrets:
+  livestack_database_password:
+    file: ${LIVESTACK_DATABASE_PASSWORD_FILE:-/srv/oracle-ai-secrets/livestack-database-password}
 
 networks:
   frontend:
