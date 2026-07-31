@@ -10,6 +10,8 @@ The project follows [Semantic Versioning](https://semver.org/).
 
 - Build additional Agent Factory solutions.
 
+## [1.3.2] - 2026-07-31
+
 ### Changed
 
 - Generalized reusable LAN-address and Agent Factory VM-user examples.
