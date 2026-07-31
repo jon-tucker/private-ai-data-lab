@@ -10,6 +10,13 @@ The project follows [Semantic Versioning](https://semver.org/).
 
 - Build additional Agent Factory solutions.
 
+### Changed
+
+- Renamed the public project from Oracle AI Data Platform to Private AI Data
+  Lab to distinguish it from Oracle commercial offerings.
+- Added an explicit independent-project disclaimer and retained established
+  runtime paths and identifiers for deployment compatibility.
+
 ## [1.2.0] - 2026-07-30
 
 ### Added

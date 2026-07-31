@@ -461,3 +461,13 @@ This journal records implementation milestones, operational discoveries, and les
 - Verified browser operation through an SSH local-forward.
 - Corrected Docker Buildx metadata ownership and credential-bearing installer
   cleanup without changing other platform services.
+
+## 2026-07-31 — Adopted an independent project identity
+
+- Renamed the public project to Private AI Data Lab to avoid confusion with
+  Oracle commercial product names and architectures.
+- Added an explicit statement that the project is independent and is not an
+  Oracle product or endorsed by Oracle Corporation.
+- Retained established paths, container names, Compose identity, systemd unit
+  filenames, and label namespaces as compatibility identifiers.
+- Updated the Open WebUI display name and operator-facing service descriptions.

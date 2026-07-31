@@ -1,5 +1,5 @@
 [Unit]
-Description=Oracle AI Data Platform daily health check
+Description=Private AI Data Lab daily health check
 After=docker.service libvirtd.service network-online.target
 Wants=network-online.target
 

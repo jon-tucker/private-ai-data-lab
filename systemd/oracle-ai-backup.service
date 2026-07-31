@@ -1,5 +1,5 @@
 [Unit]
-Description=Oracle AI Data Platform coordinated cold backup
+Description=Private AI Data Lab coordinated cold backup
 After=docker.service libvirtd.service network-online.target
 Wants=network-online.target
 ConditionACPower=true

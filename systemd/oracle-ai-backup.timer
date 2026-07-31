@@ -1,5 +1,5 @@
 [Unit]
-Description=Schedule Oracle AI Data Platform weekly coordinated backup
+Description=Schedule Private AI Data Lab weekly coordinated backup
 
 [Timer]
 OnCalendar=@BACKUP_CALENDAR@

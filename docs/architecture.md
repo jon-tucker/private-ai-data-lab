@@ -2,7 +2,11 @@
 
 ## Purpose
 
-Oracle AI Data Platform is a single-host, production-inspired reference environment. It uses Docker Compose to make infrastructure definitions portable while keeping persistent state and credentials outside the Git working tree.
+Private AI Data Lab is a single-host, production-inspired reference environment centered on Oracle AI Database. It uses Docker Compose to make infrastructure definitions portable while keeping persistent state and credentials outside the Git working tree.
+
+## Compatibility identifiers
+
+The public project name is Private AI Data Lab. Established deployment identifiers remain unchanged so an upgrade does not recreate containers, move persistent data, or invalidate automation. These compatibility identifiers include the `/srv/oracle-ai*` paths, `oracle-ai-*` container and systemd unit names, the `oracle-ai-data-platform` Compose project name, and the existing Docker label namespace. They are implementation details rather than a claim that this project is an Oracle product.
 
 ## Context
 

@@ -9,7 +9,7 @@ services:
     environment:
       OLLAMA_BASE_URL: http://ollama:11434
       WEBUI_URL: ${OPEN_WEBUI_URL:-http://192.168.0.209:3000}
-      WEBUI_NAME: Oracle AI Data Platform
+      WEBUI_NAME: Private AI Data Lab
       ENABLE_OLLAMA_API: "True"
       ENABLE_OPENAI_API: "False"
       ENABLE_SIGNUP: ${OPEN_WEBUI_ENABLE_SIGNUP:-true}

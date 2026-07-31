@@ -1,5 +1,5 @@
 [Unit]
-Description=Schedule Oracle AI Data Platform daily health check
+Description=Schedule Private AI Data Lab daily health check
 
 [Timer]
 OnCalendar=@HEALTH_CALENDAR@

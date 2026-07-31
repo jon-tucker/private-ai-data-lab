@@ -1,14 +1,14 @@
-# Oracle AI Data Platform
+# Private AI Data Lab
 
-*Production-inspired Oracle AI for everyone.*
+*Private, reproducible AI experimentation centered on Oracle AI Database.*
 
-Oracle AI Data Platform is a reproducible, production-inspired environment for learning, testing, and demonstrating Oracle AI technologies alongside modern open-source AI tooling.
+Private AI Data Lab is a reproducible environment for learning, testing, and demonstrating Oracle AI Database technologies alongside modern open-source AI tooling.
 
-Created by Jon Tucker with ChatGPT.
+Private AI Data Lab is an independent reference project created by Jon Tucker with ChatGPT. It is not an Oracle product and is not affiliated with or endorsed by Oracle Corporation.
 
 ## Project goals
 
-- Recreate the platform from source-controlled configuration and automation.
+- Recreate the lab from source-controlled configuration and automation.
 - Separate source code, persistent data, and secrets.
 - Favor pinned versions, health checks, and documented operational procedures.
 - Provide practical examples for Oracle AI Database, vector search, MCP, RAG, and agents.
@@ -41,6 +41,7 @@ Created by Jon Tucker with ChatGPT.
 | **Stable release** | Security policy, contribution workflow, and release acceptance | Available in v1.0.0 |
 | **Private AI services alignment** | Oracle-native embedding offload integration contract | Assessed in v1.1.0 |
 | **LiveStack integration** | Hardened application-only Energy & Utilities workload | Available in v1.2.0 |
+| **Project identity** | Independent name, description, and compatibility boundary | Foundation in v1.3.0 |
 
 ## Project policies
 
@@ -51,7 +52,7 @@ Created by Jon Tucker with ChatGPT.
 
 ## Host layout
 
-The platform keeps code, state, and credentials separate:
+The lab keeps code, state, and credentials separate:
 
 ```text
 /srv/
@@ -60,7 +61,7 @@ The platform keeps code, state, and credentials separate:
 └── oracle-ai-secrets/  # Local credentials and private configuration (mode 0700)
 ```
 
-The repository name is `oracle-ai-data-platform`; its deployment path is `/srv/oracle-ai`.
+The repository name is `private-ai-data-lab`. The existing deployment path remains `/srv/oracle-ai` for compatibility.
 
 ## Repository layout
 
