@@ -275,3 +275,9 @@ The application binds initially to host loopback on port 8505. Its database
 schema, credentials, lifecycle, and removal path are independent from
 `ORACLE_AI`. The vendor database, ORDS, and Ollama containers are never
 started. Usage telemetry is explicitly disabled.
+
+The dedicated `LIVESTACK` schema has a bounded quota and receives only selected
+DDL privileges plus the SODA and graph feature roles. Platform automation
+excludes vendor Cloud AI, database-agent, ONNX model-loading, unrestricted
+network ACL, global-role, unlimited-tablespace, auditing-administration, and
+VPD operations. A guarded removal path can drop only this isolated schema.

@@ -433,3 +433,31 @@ This journal records implementation milestones, operational discoveries, and les
 - Excluded the vendor database, ORDS, and Ollama containers from the design.
 - Disabled optional usage telemetry and kept the application private during
   the foundation phase.
+
+## 2026-07-30 — Added controlled LiveStack schema provisioning
+
+- Added an overwrite-resistant `LIVESTACK` schema installer with a bounded
+  1 GB default quota.
+- Added schema status, automated smoke-test, and two-confirmation removal
+  operations.
+- Selected only the relational, JSON, graph, spatial, vector-storage,
+  operational graph, semantic-view, and demonstration-data components needed
+  for the private workload.
+- Excluded vendor Cloud AI, database-agent, ONNX model-loading, unrestricted
+  network ACL, global role, auditing-administration, and VPD operations.
+- Added a fixed private demonstration compatibility context that does not
+  trust the caller-supplied demo username as authentication.
+- Kept application startup blocked pending successful database and container
+  verification plus a protected access boundary.
+
+## 2026-07-30 — Verified private LiveStack application
+
+- Installed 42 tables, 25 views, two property graphs, and supporting objects
+  with zero invalid objects.
+- Confirmed approximately 19 MB was allocated against the 1,024 MB quota.
+- Verified prohibited system, directory, and network privileges were absent.
+- Built the application image and started it only on host loopback port 8505.
+- Verified database-backed health and frontend HTTP 200 responses.
+- Verified browser operation through an SSH local-forward.
+- Corrected Docker Buildx metadata ownership and credential-bearing installer
+  cleanup without changing other platform services.

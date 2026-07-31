@@ -21,6 +21,14 @@ The project follows [Semantic Versioning](https://semver.org/).
 - Validation that disables usage telemetry and blocks startup until a
   separately provisioned database credential exists.
 - ADR 0023 defining LiveStack as an isolated platform workload.
+- Bounded, least-privilege `LIVESTACK` schema provisioning with explicit
+  status, smoke-test, and guarded removal operations.
+- Platform-owned compatibility objects for native vector storage and a fixed
+  private demonstration context without vendor VPD or caller-trusted identity.
+- Curated schema execution that excludes Cloud AI, database-agent, ONNX model,
+  unrestricted network ACL, global-role, and unlimited-tablespace operations.
+- Verified loopback-only application lifecycle, database-backed health,
+  frontend delivery, and browser access through an SSH local-forward.
 
 ## [1.1.0] - 2026-07-30
 

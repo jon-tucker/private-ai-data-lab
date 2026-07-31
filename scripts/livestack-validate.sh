@@ -14,6 +14,10 @@ telemetry_enabled="$(printf '%s' "${LIVESTACK_TELEMETRY_ENABLED}" | tr '[:upper:
   die "LIVESTACK_PORT must be numeric"
 [[ "${LIVESTACK_DATABASE_CONNECT_STRING}" == "oracle-db:1521/FREEPDB1" ]] ||
   die "LiveStack must reuse the platform database service"
+[[ "${LIVESTACK_DATABASE_QUOTA_MB}" =~ ^[0-9]+$ ]] ||
+  die "LIVESTACK_DATABASE_QUOTA_MB must be numeric"
+(( LIVESTACK_DATABASE_QUOTA_MB >= 256 && LIVESTACK_DATABASE_QUOTA_MB <= 2048 )) ||
+  die "LIVESTACK_DATABASE_QUOTA_MB must be between 256 and 2048"
 [[ "${LIVESTACK_OLLAMA_URL}" == "http://ollama:11434" ]] ||
   die "LiveStack must reuse the private platform Ollama service"
 [[ -z "${DEMO_USAGE_COUNTER_PAR_URL:-}" ]] ||
@@ -53,4 +57,3 @@ docker compose \
   config --quiet
 
 printf 'LiveStack integration configuration validation passed.\n'
-printf 'Foundation state only: schema installation and application startup remain blocked.\n'

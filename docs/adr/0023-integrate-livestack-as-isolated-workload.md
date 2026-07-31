@@ -17,9 +17,10 @@ reuse the private backend database and Ollama services. Vendor source remains
 outside Git, telemetry is disabled, credentials use the secrets boundary, and
 the first publication is loopback-only.
 
-Schema installation and application startup are explicitly deferred until the
-vendor privileges, network ACL, public ORDS configuration, data-reset
-operations, and authentication model are replaced or constrained.
+Schema installation uses platform-owned, bounded provisioning that excludes
+the vendor privileges, network ACL, public ORDS configuration, model loading,
+and caller-trusted VPD design. Application startup remains deferred until the
+schema and container pass smoke tests and a protected access boundary exists.
 
 ## Consequences
 

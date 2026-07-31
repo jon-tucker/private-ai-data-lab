@@ -22,6 +22,7 @@ append_default LIVESTACK_PORT 8505
 append_default LIVESTACK_DATABASE_USER LIVESTACK
 append_default LIVESTACK_DATABASE_PASSWORD_FILE /srv/oracle-ai-secrets/livestack-database-password
 append_default LIVESTACK_DATABASE_CONNECT_STRING oracle-db:1521/FREEPDB1
+append_default LIVESTACK_DATABASE_QUOTA_MB 1024
 append_default LIVESTACK_OLLAMA_URL http://ollama:11434
 append_default LIVESTACK_OLLAMA_MODEL qwen3:4b-instruct
 append_default LIVESTACK_TELEMETRY_ENABLED false

@@ -49,6 +49,19 @@ check_container "${LITELLM_CONTAINER}"
 check_container "${LITELLM_TLS_CONTAINER}"
 check_container "${MCP_HTTP_CONTAINER}"
 check_container "${MCP_TLS_CONTAINER}"
+if docker inspect "${LIVESTACK_CONTAINER}" >/dev/null 2>&1; then
+  check_container "${LIVESTACK_CONTAINER}"
+  livestack_health="$(
+    curl --fail --silent --show-error --max-time 10 \
+      "http://${LIVESTACK_HOST_BIND}:${LIVESTACK_PORT}/api/health" \
+      2>/dev/null || true
+  )"
+  if [[ "${livestack_health}" == *'"status":"healthy"'* ]]; then
+    pass 'LiveStack loopback application and database connection are healthy'
+  else
+    fail 'LiveStack loopback health check failed'
+  fi
+fi
 
 printf '\n=== Agent Factory VM and application ===\n'
 vm_state="$(virsh -c "${AGENT_FACTORY_VM_URI}" domstate "${AGENT_FACTORY_VM_NAME}" 2>/dev/null || true)"
