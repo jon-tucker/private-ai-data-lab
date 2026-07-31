@@ -19,6 +19,6 @@ append_default OPEN_WEBUI_PORT 3000
 append_default OPEN_WEBUI_CPUS 4.0
 append_default OPEN_WEBUI_MEMORY 4g
 append_default OPEN_WEBUI_SECRET_FILE /srv/oracle-ai-secrets/open-webui-secret-key
-append_default OPEN_WEBUI_URL http://192.168.0.209:3000
+append_default OPEN_WEBUI_URL http://127.0.0.1:3000
 append_default OPEN_WEBUI_ENABLE_SIGNUP true
 append_default OPEN_WEBUI_DEFAULT_MODEL qwen3:4b-instruct

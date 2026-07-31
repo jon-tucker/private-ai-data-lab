@@ -21,4 +21,4 @@ append_default APEX_CONTAINER_SOURCE_DIR /opt/oracle/apex-26.1
 append_default APEX_TABLESPACE APEX
 append_default APEX_FILES_TABLESPACE APEX_FILES
 append_default APEX_ADMIN_USERNAME ADMIN
-append_default APEX_URL http://192.168.0.209:8080/ords/
+append_default APEX_URL http://127.0.0.1:8080/ords/

@@ -6,7 +6,7 @@
 - Verified digest: `sha256:6c510faf38965e2901b6bbd5ecf179f15af6909481de3e65446505d6d4d1eba0`
 - Database service: `oracle-db:1521/FREEPDB1`
 - Configuration: `/srv/oracle-ai-data/ords`
-- URL: `http://192.168.0.209:8080/ords/`
+- URL: `http://<platform-lan-ip>:8080/ords/`
 
 ## Initial deployment
 

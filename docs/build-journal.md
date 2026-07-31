@@ -481,3 +481,15 @@ This journal records implementation milestones, operational discoveries, and les
 - Completed the unified platform health check with zero failures and warnings.
 - Preserved all established paths, service names, containers, and persistent
   data during the identity change.
+
+## 2026-07-31 — Completed public-release source audit
+
+- Scanned all 67 Git commits with Gitleaks 8.30.1; no leaks were found.
+- Confirmed that Git history contains no suspicious sensitive filenames or
+  unexpectedly large binary blobs.
+- Generalized reusable LAN-address and VM-user examples while retaining
+  historical deployment facts in the build journal and ADRs.
+- Preserved the isolated `192.168.122.0/24` libvirt reference architecture.
+- Updated the supported-release policy and clarified that licensed Oracle
+  artifacts, credentials, generated state, and private data are not
+  distributed by the repository.

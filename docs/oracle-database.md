@@ -68,7 +68,7 @@ The initial deployment was verified with:
 - Zero invalid database objects.
 - Native `VECTOR` construction and `VECTOR_DISTANCE` returning the expected Euclidean distance.
 - Successful container removal and recreation using the unchanged bind-mounted data directory.
-- Listener connectivity from the Docker host and from `192.168.0.209:1521` on the LAN.
+- Listener connectivity from the Docker host and from `<platform-lan-ip>:1521` on the LAN.
 
 ## Persistence
 

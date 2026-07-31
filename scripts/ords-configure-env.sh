@@ -22,4 +22,4 @@ append_default ORDS_CPUS 2.0
 append_default ORDS_MEMORY 2g
 append_default ORDS_CONFIG_DIR /srv/oracle-ai-data/ords
 append_default ORDS_PUBLIC_PASSWORD_FILE /srv/oracle-ai-secrets/ords-public-user-password
-append_default ORDS_URL http://192.168.0.209:8080/ords/
+append_default ORDS_URL http://127.0.0.1:8080/ords/

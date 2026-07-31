@@ -39,7 +39,7 @@ Compose mounts that file read-only as `/app/backend/.webui_secret_key`. Back up 
 ./scripts/open-webui-smoke-test.sh
 ```
 
-Open the configured URL, normally `http://192.168.0.209:3000`.
+Open the configured URL, normally `http://<platform-lan-ip>:3000`.
 
 ## First-run security
 
@@ -56,7 +56,7 @@ Open WebUI was verified on 2026-07-22 with the following deployment:
 ```text
 Open WebUI image:  ghcr.io/open-webui/open-webui:v0.10.2
 Image digest:      sha256:9fcea9c6e32ab60b0498f3986c6cdf651ddbe61db48d2213a3d28048ddd673d4
-Browser URL:       http://192.168.0.209:3000
+Browser URL:       http://<platform-lan-ip>:3000
 Ollama endpoint:   http://ollama:11434
 Default model:     qwen3:4b-instruct
 Model ID:          0edcdef34593

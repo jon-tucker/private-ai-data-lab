@@ -77,7 +77,7 @@ its license. Copy it to the guest:
 ```bash
 scp -o ProxyJump=oracle-ai \
   oracle_agent_factory_X64_26.4.0.tar.gz \
-  jon@192.168.122.202:/u01/agent-factory/downloads/
+  <vm-user>@192.168.122.202:/u01/agent-factory/downloads/
 ```
 
 Create a new staging directory for every installation or upgrade:
@@ -116,7 +116,7 @@ Until a TLS reverse proxy is implemented, tunnel the VM endpoint:
 ```bash
 ssh -J oracle-ai \
   -L 8443:127.0.0.1:8080 \
-  jon@192.168.122.202
+  <vm-user>@192.168.122.202
 ```
 
 Open `https://127.0.0.1:8443/agentFactory/`. The initial certificate is

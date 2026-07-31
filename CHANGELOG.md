@@ -10,6 +10,16 @@ The project follows [Semantic Versioning](https://semver.org/).
 
 - Build additional Agent Factory solutions.
 
+### Changed
+
+- Generalized reusable LAN-address and Agent Factory VM-user examples.
+- Added public-distribution and local-configuration guidance.
+- Updated the supported security release line to 1.3.x.
+
+### Security
+
+- Completed a full-history Gitleaks scan of all 67 commits with no leaks found.
+
 ## [1.3.1] - 2026-07-31
 
 ### Fixed

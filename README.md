@@ -50,6 +50,19 @@ Private AI Data Lab is an independent reference project created by Jon Tucker wi
 - [Operator runbook](docs/operator-runbook.md)
 - [Release checklist](docs/release-checklist.md)
 
+## Distribution and local configuration
+
+This repository contains project-authored source, configuration templates,
+and documentation. It does not distribute Oracle installation media,
+Oracle-licensed container images, database files, generated certificates,
+private keys, credentials, VM disks, model data, or runtime backups.
+
+Values such as `192.0.2.10` and `your-vm-user` are documentation examples.
+Replace them in the local `.env` file before starting LAN-facing or
+VM-dependent services. The `192.168.122.0/24` addresses are intentional
+defaults for the isolated libvirt reference network and may also be changed
+to match the operator's environment.
+
 ## Host layout
 
 The lab keeps code, state, and credentials separate:
@@ -141,7 +154,7 @@ Create the stable Open WebUI secret, prepare its persistent data directory, and 
 ./scripts/open-webui-start.sh
 ```
 
-Open `http://192.168.0.209:3000` from the trusted LAN. The first account becomes administrator; disable additional registration immediately afterward.
+Open `http://<platform-lan-ip>:3000` from the trusted LAN. The first account becomes administrator; disable additional registration immediately afterward.
 
 Prepare the verified APEX 26.1 software and review the preflight before
 installation:
@@ -185,7 +198,7 @@ all generated Podman state remain outside Git.
 Connection defaults:
 
 ```text
-Host:     oracle-ai or 192.168.0.209
+Host:     oracle-ai or <platform-lan-ip>
 Port:     1521
 CDB:      FREE
 PDB:      FREEPDB1

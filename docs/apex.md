@@ -109,7 +109,7 @@ Confirm both the ORDS landing endpoint and `/i/` static resources:
 Then open:
 
 ```text
-http://192.168.0.209:8080/ords/
+http://<platform-lan-ip>:8080/ords/
 ```
 
 ## Upgrade policy
