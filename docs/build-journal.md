@@ -471,3 +471,13 @@ This journal records implementation milestones, operational discoveries, and les
 - Retained established paths, container names, Compose identity, systemd unit
   filenames, and label namespaces as compatibility identifiers.
 - Updated the Open WebUI display name and operator-facing service descriptions.
+
+## 2026-07-31 — Verified Private AI Data Lab identity
+
+- Recreated Open WebUI and confirmed `WEBUI_NAME=Private AI Data Lab`.
+- Reinstalled the observability units and confirmed all operator-facing
+  descriptions use the new project name.
+- Confirmed the daily health and weekly backup timers remain enabled.
+- Completed the unified platform health check with zero failures and warnings.
+- Preserved all established paths, service names, containers, and persistent
+  data during the identity change.
