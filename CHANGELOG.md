@@ -10,6 +10,8 @@ The project follows [Semantic Versioning](https://semver.org/).
 
 - Build additional Agent Factory solutions.
 
+## [1.2.0] - 2026-07-30
+
 ### Added
 
 - Application-only integration boundary for the Oracle Energy & Utilities
