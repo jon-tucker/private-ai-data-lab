@@ -10,6 +10,8 @@ The project follows [Semantic Versioning](https://semver.org/).
 
 - Build additional Agent Factory solutions.
 
+## [1.1.0] - 2026-07-30
+
 ### Added
 
 - Oracle Private AI Services Container compatibility and deployment assessment.

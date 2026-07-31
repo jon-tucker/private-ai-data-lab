@@ -39,7 +39,7 @@ Created by Jon Tucker with ChatGPT.
 | **Edge completion** | Stable hostname, port 443, and certificate lifecycle | Available in v0.19.0 |
 | **Platform readiness** | Unified acceptance checks and operator handoff | Available in v0.20.0 |
 | **Stable release** | Security policy, contribution workflow, and release acceptance | Available in v1.0.0 |
-| **Private AI services alignment** | Oracle-native embedding offload integration contract | Foundation in v1.1.0 |
+| **Private AI services alignment** | Oracle-native embedding offload integration contract | Assessed in v1.1.0 |
 
 ## Project policies
 
