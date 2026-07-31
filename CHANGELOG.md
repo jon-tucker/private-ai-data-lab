@@ -10,6 +10,10 @@ The project follows [Semantic Versioning](https://semver.org/).
 
 - Build additional Agent Factory solutions.
 
+### Fixed
+
+- Removed the redundant ORDS milestone section from the bottom of the README.
+
 ## [1.3.0] - 2026-07-31
 
 ### Changed
