@@ -118,7 +118,7 @@ load_env() {
   export OBSERVABILITY_WEBHOOK_URL_FILE="${OBSERVABILITY_WEBHOOK_URL_FILE:-${PLATFORM_SECRETS_ROOT}/observability-webhook-url}"
   export OPERATIONS_AGENT_ENABLED="${OPERATIONS_AGENT_ENABLED:-1}"
   export OPERATIONS_AGENT_RETENTION_DAYS="${OPERATIONS_AGENT_RETENTION_DAYS:-365}"
-  export LIVESTACK_IMAGE="${LIVESTACK_IMAGE:-oracle-ai/livestack-utilities:1.2.0}"
+  export LIVESTACK_IMAGE="${LIVESTACK_IMAGE:-oracle-ai/livestack-utilities:1.2.1}"
   export LIVESTACK_CONTAINER="${LIVESTACK_CONTAINER:-oracle-ai-livestack}"
   export LIVESTACK_SOURCE_DIR="${LIVESTACK_SOURCE_DIR:-/srv/oracle-ai-work/livestack/utilities}"
   export LIVESTACK_ARCHIVE="${LIVESTACK_ARCHIVE:-/tmp/livestack.zip}"
