@@ -1,5 +1,28 @@
 # Changelog
 
+## [1.3.3] - 2026-08-02
+
+### Fixed
+
+- Updated the LiveStack integration image to `oracle-ai/livestack-utilities:1.2.1`.
+- Added recovery handling for node-oracledb `NJS-530` errors after temporary
+  Oracle Database unavailability.
+- Validated newly created Oracle connection pools with a real connection and
+  `ping()` before exposing them to application requests.
+- Added a reproducible local patch record for the externally maintained
+  LiveStack source tree.
+
+### Validation
+
+- Confirmed LiveStack returned HTTP 503 while Oracle Database was stopped.
+- Confirmed LiveStack automatically reset and rebuilt its connection pool when
+  Oracle Database returned.
+- Confirmed LiveStack recovered to HTTP 200 without container recreation or
+  restart.
+- Confirmed the full Private AI Data Lab health check completed with zero
+  failures and zero warnings.
+
+
 All notable changes to this project will be documented in this file.
 
 The project follows [Semantic Versioning](https://semver.org/).

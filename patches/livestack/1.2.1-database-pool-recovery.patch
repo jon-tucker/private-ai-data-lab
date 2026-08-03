@@ -1,0 +1,66 @@
+--- backend/config/database.js
++++ backend/config/database.js
+@@ -43,6 +43,7 @@
+ 
+   return [
+     'NJS-503',
++    'NJS-530',
+     'DPI-1010',
+     'DPI-1080',
+     'ORA-03113',
+@@ -67,13 +68,50 @@
+ 
+ async function createPool() {
+   const poolConfig = buildPoolConfig();
+-  poolPromise = oracledb.createPool(poolConfig);
++
++  const creationPromise = (async () => {
++    const pool = await oracledb.createPool(poolConfig);
++    let validationConnection;
++
++    try {
++      validationConnection = await pool.getConnection();
++      resetConnectionDefaults(validationConnection);
++      await validationConnection.ping();
++
++      console.log(
++        `Oracle connection pool created and validated ` +
++        `(min: ${pool.poolMin}, max: ${pool.poolMax})`
++      );
++
++      return pool;
++    } catch (err) {
++      try {
++        await pool.close(0);
++      } catch {
++        // Preserve the original connection or validation error.
++      }
++
++      throw err;
++    } finally {
++      if (validationConnection) {
++        try {
++          await validationConnection.close();
++        } catch {
++          // Ignore validation-connection cleanup errors.
++        }
++      }
++    }
++  })();
++
++  poolPromise = creationPromise;
++
+   try {
+-    const pool = await poolPromise;
+-    console.log(`Oracle connection pool created (min: ${pool.poolMin}, max: ${pool.poolMax})`);
+-    return pool;
++    return await creationPromise;
+   } catch (err) {
+-    poolPromise = null;
++    if (poolPromise === creationPromise) {
++      poolPromise = null;
++    }
++
+     throw err;
+   }
+ }

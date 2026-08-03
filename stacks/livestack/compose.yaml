@@ -1,7 +1,7 @@
 services:
   livestack:
     profiles: ["livestack"]
-    image: ${LIVESTACK_IMAGE:-oracle-ai/livestack-utilities:1.2.0}
+    image: ${LIVESTACK_IMAGE:-oracle-ai/livestack-utilities:1.2.1}
     build:
       context: ${LIVESTACK_SOURCE_DIR:-/srv/oracle-ai-work/livestack/utilities}
       dockerfile: Containerfile
@@ -44,7 +44,7 @@ services:
       start_period: 60s
     labels:
       com.jontucker.oracle-ai-data-platform.component: livestack
-      com.jontucker.oracle-ai-data-platform.release: "1.2.0"
+      com.jontucker.oracle-ai-data-platform.release: "1.2.1"
 
 secrets:
   livestack_database_password:

@@ -13,7 +13,7 @@ append_default() {
   fi
 }
 
-append_default LIVESTACK_IMAGE oracle-ai/livestack-utilities:1.2.0
+append_default LIVESTACK_IMAGE oracle-ai/livestack-utilities:1.2.1
 append_default LIVESTACK_CONTAINER oracle-ai-livestack
 append_default LIVESTACK_SOURCE_DIR /srv/oracle-ai-work/livestack/utilities
 append_default LIVESTACK_ARCHIVE /tmp/livestack.zip
