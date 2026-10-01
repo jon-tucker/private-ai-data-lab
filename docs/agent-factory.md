@@ -1,4 +1,26 @@
-# Oracle AI Database Private Agent Factory 26.4
+# Oracle AI Database Private Agent Factory
+
+## Current deployment (26.7.0)
+
+The Oracle Linux VM now runs Agent Factory `26.7.0` in production mode from
+`/u01/agent-factory/staging/26.7.0-upgrade`. The previous `26.4.0` staging
+directory and upgrade snapshots are retained for recovery. The VM's user
+startup service points to the 26.7 staging directory, and its application
+listener remains bound to `192.168.122.202:8080` for the private browser edge.
+
+The 26.7 upgrade used the licensed `oracle_agent_factory_x86_26.7.0.tar.gz`
+archive (SHA-256
+`23862aa2e0e06e534edd95b26cd26bb56d969eb858a703905a5a047c5fb677cf`).
+The first upgrade attempt stopped because `rsync` was absent from the VM;
+Oracle's installer uses it to restore certificate and other assets. After
+restoring the 26.4 runtime and installing `rsync`, the official installer
+completed the database, wallet, Knowledge Agent, and application migrations.
+The new installer reset the web UI bind to loopback, so the VM-local bind was
+restored in its `.env` file. Both the VM endpoint and the trusted browser edge
+then returned HTTP 200. A signed-in agent workflow still needs manual
+verification before retiring the old staging directory or snapshots.
+
+The historical 26.4 deployment notes below document the original installation.
 
 ## Scope
 
