@@ -33,6 +33,7 @@ this command. Replace the recipient fingerprint and destination with the
 values recorded for the recovery setup:
 
 ```bash
+set -o pipefail
 umask 077
 recipient='FULL_OPENPGP_FINGERPRINT'
 destination='/mnt/private-ai-recovery/private-ai-secrets-YYYYMMDD.tar.gz.gpg'
@@ -65,12 +66,19 @@ isolated directory, not the active secrets path. Import the private key only
 for recovery and remove it from the environment after verification:
 
 ```bash
+gpg --import private-ai-data-lab-recovery-private.asc
+gpg --fingerprint RECOVERY_FINGERPRINT
+set -o pipefail
 sudo install -d -o root -g root -m 0700 /srv/restore-staging
 gpg --output - --decrypt \
   /mnt/private-ai-recovery/private-ai-secrets-YYYYMMDD.tar.gz.gpg |
   sudo tar --numeric-owner --acls --xattrs --selinux \
     -xzpf - -C /srv/restore-staging
 ```
+
+After checking the staged result, remove the imported private key from the
+recovery environment's keyring with `gpg --delete-secret-keys RECOVERY_FINGERPRINT`.
+Do not copy the private key into the restored secrets directory.
 
 Review file names, ownership, permissions, and required secret presence without
 printing file contents. The extracted directory is
