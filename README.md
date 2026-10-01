@@ -44,6 +44,11 @@ Private AI Data Lab is an independent reference project created by Jon Tucker wi
 | **Project identity** | Independent name, description, and compatibility boundary | Available in v1.3.0 |
 | **LiveStack HTTPS edge** | Trusted LAN access while retaining the loopback application boundary | Available in v1.4.0 |
 
+The table records when each component first entered the lab. The current
+reference deployment uses Agent Factory 26.7.0 and ORDS 26.2.3; see
+[Agent Factory](docs/agent-factory.md) and [ORDS](docs/ords.md) for current
+deployment details.
+
 ## Project policies
 
 - [Security policy](SECURITY.md)
