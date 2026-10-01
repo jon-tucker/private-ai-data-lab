@@ -1,0 +1,32 @@
+services:
+  livestack-edge:
+    profiles: ["livestack-edge"]
+    image: ${LIVESTACK_EDGE_IMAGE}
+    container_name: ${LIVESTACK_EDGE_CONTAINER}
+    user: "${PLATFORM_UID}:${PLATFORM_GID}"
+    restart: unless-stopped
+    ports:
+      - "${LIVESTACK_EDGE_HOST_BIND}:${LIVESTACK_EDGE_PORT}:8443"
+    volumes:
+      - ${LIVESTACK_EDGE_DATA_DIR}/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ${LIVESTACK_EDGE_TLS_DIR}:/etc/nginx/tls:ro
+    read_only: true
+    tmpfs:
+      - /tmp:rw,nosuid,nodev,noexec,mode=1777
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    healthcheck:
+      test: ["CMD", "wget", "--no-check-certificate", "--quiet", "--spider", "https://127.0.0.1:8443/api/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 12
+      start_period: 10s
+    networks:
+      - backend
+
+networks:
+  backend:
+    external: true
+    name: ${BACKEND_NETWORK}

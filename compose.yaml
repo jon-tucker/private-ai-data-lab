@@ -53,6 +53,10 @@ services:
     extends:
       file: stacks/livestack/compose.yaml
       service: livestack
+  livestack-edge:
+    extends:
+      file: stacks/livestack-edge/compose.yaml
+      service: livestack-edge
 
 secrets:
   livestack_database_password:

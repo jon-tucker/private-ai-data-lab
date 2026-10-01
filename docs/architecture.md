@@ -280,6 +280,12 @@ schema, credentials, lifecycle, and removal path are independent from
 `ORACLE_AI`. The vendor database, ORDS, and Ollama containers are never
 started. Usage telemetry is explicitly disabled.
 
+The optional LiveStack edge joins the private backend network and proxies to
+the application service without republishing port 8505. It exposes a separate
+TLS listener on a specific LAN address, defaults to port 8506, and permits only
+loopback plus the configured trusted CIDR. The edge has its own private CA,
+server certificate, persistent rendered configuration, and lifecycle scripts.
+
 The dedicated `LIVESTACK` schema has a bounded quota and receives only selected
 DDL privileges plus the SODA and graph feature roles. Platform automation
 excludes vendor Cloud AI, database-agent, ONNX model-loading, unrestricted

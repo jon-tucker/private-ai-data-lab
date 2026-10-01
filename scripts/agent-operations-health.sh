@@ -62,6 +62,20 @@ if docker inspect "${LIVESTACK_CONTAINER}" >/dev/null 2>&1; then
     fail 'LiveStack loopback health check failed'
   fi
 fi
+if docker inspect "${LIVESTACK_EDGE_CONTAINER}" >/dev/null 2>&1; then
+  check_container "${LIVESTACK_EDGE_CONTAINER}"
+  livestack_edge_health="$(
+    curl --fail --silent --show-error --max-time 10 \
+      --cacert "${LIVESTACK_EDGE_TLS_DIR}/ca.crt" \
+      "https://${LIVESTACK_EDGE_HOST_BIND}:${LIVESTACK_EDGE_PORT}/api/health" \
+      2>/dev/null || true
+  )"
+  if [[ "${livestack_edge_health}" == *'"status":"healthy"'* ]]; then
+    pass 'LiveStack trusted HTTPS edge and database connection are healthy'
+  else
+    fail 'LiveStack trusted HTTPS edge health check failed'
+  fi
+fi
 
 printf '\n=== Agent Factory VM and application ===\n'
 vm_state="$(virsh -c "${AGENT_FACTORY_VM_URI}" domstate "${AGENT_FACTORY_VM_NAME}" 2>/dev/null || true)"
@@ -145,6 +159,16 @@ if openssl x509 -checkend "${warn_seconds}" -noout \
   pass "Agent Factory edge TLS certificate remains valid beyond ${AGENT_OPERATIONS_CERT_WARN_DAYS} days; expires ${expiry}"
 else
   warn "Agent Factory edge TLS certificate expires within ${AGENT_OPERATIONS_CERT_WARN_DAYS} days"
+fi
+
+if [[ -s "${LIVESTACK_EDGE_TLS_DIR}/server.crt" ]]; then
+  if openssl x509 -checkend "${warn_seconds}" -noout \
+    -in "${LIVESTACK_EDGE_TLS_DIR}/server.crt" >/dev/null; then
+    expiry="$(openssl x509 -enddate -noout -in "${LIVESTACK_EDGE_TLS_DIR}/server.crt" | cut -d= -f2-)"
+    pass "LiveStack edge TLS certificate remains valid beyond ${AGENT_OPERATIONS_CERT_WARN_DAYS} days; expires ${expiry}"
+  else
+    warn "LiveStack edge TLS certificate expires within ${AGENT_OPERATIONS_CERT_WARN_DAYS} days"
+  fi
 fi
 
 printf '\n=== Storage capacity ===\n'

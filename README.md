@@ -42,6 +42,7 @@ Private AI Data Lab is an independent reference project created by Jon Tucker wi
 | **Private AI services alignment** | Oracle-native embedding offload integration contract | Assessed in v1.1.0 |
 | **LiveStack integration** | Hardened application-only Energy & Utilities workload | Available in v1.2.0 |
 | **Project identity** | Independent name, description, and compatibility boundary | Available in v1.3.0 |
+| **LiveStack HTTPS edge** | Trusted LAN access while retaining the loopback application boundary | Foundation in v1.4.0 |
 
 ## Project policies
 
@@ -220,6 +221,7 @@ The generated `.env` and password file are ignored by Git. Do not place real sec
 - [Oracle AI Database Private Agent Factory](docs/agent-factory.md)
 - [Agent Factory and SQLcl MCP integration](docs/agent-integration.md)
 - [Read-only sales data agent](docs/data-agent.md)
+- [LiveStack HTTPS edge](docs/livestack-edge.md)
 - [Agent operations and recovery](docs/agent-operations.md)
 - [ADR 0001: Project structure](docs/adr/0001-project-structure.md)
 - [ADR 0002: Database password handling](docs/adr/0002-database-password-handling.md)
