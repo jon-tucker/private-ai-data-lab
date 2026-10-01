@@ -43,7 +43,7 @@ services:
       - mcp-http
     command:
       - --stdio
-      - /opt/oracle/sqlcl/bin/sql -mcp
+      - node /opt/oracle/sqlcl-mcp-autoconnect.js
       - --outputTransport
       - streamableHttp
       - --stateful
@@ -60,9 +60,11 @@ services:
     environment:
       HOME: /home/oracle
       TZ: ${TZ:-UTC}
+      MCP_AUTO_CONNECT_NAME: ${MCP_CONNECTION_NAME:-oracle_ai_readonly}
     working_dir: /home/oracle
     volumes:
       - ${MCP_SQLCL_HOME:-/srv/oracle-ai-data/mcp/sqlcl-home}:/home/oracle
+      - /srv/oracle-ai/scripts/mcp-autoconnect.js:/opt/oracle/sqlcl-mcp-autoconnect.js:ro
     expose:
       - "8181"
     networks:
