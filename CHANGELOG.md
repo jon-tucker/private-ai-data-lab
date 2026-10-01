@@ -6,6 +6,11 @@ The project follows [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Added
+
+- Beginner-friendly quick start for starting only the needed services,
+  running the RAG demonstration, and cleaning up its sample objects.
+
 ### Planned
 
 - Build additional Agent Factory solutions.
