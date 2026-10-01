@@ -1,12 +1,17 @@
 # Oracle REST Data Services
 
-## Version
+## Current runtime (v1.4.0)
 
-- Image: `container-registry.oracle.com/database/ords:26.2.0`
-- Verified digest: `sha256:6c510faf38965e2901b6bbd5ecf179f15af6909481de3e65446505d6d4d1eba0`
+- Image: `container-registry.oracle.com/database/ords:26.2.3`
+- Pulled image digest: `sha256:9730c42b015624aec8b677c3bd530fe56443b1fa8efa87b7ab09d6e80e9e5daa`
 - Database service: `oracle-db:1521/FREEPDB1`
 - Configuration: `/srv/oracle-ai-data/ords`
 - URL: `http://<platform-lan-ip>:8080/ords/`
+
+The running container is healthy, and the ORDS HTTP smoke test returns a
+redirect. The v0.5.0 verification record below describes the original 26.2.0
+deployment; it is not a claim that the database metadata has been upgraded to
+26.2.3.
 
 ## Initial deployment
 

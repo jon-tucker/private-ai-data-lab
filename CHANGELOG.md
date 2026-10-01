@@ -10,6 +10,13 @@ The project follows [Semantic Versioning](https://semver.org/).
 
 - Build additional Agent Factory solutions.
 
+### Changed
+
+- Clarified that the README's platform table records initial milestones, while
+  the current reference deployment uses Agent Factory 26.7.0 and ORDS 26.2.3.
+- Updated the ORDS runbook's current image and digest while retaining its
+  historical 26.2.0 deployment record.
+
 ## [1.4.0] - 2026-10-01
 
 ### Added
