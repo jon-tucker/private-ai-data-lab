@@ -1,5 +1,7 @@
 # Hybrid vector search and RAG example
 
+New to the example? Follow the [step-by-step quick start](QUICKSTART.md).
+
 This opt-in example uses six synthetic utility-handbook passages to show
 Oracle AI Database hybrid vector search and a simple, inspectable RAG loop.
 Oracle retrieves relevant passages; you provide those passages to the
