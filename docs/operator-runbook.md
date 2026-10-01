@@ -39,6 +39,8 @@ systemctl list-timers oracle-ai-backup.timer --all --no-pager
 Use the documented agent-operations and backup-lifecycle procedures for
 manual creation, independent verification, retention, or an isolated restore
 drill. Never delete a recovery set outside the guarded retention workflow.
+Secrets are backed up separately in encrypted form; follow
+[secret recovery](secret-recovery.md) before planning a complete service restore.
 
 ## Certificates
 
