@@ -502,3 +502,18 @@ This journal records implementation milestones, operational discoveries, and les
 - Added a dedicated private CA, certificate creation and renewal, trusted-LAN
   allowlisting, lifecycle automation, and unified health monitoring.
 - Reserved LAN HTTPS port 8506 to avoid the Agent Factory edge on port 443.
+
+## 2026-10-01 — Added and verified hybrid vector-search RAG example
+
+- Loaded Oracle's documented MiniLM ONNX model into `ORACLE_AI` as
+  `VECTOR_RAG_MINILM`; verified 384-dimensional query embeddings.
+- Installed six synthetic utility-handbook passages and a valid Oracle
+  hybrid vector index under the namespaced `VECTOR_RAG_*` objects.
+- Verified the storm-restoration, overnight EV-rate, and gas-safety queries;
+  each returned its documented source ID as the top result.
+- Removed the temporary container model file and temporary Oracle directory,
+  and confirmed the temporary model-creation privilege was revoked.
+- Kept the model file under `/srv/oracle-ai-work/models`, outside Git, and
+  granted no new privileges to the read-only MCP identity.
+- Completed unified platform health with zero failures or warnings; the host
+  filesystem remained at 73% usage.

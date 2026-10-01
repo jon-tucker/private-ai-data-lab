@@ -226,6 +226,7 @@ The generated `.env` and password file are ignored by Git. Do not place real sec
 - [Oracle AI Database Private Agent Factory](docs/agent-factory.md)
 - [Agent Factory and SQLcl MCP integration](docs/agent-integration.md)
 - [Read-only sales data agent](docs/data-agent.md)
+- [Hybrid vector search and RAG example](examples/vector-rag/README.md)
 - [LiveStack HTTPS edge](docs/livestack-edge.md)
 - [Agent operations and recovery](docs/agent-operations.md)
 - [ADR 0001: Project structure](docs/adr/0001-project-structure.md)
@@ -239,6 +240,7 @@ The generated `.env` and password file are ignored by Git. Do not place real sec
 - [ADR 0009: Private HTTPS bridge for Agent Factory MCP](docs/adr/0009-private-https-bridge-for-agent-factory-mcp.md)
 - [ADR 0010: Separate data ownership from agent read access](docs/adr/0010-separate-data-ownership-from-agent-read-access.md)
 - [ADR 0011: Coordinate agent-platform backups and retention](docs/adr/0011-coordinate-agent-platform-backups-and-retention.md)
+- [ADR 0026: Demonstrate hybrid vector RAG](docs/adr/0026-demonstrate-hybrid-vector-rag.md)
 - [Changelog](CHANGELOG.md)
 
 ## Security
