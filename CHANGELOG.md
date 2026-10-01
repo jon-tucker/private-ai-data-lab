@@ -6,6 +6,11 @@ The project follows [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Added
+
+- Synthetic utility-handbook example of Oracle hybrid vector search and
+  retrieval-augmented generation.
+
 ### Planned
 
 - Build additional Agent Factory solutions.

@@ -291,3 +291,12 @@ DDL privileges plus the SODA and graph feature roles. Platform automation
 excludes vendor Cloud AI, database-agent, ONNX model-loading, unrestricted
 network ACL, global-role, unlimited-tablespace, auditing-administration, and
 VPD operations. A guarded removal path can drop only this isolated schema.
+
+## Hybrid vector-search and RAG example
+
+The optional vector-search walkthrough uses synthetic utility-handbook text in
+the existing `ORACLE_AI` owner schema, an operator-supplied in-database ONNX
+embedding model, and Oracle AI Database hybrid vector search. A SQL query
+returns ranked source passages for a person to provide to the existing local
+chat model. It adds no service, does not make the read-only MCP identity a
+writer, and is not installed or started by the normal platform lifecycle.
