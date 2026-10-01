@@ -90,6 +90,10 @@ ssh -N -L 127.0.0.1:8505:127.0.0.1:8505 oracle-ai
 Browse to `http://127.0.0.1:8505/`. Closing the SSH tunnel does not stop the
 application.
 
+For durable trusted-LAN HTTPS access, use the separate edge documented in
+`docs/livestack-edge.md`. The edge does not weaken or replace this loopback
+publication.
+
 ## Verification
 
 The controlled deployment was verified with:

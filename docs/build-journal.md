@@ -493,3 +493,12 @@ This journal records implementation milestones, operational discoveries, and les
 - Updated the supported-release policy and clarified that licensed Oracle
   artifacts, credentials, generated state, and private data are not
   distributed by the repository.
+
+## 2026-08-03 — Began trusted LiveStack LAN edge
+
+- Preserved the verified LiveStack application on host loopback port 8505.
+- Added a hardened Nginx edge that reaches LiveStack only through the private
+  Docker backend network.
+- Added a dedicated private CA, certificate creation and renewal, trusted-LAN
+  allowlisting, lifecycle automation, and unified health monitoring.
+- Reserved LAN HTTPS port 8506 to avoid the Agent Factory edge on port 443.

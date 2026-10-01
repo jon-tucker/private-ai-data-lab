@@ -33,6 +33,13 @@ The project follows [Semantic Versioning](https://semver.org/).
 
 - Build additional Agent Factory solutions.
 
+### Added
+
+- Trusted private HTTPS edge for the Energy & Utilities LiveStack workload.
+- LAN allowlisting, dedicated TLS lifecycle, hardened Nginx execution, and
+  edge health monitoring while retaining loopback-only application publication.
+- ADR 0025 defining the LiveStack browser-edge trust boundary.
+
 ## [1.3.2] - 2026-07-31
 
 ### Changed
