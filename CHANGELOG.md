@@ -1,5 +1,43 @@
 # Changelog
 
+All notable changes to this project will be documented in this file.
+
+The project follows [Semantic Versioning](https://semver.org/).
+
+## [Unreleased]
+
+### Planned
+
+- Build additional Agent Factory solutions.
+
+## [1.4.0] - 2026-10-01
+
+### Added
+
+- Trusted private HTTPS edge for the Energy & Utilities LiveStack workload.
+- LAN allowlisting, dedicated TLS lifecycle, hardened Nginx execution, and
+  edge health monitoring while retaining loopback-only application publication.
+- ADR 0025 defining the LiveStack browser-edge trust boundary.
+- Fresh-session test for the read-only SQLcl MCP connection.
+
+### Changed
+
+- Updated the pinned ORDS container image to `26.2.3`.
+- Updated Agent Factory configuration defaults and deployment guidance for
+  the installed `26.7.0` release.
+
+### Fixed
+
+- Reconnected the saved read-only SQLcl database connection for each new MCP
+  HTTP session so Agent Factory tools retain database access.
+
+### Validation
+
+- Confirmed ORDS, Agent Factory, the trusted browser edge, and unified
+  platform health on the server.
+- Completed release validation with zero health failures or warnings and an
+  independently verified recovery set.
+
 ## [1.3.3] - 2026-08-02
 
 ### Fixed
@@ -21,24 +59,6 @@
   restart.
 - Confirmed the full Private AI Data Lab health check completed with zero
   failures and zero warnings.
-
-
-All notable changes to this project will be documented in this file.
-
-The project follows [Semantic Versioning](https://semver.org/).
-
-## [Unreleased]
-
-### Planned
-
-- Build additional Agent Factory solutions.
-
-### Added
-
-- Trusted private HTTPS edge for the Energy & Utilities LiveStack workload.
-- LAN allowlisting, dedicated TLS lifecycle, hardened Nginx execution, and
-  edge health monitoring while retaining loopback-only application publication.
-- ADR 0025 defining the LiveStack browser-edge trust boundary.
 
 ## [1.3.2] - 2026-07-31
 

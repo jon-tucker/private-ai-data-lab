@@ -42,7 +42,7 @@ Private AI Data Lab is an independent reference project created by Jon Tucker wi
 | **Private AI services alignment** | Oracle-native embedding offload integration contract | Assessed in v1.1.0 |
 | **LiveStack integration** | Hardened application-only Energy & Utilities workload | Available in v1.2.0 |
 | **Project identity** | Independent name, description, and compatibility boundary | Available in v1.3.0 |
-| **LiveStack HTTPS edge** | Trusted LAN access while retaining the loopback application boundary | Foundation in v1.4.0 |
+| **LiveStack HTTPS edge** | Trusted LAN access while retaining the loopback application boundary | Available in v1.4.0 |
 
 ## Project policies
 

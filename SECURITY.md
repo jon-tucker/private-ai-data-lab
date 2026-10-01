@@ -4,7 +4,7 @@
 
 | Version | Supported |
 | --- | --- |
-| 1.3.x | Yes |
+| 1.4.x | Yes |
 | Earlier milestones | No |
 
 The project is a production-inspired reference environment, not a managed
