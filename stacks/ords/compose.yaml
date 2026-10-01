@@ -1,6 +1,6 @@
 services:
   ords-install:
-    image: ${ORDS_IMAGE:-container-registry.oracle.com/database/ords:26.2.0}
+    image: ${ORDS_IMAGE:-container-registry.oracle.com/database/ords:26.2.3}
     container_name: ${ORDS_INSTALL_CONTAINER:-oracle-ai-ords-install}
     user: "54321:54321"
     profiles:
@@ -42,7 +42,7 @@ services:
       com.jontucker.oracle-ai-data-platform.release: "0.5.0"
 
   ords:
-    image: ${ORDS_IMAGE:-container-registry.oracle.com/database/ords:26.2.0}
+    image: ${ORDS_IMAGE:-container-registry.oracle.com/database/ords:26.2.3}
     container_name: ${ORDS_CONTAINER:-oracle-ai-ords}
     hostname: ords
     user: "54321:54321"
